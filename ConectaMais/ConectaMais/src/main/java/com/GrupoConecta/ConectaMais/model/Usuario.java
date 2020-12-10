@@ -6,8 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -19,7 +19,7 @@ public class Usuario {
 	@Column(name="id")
 	private long usuarioID; //id do usuário no nosso sistema
 	
-	@NotBlank
+	@NotBlank 
 	@Max(99) 
 	private String nome; //nome do usuário (estudantes e ongs)
 	
@@ -28,6 +28,7 @@ public class Usuario {
 	private String email; //email de cadastro
 	
 	@NotBlank
+	@Min(5)
 	@Max(10)
 	private String senha; //senha de cadastro
 	

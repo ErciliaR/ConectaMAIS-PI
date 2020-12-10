@@ -1,5 +1,7 @@
 package com.GrupoConecta.ConectaMais.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,11 @@ public class InstituicaoControle {
 	@GetMapping("/{id}")
 	public ResponseEntity<Instituicao> PegueID(@PathVariable long usuarioID){
 		return repositorio02.findById(usuarioID).map(id -> ResponseEntity.ok(id)).orElse(ResponseEntity.notFound().build());
+	}
+	
+	@GetMapping("/idademin/{valor}")
+	public ResponseEntity<List<Instituicao>> PegueValorIdadeMin(@PathVariable int valor){ 
+		return ResponseEntity.ok(repositorio02.IdadeMinSelecao(valor));
 	}
 	
 	@PostMapping

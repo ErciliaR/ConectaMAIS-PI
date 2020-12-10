@@ -20,22 +20,27 @@ public class Instituicao extends Usuario {
 	@Max(255)
 	private String cidade; //cidades onde atua
 		
-	@NotNull
+	@NotBlank
 	@Min(0)
+	@Max(99)
 	private int idadeMin; //idade mínima da seleção
 	
-	@NotNull
+	@NotBlank
 	@Min(0)
+	@Max(99)
 	private int idadeMax; //idade máxima da seleção
 	
-	@NotBlank
-	private String escolaridadeMin; //escolaridade mínima da seleção
+	@NotNull
+	private enum escolaridadeMin {
+		medioIncompleto, medioCompleto, superiorIncompleto, superiorCompleto}; //escolaridade mínima da seleção
 	
-	@NotBlank
-	private String generoSelecao; //gênero que participam na seleção
+	@NotNull
+	private enum generoSelecao{
+		femininoCISeTRANS, masculinoCISeTRANS, naoBinario, todos}; //gênero que participam na seleção
 	
-	@NotBlank
-	private String tipo; //presencial, EAD ou os dois
+	@NotNull
+	private enum tipo{
+		presencial, ead, presencialEead}; //presencial, EAD ou os dois
 
 	/* método */
 	public String getDescricao() {
@@ -69,28 +74,4 @@ public class Instituicao extends Usuario {
 	public void setIdadeMax(int idadeMax) {
 		this.idadeMax = idadeMax;
 	}
-
-	public String getEscolaridadeMin() {
-		return escolaridadeMin;
-	}
-
-	public void setEscolaridadeMin(String escolaridadeMin) {
-		this.escolaridadeMin = escolaridadeMin;
-	}
-
-	public String getGeneroSelecao() {
-		return generoSelecao;
-	}
-
-	public void setGeneroSelecao(String generoSelecao) {
-		this.generoSelecao = generoSelecao;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	} 
 }
