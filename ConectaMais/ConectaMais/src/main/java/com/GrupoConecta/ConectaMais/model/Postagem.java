@@ -13,6 +13,7 @@ import javax.persistence.TemporalType;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="tb_postagem")
@@ -31,8 +32,9 @@ public class Postagem {
 	@Max(500)
 	private String conteudo; //conteúdo da postagem
 	
-	@NotBlank
-	private String tema; //tema da postagem: inscriçao, evento e noticias
+	@NotNull
+	private enum tema{
+		inscricao, evento, noticias}; //tema da postagem: inscriçao, evento e noticias
 	
 	@Column(name="data_criacao")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -67,14 +69,6 @@ public class Postagem {
 
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
-	}
-
-	public String getTema() {
-		return tema;
-	}
-
-	public void setTema(String tema) {
-		this.tema = tema;
 	}
 
 	public Date getDataCriacao() {

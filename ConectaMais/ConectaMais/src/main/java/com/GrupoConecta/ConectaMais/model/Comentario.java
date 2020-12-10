@@ -35,7 +35,7 @@ public class Comentario {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataAtualizacao = new java.sql.Date(System.currentTimeMillis()); //data de atualizaçcão do comentário
 
-	//FALTA A FOREGIN KEY USUARIOS (ESTUDANTE E INSTITUIÇÃO)
+	//FALTA A FOREGIN KEY USUARIOS (ESTUDANTE E INSTITUIÇÃO) e POSTAGEM
 
 	/* método */
 	public long getComentarioID() {
