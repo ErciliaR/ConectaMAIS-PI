@@ -30,9 +30,39 @@ public class InstituicaoControle {
 		return repositorio02.findById(usuarioID).map(id -> ResponseEntity.ok(id)).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/idademin/{valor}")
+	@GetMapping("/nome/{nome}")
+	public ResponseEntity<List<Instituicao>> PegueNome(@PathVariable String nome){
+		return ResponseEntity.ok(repositorio02.findByNomeContainingIgnoreCase(nome));
+	}
+	
+	@GetMapping("/cidade/{cidade}")
+	public ResponseEntity<List<Instituicao>> PegueCidade(@PathVariable String cidade){
+		return ResponseEntity.ok(repositorio02.findByCidadeContainingIgnoreCase(cidade));
+	}
+	
+	@GetMapping("/idademinima/{valor}")
 	public ResponseEntity<List<Instituicao>> PegueValorIdadeMin(@PathVariable int valor){ 
 		return ResponseEntity.ok(repositorio02.IdadeMinSelecao(valor));
+	}
+	
+	@GetMapping("/idademaxima/{valor}")
+	public ResponseEntity<List<Instituicao>> PegueValorIdadeMax(@PathVariable int valor){ 
+		return ResponseEntity.ok(repositorio02.IdadeMaxSelecao(valor));
+	}
+	
+	@GetMapping("/escolaridademin/{nivel}")
+	public ResponseEntity<List<Instituicao>> PegueNivelEscolaridade(@PathVariable String nivel){ 
+		return ResponseEntity.ok(repositorio02.escolaridadeMinSelecao(nivel));
+	}
+	
+	@GetMapping("/genero/{genero}")
+	public ResponseEntity<List<Instituicao>> PegueGenero(@PathVariable String genero){ 
+		return ResponseEntity.ok(repositorio02.generoSelecao(genero));
+	}
+	
+	@GetMapping("/tipo/{opcao}")
+	public ResponseEntity<List<Instituicao>> PegueTipo(@PathVariable String opcao){ 
+		return ResponseEntity.ok(repositorio02.tipoAula(opcao));
 	}
 	
 	@PostMapping

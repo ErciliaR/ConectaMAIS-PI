@@ -1,5 +1,7 @@
 package com.GrupoConecta.ConectaMais.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,21 @@ public class PostagemControle {
 	@GetMapping("/{id}")
 	public ResponseEntity<Postagem> PegueID(@PathVariable long postagemID){
 		return repositorio03.findById(postagemID).map(id -> ResponseEntity.ok(id)).orElse(ResponseEntity.notFound().build());
+	}
+	
+	@GetMapping("/conteudo/{conteudo}")
+	public ResponseEntity<List<Postagem>> PegueConteudo(@PathVariable String conteudo){
+		return ResponseEntity.ok(repositorio03.findAllByConteudoContainingIgnoreCase(conteudo));
+	}
+	
+	@GetMapping("/titulo/{titulo}")
+	public ResponseEntity<List<Postagem>> PegueTitulo(@PathVariable String titulo){
+		return ResponseEntity.ok(repositorio03.findAllByTituloContainingIgnoreCase(titulo));
+	}
+	
+	@GetMapping("/tema/{tema}")
+	public ResponseEntity<List<Postagem>> PegueTema(@PathVariable String tema){
+		return ResponseEntity.ok(repositorio03.findAllByTemaContainingIgnoreCase(tema));
 	}
 	
 	@PostMapping
