@@ -7,12 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="tb_comentario")
@@ -35,7 +38,13 @@ public class Comentario {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataAtualizacao = new java.sql.Date(System.currentTimeMillis()); //data de atualizaçcão do comentário
 
-	//FALTA A FOREGIN KEY USUARIOS (ESTUDANTE E INSTITUIÇÃO) e POSTAGEM
+	@ManyToOne
+	@JsonIgnoreProperties("comentario")
+	private Usuario usuario;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("comentario")
+	private Postagem postagem;
 
 	/* método */
 	public long getComentarioID() {
