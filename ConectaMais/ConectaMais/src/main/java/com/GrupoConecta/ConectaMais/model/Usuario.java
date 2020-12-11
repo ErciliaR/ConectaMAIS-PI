@@ -42,9 +42,9 @@ public class Usuario {
 	@Max(300)
 	private String imagem_perfil_url; //imagem de perfil
 	
-	@OneToMany(mappedBy="comentario", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("usuario")
-	private List<Comentario> comentario;
+	@OneToMany(mappedBy="usuario", cascade = CascadeType.ALL) //mapeamento por coluna usuario e efeito cascata em tabela comentário
+	@JsonIgnoreProperties("usuario") //declaraçao de chave estrageira da tabela comentário, ignorando coluna usuário
+	private List<Comentario> comentario; //listagem dos comentarios feitos pelo usuário
 
 	/* métodos */
 	public long getUserID() {

@@ -38,13 +38,13 @@ public class Comentario {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataAtualizacao = new java.sql.Date(System.currentTimeMillis()); //data de atualizaçcão do comentário
 
-	@ManyToOne
-	@JsonIgnoreProperties("comentario")
-	private Usuario usuario;
+	@ManyToOne //declaração de relacionamento entre tabelas: comentário e usuário
+	@JsonIgnoreProperties("comentario") //declaraçao de chave estrageira da tabela, ignorando coluna comentário em tabela usuário
+	private Usuario usuario; //indicação do usuário que fez o comentário
 	
-	@ManyToOne
-	@JsonIgnoreProperties("comentario")
-	private Postagem postagem;
+	@ManyToOne //declaração de relacionamento entre tabelas: comentário e postagem
+	@JsonIgnoreProperties("comentario") //declaraçao de chave estrageira da tabela, ignorando coluna comentário em tabela postagem
+	private Postagem postagem; //indicação da postagem na qual o comentário foi feito
 
 	/* método */
 	public long getComentarioID() {

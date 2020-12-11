@@ -48,13 +48,13 @@ public class Postagem {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataAtualizacao = new java.sql.Date(System.currentTimeMillis()); // data de atualizaçcão da postagem
 
-	@ManyToOne
-	@JsonIgnoreProperties("postagem")
-	private Instituicao instituicao;
+	@ManyToOne //declaração de relacionamento entre tabelas: postagem e instituição
+	@JsonIgnoreProperties("postagem") //declaraçao de chave estrageira da tabela, ignorando coluna postagem em tabela instituição
+	private Instituicao instituicao; //indicação da insituição que fez a postagem
 
-	@OneToMany(mappedBy = "comentario", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("postagem")
-	private List<Comentario> comentario;
+	@OneToMany(mappedBy = "postagem", cascade = CascadeType.ALL) //mapeamento por coluna postagem e efeito cascata em tabela comentário
+	@JsonIgnoreProperties("postagem") //declaraçao de chave estrageira da tabela comentário, ignorando coluna postagem
+	private List<Comentario> comentario; //listagem dos comentários feitas na postagem
 
 	/* método */
 	public long getPostagemID() {

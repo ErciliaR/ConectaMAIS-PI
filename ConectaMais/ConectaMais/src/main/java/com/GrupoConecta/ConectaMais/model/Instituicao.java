@@ -47,62 +47,61 @@ public class Instituicao extends Usuario {
 	@Size(min=3,max=20)
 	private String tipo; //presencial, EAD ou os dois {presencial, ead, presencialEead}
 		
-	@OneToMany(mappedBy="instituicao", cascade=CascadeType.ALL)
-	@JsonIgnoreProperties("instituicao")
-	private List<Postagem> postagem;
-
+	@OneToMany(mappedBy="instituicao", cascade=CascadeType.ALL) //mapeamento por coluna instituição e efeito cascata em tabela postagem
+	@JsonIgnoreProperties("instituicao") //declaraçao de chave estrageira da tabela postagem, ignorando coluna instituição
+	private List<Postagem> postagem; //listagem das postagens feitas pela insituição
+	
 	/* método */
-		
 	public String getDescricao() {
 		return descricao;
-	}
-
-	public String getCidade() {
-		return cidade;
-	}
-
-	public int getIdadeMin() {
-		return idadeMin;
-	}
-
-	public int getIdadeMax() {
-		return idadeMax;
-	}
-
-	public String getEscolaridadeMin() {
-		return escolaridadeMin;
-	}
-
-	public String getGeneroSelecao() {
-		return generoSelecao;
-	}
-
-	public String getTipo() {
-		return tipo;
 	}
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 
+	public String getCidade() {
+		return cidade;
+	}
+
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
+	}
+
+	public int getIdadeMin() {
+		return idadeMin;
 	}
 
 	public void setIdadeMin(int idadeMin) {
 		this.idadeMin = idadeMin;
 	}
 
+	public int getIdadeMax() {
+		return idadeMax;
+	}
+
 	public void setIdadeMax(int idadeMax) {
 		this.idadeMax = idadeMax;
+	}
+
+	public String getEscolaridadeMin() {
+		return escolaridadeMin;
 	}
 
 	public void setEscolaridadeMin(String escolaridadeMin) {
 		this.escolaridadeMin = escolaridadeMin;
 	}
 
+	public String getGeneroSelecao() {
+		return generoSelecao;
+	}
+
 	public void setGeneroSelecao(String generoSelecao) {
 		this.generoSelecao = generoSelecao;
+	}
+
+	public String getTipo() {
+		return tipo;
 	}
 
 	public void setTipo(String tipo) {
