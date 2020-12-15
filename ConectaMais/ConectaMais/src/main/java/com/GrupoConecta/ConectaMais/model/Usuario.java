@@ -4,18 +4,13 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.DiscriminatorValue;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -24,9 +19,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="tb_usuario")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE) //define a forma de herança aplicada entre classe usuário e instituição
-@DiscriminatorColumn(name="discriminator", discriminatorType=DiscriminatorType.STRING) //define nome da coluna e o tipo de variavel que irá distiguir classe usuário e instituição
-@DiscriminatorValue(value="usuarioComum") //define o valor do descriminador para a classe usuário 
 public class Usuario {
 	/* atributos */
 	@Id
@@ -50,10 +42,17 @@ public class Usuario {
 	@Max(300)
 	private String imagem_perfil_url; //imagem de perfil
 	
+	@Embedded
+	private Instituicao instituicao; //se esse atributo for vazio, trata-se de um usuário comum. Caso ccontrário, trata-se de usuário instituição
+	
 	/* relação entre tabelas */
 	@OneToMany(mappedBy="usuarioObj", cascade = CascadeType.ALL) //mapeamento por coluna usuario e efeito cascata em tabela comentário
 	@JsonIgnoreProperties("usuarioObj") //declaraçao de chave estrageira da tabela comentário, ignorando coluna usuário
 	private List<Comentario> comentarioObj; //listagem dos comentarios feitos pelo usuário
+	
+	@OneToMany(mappedBy="instituicaoObj", cascade=CascadeType.ALL) //mapeamento por coluna instituição e efeito cascata em tabela postagem
+	@JsonIgnoreProperties("instituicaoObj") //declaraçao de chave estrageira da tabela postagem, ignorando coluna instituição
+	private List<Postagem> postagemObj; //listagem das postagens feitas pela insituição
 
 	/* métodos */
 	public long getUsuarioID() {
@@ -96,11 +95,27 @@ public class Usuario {
 		this.imagem_perfil_url = imagem_perfil_url;
 	}
 
+	public Instituicao getInstituicao() {
+		return instituicao;
+	}
+
+	public void setInstituicao(Instituicao instituicao) {
+		this.instituicao = instituicao;
+	}
+
 	public List<Comentario> getComentarioObj() {
 		return comentarioObj;
 	}
 
 	public void setComentarioObj(List<Comentario> comentarioObj) {
 		this.comentarioObj = comentarioObj;
+	}
+
+	public List<Postagem> getPostagemObj() {
+		return postagemObj;
+	}
+
+	public void setPostagemObj(List<Postagem> postagemObj) {
+		this.postagemObj = postagemObj;
 	}
 }

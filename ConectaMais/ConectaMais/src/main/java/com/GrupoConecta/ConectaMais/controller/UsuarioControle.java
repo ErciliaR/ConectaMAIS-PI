@@ -1,5 +1,6 @@
 package com.GrupoConecta.ConectaMais.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,7 @@ import com.GrupoConecta.ConectaMais.repository.UsuarioRepositorio;
 @RequestMapping("/usuario")
 @CrossOrigin(value="*", allowedHeaders="*")
 public class UsuarioControle {
+	
 	@Autowired
 	private UsuarioRepositorio repositorio01;
 	
@@ -42,4 +44,5 @@ public class UsuarioControle {
 	public void DeleteID(@PathVariable long usuariaID) {
 		repositorio01.deleteById(usuariaID);
 	}
+
 }

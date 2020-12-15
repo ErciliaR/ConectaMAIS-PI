@@ -52,7 +52,7 @@ public class Postagem {
 	/* relação entre tabelas */
 	@ManyToOne //declaração de relacionamento entre tabelas: postagem e instituição
 	@JsonIgnoreProperties("postagemObj") //declaraçao de chave estrageira da tabela, ignorando coluna postagem em tabela instituição
-	private Instituicao instituicaoObj; //indicação da insituição que fez a postagem
+	private Usuario instituicaoObj; //indicação da insituição que fez a postagem
 
 	@OneToMany(mappedBy = "postagemObj", cascade = CascadeType.ALL) //mapeamento por coluna postagem e efeito cascata em tabela comentário
 	@JsonIgnoreProperties("postagemObj") //declaraçao de chave estrageira da tabela comentário, ignorando coluna postagem
@@ -75,11 +75,11 @@ public class Postagem {
 		this.titulo = titulo;
 	}
 
-	public String getConteudo() {
+	public String getConteudoPostagem() {
 		return conteudoPostagem;
 	}
 
-	public void setConteudo(String conteudoPostagem) {
+	public void setConteudoPostagem(String conteudoPostagem) {
 		this.conteudoPostagem = conteudoPostagem;
 	}
 
@@ -91,27 +91,27 @@ public class Postagem {
 		this.tema = tema;
 	}
 
-	public Date getDataCriacao() {
+	public Date getDataCriacaoPostagem() {
 		return dataCriacaoPostagem;
 	}
 
-	public void setDataCriacao(Date dataCriacaoPostagem) {
+	public void setDataCriacaoPostagem(Date dataCriacaoPostagem) {
 		this.dataCriacaoPostagem = dataCriacaoPostagem;
 	}
 
-	public Date getDataAtualizacao() {
+	public Date getDataAtualizacaoPostagem() {
 		return dataAtualizacaoPostagem;
 	}
 
-	public void setDataAtualizacao(Date dataAtualizacaoPostagem) {
+	public void setDataAtualizacaoPostagem(Date dataAtualizacaoPostagem) {
 		this.dataAtualizacaoPostagem = dataAtualizacaoPostagem;
 	}
 
-	public Instituicao getInstituicaoObj() {
+	public Usuario getInstituicaoObj() {
 		return instituicaoObj;
 	}
 
-	public void setInstituicaoObj(Instituicao instituicaoObj) {
+	public void setInstituicaoObj(Usuario instituicaoObj) {
 		this.instituicaoObj = instituicaoObj;
 	}
 
