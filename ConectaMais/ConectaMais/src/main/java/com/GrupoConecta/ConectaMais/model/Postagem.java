@@ -16,7 +16,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -35,73 +34,92 @@ public class Postagem {
 
 	@NotBlank
 	@Max(500)
-	private String conteudo; // conteúdo da postagem
+	@Column(name = "conteudo")
+	private String conteudoPostagem; // conteúdo da postagem
 
-	@NotNull
+	@NotBlank
+	@Max(10)
 	private String tema; // tema da postagem: {inscricao, evento, noticias}
 
 	@Column(name = "data_criacao")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataCriacao = new java.sql.Date(System.currentTimeMillis()); // data de criação da postagem
+	private Date dataCriacaoPostagem = new java.sql.Date(System.currentTimeMillis()); // data de criação da postagem
 
 	@Column(name = "data_atualizacao")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataAtualizacao = new java.sql.Date(System.currentTimeMillis()); // data de atualizaçcão da postagem
+	private Date dataAtualizacaoPostagem = new java.sql.Date(System.currentTimeMillis()); // data de atualizaçcão da postagem
 
+	/* relação entre tabelas */
 	@ManyToOne //declaração de relacionamento entre tabelas: postagem e instituição
-	@JsonIgnoreProperties("postagem") //declaraçao de chave estrageira da tabela, ignorando coluna postagem em tabela instituição
-	private Instituicao instituicao; //indicação da insituição que fez a postagem
+	@JsonIgnoreProperties("postagemObj") //declaraçao de chave estrageira da tabela, ignorando coluna postagem em tabela instituição
+	private Instituicao instituicaoObj; //indicação da insituição que fez a postagem
 
-	@OneToMany(mappedBy = "postagem", cascade = CascadeType.ALL) //mapeamento por coluna postagem e efeito cascata em tabela comentário
-	@JsonIgnoreProperties("postagem") //declaraçao de chave estrageira da tabela comentário, ignorando coluna postagem
-	private List<Comentario> comentario; //listagem dos comentários feitas na postagem
+	@OneToMany(mappedBy = "postagemObj", cascade = CascadeType.ALL) //mapeamento por coluna postagem e efeito cascata em tabela comentário
+	@JsonIgnoreProperties("postagemObj") //declaraçao de chave estrageira da tabela comentário, ignorando coluna postagem
+	private List<Comentario> comentarioObj; //listagem dos comentários feitas na postagem
 
 	/* método */
 	public long getPostagemID() {
 		return postagemID;
 	}
 
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public String getConteudo() {
-		return conteudo;
-	}
-
-	public String getTema() {
-		return tema;
-	}
-
-	public Date getDataCriacao() {
-		return dataCriacao;
-	}
-
-	public Date getDataAtualizacao() {
-		return dataAtualizacao;
-	}
-
 	public void setPostagemID(long postagemID) {
 		this.postagemID = postagemID;
+	}
+
+	public String getTitulo() {
+		return titulo;
 	}
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
-	public void setConteudo(String conteudo) {
-		this.conteudo = conteudo;
+	public String getConteudo() {
+		return conteudoPostagem;
+	}
+
+	public void setConteudo(String conteudoPostagem) {
+		this.conteudoPostagem = conteudoPostagem;
+	}
+
+	public String getTema() {
+		return tema;
 	}
 
 	public void setTema(String tema) {
 		this.tema = tema;
 	}
 
-	public void setDataCriacao(Date dataCriacao) {
-		this.dataCriacao = dataCriacao;
+	public Date getDataCriacao() {
+		return dataCriacaoPostagem;
 	}
 
-	public void setDataAtualizacao(Date dataAtualizacao) {
-		this.dataAtualizacao = dataAtualizacao;
+	public void setDataCriacao(Date dataCriacaoPostagem) {
+		this.dataCriacaoPostagem = dataCriacaoPostagem;
+	}
+
+	public Date getDataAtualizacao() {
+		return dataAtualizacaoPostagem;
+	}
+
+	public void setDataAtualizacao(Date dataAtualizacaoPostagem) {
+		this.dataAtualizacaoPostagem = dataAtualizacaoPostagem;
+	}
+
+	public Instituicao getInstituicaoObj() {
+		return instituicaoObj;
+	}
+
+	public void setInstituicaoObj(Instituicao instituicaoObj) {
+		this.instituicaoObj = instituicaoObj;
+	}
+
+	public List<Comentario> getComentarioObj() {
+		return comentarioObj;
+	}
+
+	public void setComentarioObj(List<Comentario> comentarioObj) {
+		this.comentarioObj = comentarioObj;
 	}
 }

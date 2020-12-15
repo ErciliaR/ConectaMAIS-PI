@@ -30,9 +30,9 @@ public class PostagemControle {
 		return repositorio03.findById(postagemID).map(id -> ResponseEntity.ok(id)).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/conteudo/{conteudo}")
-	public ResponseEntity<List<Postagem>> PegueConteudo(@PathVariable String conteudo){
-		return ResponseEntity.ok(repositorio03.findAllByConteudoContainingIgnoreCase(conteudo));
+	@GetMapping("/conteudo/{conteudoPostagem}")
+	public ResponseEntity<List<Postagem>> PegueConteudo(@PathVariable String conteudoPostagem){
+		return ResponseEntity.ok(repositorio03.findAllByConteudoPostagemContainingIgnoreCase(conteudoPostagem));
 	}
 	
 	@GetMapping("/titulo/{titulo}")

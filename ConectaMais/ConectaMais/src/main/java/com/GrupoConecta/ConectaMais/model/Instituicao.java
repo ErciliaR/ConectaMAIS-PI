@@ -3,18 +3,22 @@ package com.GrupoConecta.ConectaMais.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="tb_instituicao")
+@DiscriminatorValue("usuarioInstituicao") //define o valor do descriminador para a classe instituição 
 public class Instituicao extends Usuario {
 	/* atributos */        
 	@NotBlank
@@ -25,12 +29,12 @@ public class Instituicao extends Usuario {
 	@Max(255)
 	private String cidade; //cidades onde atua
 	
-	@NotBlank
+	@NotNull
 	@Min(0)
 	@Max(99)
 	private int idadeMin; //idade mínima da seleção
 	
-	@NotBlank
+	@NotNull
 	@Min(0)
 	@Max(99)
 	private int idadeMax; //idade máxima da seleção
@@ -46,11 +50,12 @@ public class Instituicao extends Usuario {
 	@NotBlank
 	@Size(min=3,max=20)
 	private String tipo; //presencial, EAD ou os dois {presencial, ead, presencialEead}
-		
-	@OneToMany(mappedBy="instituicao", cascade=CascadeType.ALL) //mapeamento por coluna instituição e efeito cascata em tabela postagem
-	@JsonIgnoreProperties("instituicao") //declaraçao de chave estrageira da tabela postagem, ignorando coluna instituição
-	private List<Postagem> postagem; //listagem das postagens feitas pela insituição
 	
+	/* relação entre tabelas */
+	@OneToMany(mappedBy="instituicaoObj", cascade=CascadeType.ALL) //mapeamento por coluna instituição e efeito cascata em tabela postagem
+	@JsonIgnoreProperties("instituicaoObj") //declaraçao de chave estrageira da tabela postagem, ignorando coluna instituição
+	private List<Postagem> postagemObj; //listagem das postagens feitas pela insituição
+
 	/* método */
 	public String getDescricao() {
 		return descricao;
@@ -106,5 +111,13 @@ public class Instituicao extends Usuario {
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+
+	public List<Postagem> getPostagemObj() {
+		return postagemObj;
+	}
+
+	public void setPostagemObj(List<Postagem> postagemObj) {
+		this.postagemObj = postagemObj;
 	}
 }

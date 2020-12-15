@@ -10,9 +10,10 @@ import com.GrupoConecta.ConectaMais.model.Postagem;
 @Repository
 public interface PostagemRepositorio extends JpaRepository<Postagem, Long>{
 
-	public List<Postagem> findAllByConteudoContainingIgnoreCase (String conteudo); //filtrar por conteúdo
+	public List<Postagem> findAllByConteudoPostagemContainingIgnoreCase (String conteudoPostagem); //filtrar por conteúdo
 	
 	public List<Postagem> findAllByTituloContainingIgnoreCase (String titulo); //filtrar por título
 	
 	public List<Postagem> findAllByTemaContainingIgnoreCase (String tema); //filtrar por tema
+	
 }

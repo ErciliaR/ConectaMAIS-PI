@@ -1,5 +1,7 @@
 package com.GrupoConecta.ConectaMais.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,10 @@ public class ComentarioControle {
 	@GetMapping("/{id}")
 	public ResponseEntity<Comentario> PegueID(@PathVariable long comentarioID){
 		return repositorio04.findById(comentarioID).map(id -> ResponseEntity.ok(id)).orElse(ResponseEntity.notFound().build());
+	}
+	@GetMapping("/conteudo/{conteudoComentario}")
+	public ResponseEntity<List<Comentario>> PegueConteudo(@PathVariable String conteudoComentario){
+		return ResponseEntity.ok(repositorio04.findAllByConteudoComentarioContainingIgnoreCase(conteudoComentario));
 	}
 	
 	@PostMapping
