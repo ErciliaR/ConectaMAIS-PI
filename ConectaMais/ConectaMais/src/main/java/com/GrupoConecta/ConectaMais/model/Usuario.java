@@ -11,9 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -41,6 +43,10 @@ public class Usuario {
 	
 	@Max(300)
 	private String imagem_perfil_url; //imagem de perfil
+	
+	@NotBlank
+	@Size(min=5, max=20)
+	private String papel; //definir o tipo de usuario para questões de segurança {admin, usuarioInstituicao, usuarioComum}
 	
 	@Embedded
 	private Instituicao instituicao; //se esse atributo for vazio, trata-se de um usuário comum. Caso ccontrário, trata-se de usuário instituição
@@ -93,6 +99,14 @@ public class Usuario {
 
 	public void setImagem_perfil_url(String imagem_perfil_url) {
 		this.imagem_perfil_url = imagem_perfil_url;
+	}
+	
+	public String getPapel() {
+		return papel;
+	}
+
+	public void setPapel(String papel) {
+		this.papel = papel;
 	}
 
 	public Instituicao getInstituicao() {

@@ -3,8 +3,10 @@ package com.GrupoConecta.ConectaMais.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,40 +25,45 @@ import com.GrupoConecta.ConectaMais.repository.PostagemRepositorio;
 @CrossOrigin(value="*", allowedHeaders="*")
 public class PostagemControle {
 	@Autowired
-	private PostagemRepositorio repositorio03;
+	private PostagemRepositorio repositorio02;
+	
+	@GetMapping
+	public ResponseEntity<List<Postagem>> PagarTodos(){
+		return ResponseEntity.ok(repositorio02.findAll());
+	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Postagem> PegueID(@PathVariable long postagemID){
-		return repositorio03.findById(postagemID).map(id -> ResponseEntity.ok(id)).orElse(ResponseEntity.notFound().build());
+		return repositorio02.findById(postagemID).map(id -> ResponseEntity.ok(id)).orElse(ResponseEntity.notFound().build());
 	}
 	
 	@GetMapping("/conteudo/{conteudoPostagem}")
 	public ResponseEntity<List<Postagem>> PegueConteudo(@PathVariable String conteudoPostagem){
-		return ResponseEntity.ok(repositorio03.findAllByConteudoPostagemContainingIgnoreCase(conteudoPostagem));
+		return ResponseEntity.ok(repositorio02.findAllByConteudoPostagemContainingIgnoreCase(conteudoPostagem));
 	}
 	
 	@GetMapping("/titulo/{titulo}")
 	public ResponseEntity<List<Postagem>> PegueTitulo(@PathVariable String titulo){
-		return ResponseEntity.ok(repositorio03.findAllByTituloContainingIgnoreCase(titulo));
+		return ResponseEntity.ok(repositorio02.findAllByTituloContainingIgnoreCase(titulo));
 	}
 	
 	@GetMapping("/tema/{tema}")
 	public ResponseEntity<List<Postagem>> PegueTema(@PathVariable String tema){
-		return ResponseEntity.ok(repositorio03.findAllByTemaContainingIgnoreCase(tema));
+		return ResponseEntity.ok(repositorio02.findAllByTemaContainingIgnoreCase(tema));
 	}
 	
 	@PostMapping
 	public ResponseEntity<Postagem> CrieID(@RequestBody Postagem criado){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repositorio03.save(criado));
+		return ResponseEntity.status(HttpStatus.CREATED).body(repositorio02.save(criado));
 	}
 	
 	@PutMapping
 	public ResponseEntity<Postagem> AtualizeID(@RequestBody Postagem atualizado){
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(repositorio03.save(atualizado));
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(repositorio02.save(atualizado));
 	}
 	
 	@DeleteMapping("/{id}")
 	public void DeleteID(@PathVariable long postagemID) {
-		repositorio03.deleteById(postagemID);
+		repositorio02.deleteById(postagemID);
 	}
 }
