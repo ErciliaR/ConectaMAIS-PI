@@ -14,9 +14,9 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long>{
 	
 	public List<Usuario> findByCidadeContainingIgnoreCaseAndPapelIs (String cidade, String papel); //filtrar por cidades das instituições
 	
-	public List<Usuario> findByIdadeMinGreaterThanEqual (int idade); //filtrar idade minima
+	public List<Usuario> findByIdadeMinGreaterThanEqual (int idadeMin); //filtrar idade minima
 	
-	public List<Usuario> findByIdadeMaxLessThanEqual (int idade); //filtrar idade maxima
+	public List<Usuario> findByIdadeMaxLessThanEqual (int idadeMax); //filtrar idade maxima
 	
 	public List<Usuario> findByEscolaridadeMin(String nivel); //filtrar nivel de escolaridade
 	

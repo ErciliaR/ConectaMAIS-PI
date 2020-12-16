@@ -49,14 +49,14 @@ public class UsuarioControle {
 		return ResponseEntity.ok(repositorio01.findByCidadeContainingIgnoreCaseAndPapelIs(cidade, "usuarioInstituicao"));
 	}
 	
-	@GetMapping("idadeMin/{idade}")
-	public ResponseEntity<List<Usuario>> PeguePorIdadeMin(@PathVariable int idade){
-		return ResponseEntity.ok(repositorio01.findByIdadeMinGreaterThanEqual(idade));
+	@GetMapping("idadeMin/{idadeMin}")
+	public ResponseEntity<List<Usuario>> PeguePorIdadeMin(@PathVariable int idadeMin){
+		return ResponseEntity.ok(repositorio01.findByIdadeMinGreaterThanEqual(idadeMin));
 	}
 	
-	@GetMapping("idadeMax/{idade}")
-	public ResponseEntity<List<Usuario>> PeguePorIdadeMax(@PathVariable int idade){
-		return ResponseEntity.ok(repositorio01.findByIdadeMaxLessThanEqual(idade));
+	@GetMapping("idadeMax/{idadeMax}")
+	public ResponseEntity<List<Usuario>> PeguePorIdadeMax(@PathVariable int idadeMax){
+		return ResponseEntity.ok(repositorio01.findByIdadeMaxLessThanEqual(idadeMax));
 	}
 	
 	@GetMapping("esccolaridadeMin/{nivel}")

@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -48,8 +47,30 @@ public class Usuario {
 	@Size(min=5, max=20)
 	private String papel; //definir o tipo de usuario para questões de segurança {admin, usuarioInstituicao, usuarioComum}
 	
-	@Embedded
-	private Instituicao instituicao; //se esse atributo for vazio, trata-se de um usuário comum. Caso ccontrário, trata-se de usuário instituição
+	/* atributos Instituição */        
+	@Max(500)
+	private String descricao; //descrição do programa, e.g.: valores, objetivos, premiacao de hackathon.
+	
+	@Max(255)
+	private String cidade; //cidades onde atua
+	
+	@Min(0)
+	@Max(99)
+	private int idadeMin; //idade mínima da seleção
+	
+	@Min(0)
+	@Max(99)
+	private int idadeMax; //idade máxima da seleção
+	
+
+	@Size(min=3,max=20)
+	private String escolaridadeMin; //escolaridade mínima da seleção: {medioIncompleto, medioCompleto, superiorIncompleto, superiorCompleto}
+
+	@Size(min=3,max=20)
+	private String generoSelecao; //gênero que participam na seleção: {femininoCISeTRANS, masculinoCISeTRANS, naoBinario, todos}
+	
+	@Size(min=3,max=20)
+	private String tipo; //presencial, EAD ou os dois {presencial, ead, presencialEead}
 	
 	/* relação entre tabelas */
 	@OneToMany(mappedBy="usuarioObj", cascade = CascadeType.ALL) //mapeamento por coluna usuario e efeito cascata em tabela comentário
@@ -109,14 +130,62 @@ public class Usuario {
 		this.papel = papel;
 	}
 
-	public Instituicao getInstituicao() {
-		return instituicao;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setInstituicao(Instituicao instituicao) {
-		this.instituicao = instituicao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public int getIdadeMin() {
+		return idadeMin;
+	}
+
+	public void setIdadeMin(int idadeMin) {
+		this.idadeMin = idadeMin;
+	}
+
+	public int getIdadeMax() {
+		return idadeMax;
+	}
+
+	public void setIdadeMax(int idadeMax) {
+		this.idadeMax = idadeMax;
+	}
+
+	public String getEscolaridadeMin() {
+		return escolaridadeMin;
+	}
+
+	public void setEscolaridadeMin(String escolaridadeMin) {
+		this.escolaridadeMin = escolaridadeMin;
+	}
+
+	public String getGeneroSelecao() {
+		return generoSelecao;
+	}
+
+	public void setGeneroSelecao(String generoSelecao) {
+		this.generoSelecao = generoSelecao;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	
 	public List<Comentario> getComentarioObj() {
 		return comentarioObj;
 	}
