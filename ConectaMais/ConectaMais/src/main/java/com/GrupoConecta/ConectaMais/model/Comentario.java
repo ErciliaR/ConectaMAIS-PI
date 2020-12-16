@@ -11,9 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -27,7 +26,7 @@ public class Comentario {
 	private long comentarioID; //id do comentário no nosso sistema
 	
 	@NotBlank
-	@Max(255)
+	@Size (min = 2, max = 500)
 	@Column(name = "conteudo")
 	private String conteudoComentario; //conteúdo do comentário
 	
