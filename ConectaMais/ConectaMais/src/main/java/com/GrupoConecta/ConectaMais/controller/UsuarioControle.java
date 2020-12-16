@@ -59,19 +59,19 @@ public class UsuarioControle {
 		return ResponseEntity.ok(repositorio01.findByIdadeMaxLessThanEqual(idadeMax));
 	}
 	
-	@GetMapping("esccolaridadeMin/{nivel}")
+	@GetMapping("escolaridadeMin/{nivel}")
 	public ResponseEntity<List<Usuario>> PeguePorEscolaridadeMin(@PathVariable String nivel){
-		return ResponseEntity.ok(repositorio01.findByEscolaridadeMin(nivel));
+		return ResponseEntity.ok(repositorio01.findByEscolaridadeMinContainingIgnoreCase(nivel));
 	}
 	
 	@GetMapping("generoFoco/{genero}")
 	public ResponseEntity<List<Usuario>> PeguePorGenero(@PathVariable String genero){
-		return ResponseEntity.ok(repositorio01.findByGeneroSelecao(genero));
+		return ResponseEntity.ok(repositorio01.findByGeneroSelecaoContainingIgnoreCase(genero));
 	}
 	
 	@GetMapping("tipoAula/{opcao}")
 	public ResponseEntity<List<Usuario>> PeguePorTipo(@PathVariable String opcao){
-		return ResponseEntity.ok(repositorio01.findByTipo(opcao));
+		return ResponseEntity.ok(repositorio01.findByTipoContainingIgnoreCase(opcao));
 	}
 	
 	@PostMapping
