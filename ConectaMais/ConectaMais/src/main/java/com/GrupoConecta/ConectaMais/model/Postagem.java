@@ -14,8 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -29,16 +29,16 @@ public class Postagem {
 	private long postagemID; // id do postagem no nosso sistema
 
 	@NotBlank
-	@Max(100)
+	@Size (min = 2, max = 255)
 	private String titulo; // título da postagem
 
 	@NotBlank
-	@Max(500)
+	@Size (min = 2, max = 500)
 	@Column(name = "conteudo")
 	private String conteudoPostagem; // conteúdo da postagem
 
 	@NotBlank
-	@Max(10)
+	@Size (min = 2, max = 10)
 	private String tema; // tema da postagem: {inscricao, evento, noticias}
 
 	@Column(name = "data_criacao")
