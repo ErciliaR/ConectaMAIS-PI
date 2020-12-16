@@ -3,8 +3,10 @@ package com.GrupoConecta.ConectaMais.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,29 +25,34 @@ import com.GrupoConecta.ConectaMais.repository.ComentarioRepositorio;
 @CrossOrigin(value="*", allowedHeaders="*")
 public class ComentarioControle {
 	@Autowired
-	private ComentarioRepositorio repositorio04;
+	private ComentarioRepositorio repositorio03;
+	
+	@GetMapping
+	public ResponseEntity<List<Comentario>> PegarTodos(){
+		return ResponseEntity.ok(repositorio03.findAll());
+	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Comentario> PegueID(@PathVariable long comentarioID){
-		return repositorio04.findById(comentarioID).map(id -> ResponseEntity.ok(id)).orElse(ResponseEntity.notFound().build());
+		return repositorio03.findById(comentarioID).map(id -> ResponseEntity.ok(id)).orElse(ResponseEntity.notFound().build());
 	}
 	@GetMapping("/conteudo/{conteudoComentario}")
 	public ResponseEntity<List<Comentario>> PegueConteudo(@PathVariable String conteudoComentario){
-		return ResponseEntity.ok(repositorio04.findAllByConteudoComentarioContainingIgnoreCase(conteudoComentario));
+		return ResponseEntity.ok(repositorio03.findAllByConteudoComentarioContainingIgnoreCase(conteudoComentario));
 	}
 	
 	@PostMapping
 	public ResponseEntity<Comentario> CrieID(@RequestBody Comentario criado){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repositorio04.save(criado));
+		return ResponseEntity.status(HttpStatus.CREATED).body(repositorio03.save(criado));
 	}
 	
 	@PutMapping
 	public ResponseEntity<Comentario> AtualizeID(@RequestBody Comentario atualizado){
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(repositorio04.save(atualizado));
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(repositorio03.save(atualizado));
 	}
 	
 	@DeleteMapping("/{id}")
 	public void DeleteID(@PathVariable long comentarioID) {
-		repositorio04.deleteById(comentarioID);
+		repositorio03.deleteById(comentarioID);
 	}
 }
