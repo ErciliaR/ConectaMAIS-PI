@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -28,19 +26,18 @@ public class Usuario {
 	private long usuarioID; //id do usuário no nosso sistema
 	
 	@NotBlank 
-	@Max(99) 
+	@Size (min = 2, max = 99)
 	private String nome; //nome do usuário (estudantes e ongs)
 	
 	@NotBlank
-	@Max(255)
+	@Size (min = 2, max = 255)
 	private String email; //email de cadastro
 	
 	@NotBlank
-	@Min(5)
-	@Max(10)
+	@Size (min = 5, max = 10)
 	private String senha; //senha de cadastro
 	
-	@Max(300)
+	@Size (min = 2, max = 500)
 	private String imagem_perfil_url; //imagem de perfil
 	
 	@NotBlank
@@ -48,18 +45,16 @@ public class Usuario {
 	private String papel; //definir o tipo de usuario para questões de segurança {admin, usuarioInstituicao, usuarioComum}
 	
 	/* atributos Instituição */        
-	@Max(500)
+	@Size (min = 2, max = 500)
 	private String descricao; //descrição do programa, e.g.: valores, objetivos, premiacao de hackathon.
 	
-	@Max(255)
+	@Size (min = 2, max = 255)
 	private String cidade; //cidades onde atua
 	
 	@Min(0)
-	@Max(99)
 	private int idadeMin; //idade mínima da seleção
 	
 	@Min(0)
-	@Max(99)
 	private int idadeMax; //idade máxima da seleção
 	
 
