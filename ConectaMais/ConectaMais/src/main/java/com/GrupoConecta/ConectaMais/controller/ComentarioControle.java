@@ -32,7 +32,7 @@ public class ComentarioControle {
 		return ResponseEntity.ok(repositorio03.findAll());
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{comentarioID}")
 	public ResponseEntity<Comentario> PegueID(@PathVariable long comentarioID){
 		return repositorio03.findById(comentarioID).map(id -> ResponseEntity.ok(id)).orElse(ResponseEntity.notFound().build());
 	}
@@ -51,7 +51,7 @@ public class ComentarioControle {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(repositorio03.save(atualizado));
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{comentarioID}")
 	public void DeleteID(@PathVariable long comentarioID) {
 		repositorio03.deleteById(comentarioID);
 	}

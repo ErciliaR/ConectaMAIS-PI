@@ -34,7 +34,7 @@ public class UsuarioControle {
 		return ResponseEntity.ok(repositorio01.findAll());
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{usuarioID}")
 	public ResponseEntity<Usuario> PeguePorID(@PathVariable long usuarioID){
 		return repositorio01.findById(usuarioID).map(id -> ResponseEntity.ok(id)).orElse(ResponseEntity.notFound().build());
 	}
@@ -84,9 +84,9 @@ public class UsuarioControle {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(repositorio01.save(atualizado));
 	}
 	
-	@DeleteMapping("/{id}")
-	public void DeleteID(@PathVariable long usuariaID) {
-		repositorio01.deleteById(usuariaID);
+	@DeleteMapping("/{usuarioID}")
+	public void DeleteID(@PathVariable long usuarioID) {
+		repositorio01.deleteById(usuarioID);
 	}
 
 }
