@@ -2,12 +2,11 @@ package com.GrupoConecta.ConectaMais.controller;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.GrupoConecta.ConectaMais.model.LoginUsuario;
 import com.GrupoConecta.ConectaMais.model.Usuario;
 import com.GrupoConecta.ConectaMais.repository.UsuarioRepositorio;
+import com.GrupoConecta.ConectaMais.service.UserService;
 
 @RestController
 @RequestMapping("/usuario")
@@ -28,6 +29,9 @@ public class UsuarioControle {
 	
 	@Autowired
 	private UsuarioRepositorio repositorio01;
+	
+	@Autowired
+	private UserService usuarioService;
 	
 	@GetMapping
 	public ResponseEntity<List<Usuario>> PegueTodos(){
@@ -77,6 +81,20 @@ public class UsuarioControle {
 	@PostMapping
 	public ResponseEntity<Usuario> CrieID(@RequestBody Usuario criado){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repositorio01.save(criado));
+	}
+	
+	@PostMapping("/logar")
+	public ResponseEntity<LoginUsuario> Autenticar(@RequestBody Optional<LoginUsuario> loginUsuario){
+		return usuarioService.Logar(loginUsuario).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+	}
+	
+	@PostMapping("/cadastrar")
+	public ResponseEntity<Usuario> CadastrarID(@RequestBody Usuario usuario){
+		Usuario user = usuarioService.CadastrarUsuario(usuario);
+		if(user == null) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+		return ResponseEntity.status(HttpStatus.CREATED).body(user);
 	}
 	
 	@PutMapping
