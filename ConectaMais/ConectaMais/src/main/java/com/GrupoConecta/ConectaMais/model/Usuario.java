@@ -35,7 +35,7 @@ public class Usuario {
 	private String email; //email de cadastro
 	
 	@NotBlank
-	@Size (min = 5, max = 10)
+	@Size (min = 5, max = 100)
 	private String senha; //senha de cadastro
 	
 	@Size (min = 2, max = 500)

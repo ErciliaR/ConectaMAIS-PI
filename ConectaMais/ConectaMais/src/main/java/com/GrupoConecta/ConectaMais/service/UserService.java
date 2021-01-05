@@ -35,7 +35,7 @@ public class UserService {
 
 	public Optional<LoginUsuario> Logar(Optional<LoginUsuario> loginUsuario) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		Optional<Usuario> usuario = usuarioRepositorio.findByEmail(loginUsuario.get().getSenha());
+		Optional<Usuario> usuario = usuarioRepositorio.findByEmail(loginUsuario.get().getEmail());
 
 		if (usuario.isPresent()) {
 			if (encoder.matches(loginUsuario.get().getSenha(), usuario.get().getSenha())) {
@@ -47,6 +47,7 @@ public class UserService {
 
 				loginUsuario.get().setToken(authHeader);
 				loginUsuario.get().setNome(usuario.get().getNome());
+				loginUsuario.get().setPapel(usuario.get().getPapel());
 
 				return loginUsuario;
 			} // checa se o usuario existe e se a senha adicionada bate com a armazenada no banco. Tudo encriptografado!
