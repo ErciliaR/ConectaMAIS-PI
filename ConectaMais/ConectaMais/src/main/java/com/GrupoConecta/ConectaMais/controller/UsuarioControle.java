@@ -84,17 +84,17 @@ public class UsuarioControle {
 	}
 	
 	@PostMapping("/logar")
-	public ResponseEntity<LoginUsuario> Autenticcar(@RequestBody Optional<LoginUsuario> loginUsuario){
+	public ResponseEntity<LoginUsuario> Autenticar(@RequestBody Optional<LoginUsuario> loginUsuario){
 		return usuarioService.Logar(loginUsuario).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 	
 	@PostMapping("/cadastrar")
 	public ResponseEntity<Usuario> CadastrarID(@RequestBody Usuario usuario){
-		Usuario func = usuarioService.CadastrarUsuario(usuario);
-		if(func == null) {
+		Usuario user = usuarioService.CadastrarUsuario(usuario);
+		if(user == null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
-		return ResponseEntity.status(HttpStatus.CREATED).body(func);
+		return ResponseEntity.status(HttpStatus.CREATED).body(user);
 	}
 	
 	@PutMapping

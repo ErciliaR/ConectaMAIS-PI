@@ -11,10 +11,12 @@ public class userDetailsImpl implements UserDetails{
 
 	private static final long serialVersionUID = 1L;
 	
+	/* atributos */
 	private String email;
 	
 	private String senha;
 	
+	/* construtores */
 	public userDetailsImpl(Usuario usuario) {
 		this.email = usuario.getEmail();
 		this.senha = usuario.getSenha();
@@ -23,7 +25,8 @@ public class userDetailsImpl implements UserDetails{
 	public userDetailsImpl() {
 		
 	}
-		
+	
+	/* métodos */
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub

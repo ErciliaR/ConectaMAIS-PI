@@ -23,15 +23,14 @@ public class UserService {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
 		Optional<Usuario> usuarioPresente = usuarioRepositorio.findByEmail(usuario.getEmail()); 
-		//Alteração Marcelo - if
 		if(usuarioPresente.isPresent()) {
-			return null;
+			return null; // verificando se o email já existe. Se sim, retorne vazio
 		}
 
 		String senhaEncoder = encoder.encode(usuario.getSenha());
-		usuario.setSenha(senhaEncoder);
+		usuario.setSenha(senhaEncoder); // se não, o backend pega a senha e encriptografa
 
-		return usuarioRepositorio.save(usuario);
+		return usuarioRepositorio.save(usuario); // esse conversa com o controlador a fim de indicar a presença ou nao do usuario no sistema
 	}
 
 	public Optional<LoginUsuario> Logar(Optional<LoginUsuario> loginUsuario) {
@@ -50,7 +49,7 @@ public class UserService {
 				loginUsuario.get().setNome(usuario.get().getNome());
 
 				return loginUsuario;
-			}
+			} // checa se o usuario existe e se a senha adicionada bate com a armazenada no banco. Tudo encriptografado!
 		}
 		return null;
 	}
