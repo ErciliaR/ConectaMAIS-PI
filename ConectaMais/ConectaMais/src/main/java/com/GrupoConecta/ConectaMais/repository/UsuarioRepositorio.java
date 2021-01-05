@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.GrupoConecta.ConectaMais.model.Usuario;
 
 @Repository
-public interface UsuarioRepositorio extends JpaRepository<Usuario, Long>{
+public interface UsuarioRepositorio extends JpaRepository<Usuario, Long>{ 
 
 	public List<Usuario> findByNomeContainingIgnoreCaseAndPapelIs (String nome, String papel); //filtrar por nome das instituições
 	

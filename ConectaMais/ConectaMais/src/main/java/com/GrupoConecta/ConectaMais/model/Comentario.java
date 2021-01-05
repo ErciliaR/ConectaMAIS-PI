@@ -56,27 +56,27 @@ public class Comentario {
 		this.comentarioID = comentarioID;
 	}
 
-	public String getConteudo() {
+	public String getConteudoComentario() {
 		return conteudoComentario;
 	}
 
-	public void setConteudo(String conteudoComentario) {
+	public void setConteudoComentario(String conteudoComentario) {
 		this.conteudoComentario = conteudoComentario;
 	}
 
-	public Date getDataCriacao() {
+	public Date getDataCriacaoComentario() {
 		return dataCriacaoComentario;
 	}
 
-	public void setDataCriacao(Date dataCriacaoComentario) {
+	public void setDataCriacaoComentario(Date dataCriacaoComentario) {
 		this.dataCriacaoComentario = dataCriacaoComentario;
 	}
 
-	public Date getDataAtualizacao() {
+	public Date getDataAtualizacaoComentario() {
 		return dataAtualizacaoComentario;
 	}
 
-	public void setDataAtualizacao(Date dataAtualizacaoComentario) {
+	public void setDataAtualizacaoComentario(Date dataAtualizacaoComentario) {
 		this.dataAtualizacaoComentario = dataAtualizacaoComentario;
 	}
 
@@ -95,4 +95,5 @@ public class Comentario {
 	public void setPostagemObj(Postagem postagemObj) {
 		this.postagemObj = postagemObj;
 	}
+	
 }

@@ -32,7 +32,7 @@ public class PostagemControle {
 		return ResponseEntity.ok(repositorio02.findAll());
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{postagemID}")
 	public ResponseEntity<Postagem> PegueID(@PathVariable long postagemID){
 		return repositorio02.findById(postagemID).map(id -> ResponseEntity.ok(id)).orElse(ResponseEntity.notFound().build());
 	}
@@ -62,7 +62,7 @@ public class PostagemControle {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(repositorio02.save(atualizado));
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{postagemID}")
 	public void DeleteID(@PathVariable long postagemID) {
 		repositorio02.deleteById(postagemID);
 	}

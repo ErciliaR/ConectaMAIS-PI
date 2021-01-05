@@ -50,7 +50,7 @@ public class Postagem {
 	private Date dataAtualizacaoPostagem = new java.sql.Date(System.currentTimeMillis()); // data de atualizaçcão da postagem
 
 	/* relação entre tabelas */
-	@ManyToOne //declaração de relacionamento entre tabelas: postagem e instituição
+	@ManyToOne //declaração de relacionamento entre tabelas: postagem e usuário instituição
 	@JsonIgnoreProperties("postagemObj") //declaraçao de chave estrageira da tabela, ignorando coluna postagem em tabela instituição
 	private Usuario instituicaoObj; //indicação da insituição que fez a postagem
 
