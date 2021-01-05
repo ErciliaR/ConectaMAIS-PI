@@ -39,7 +39,7 @@ public class Usuario {
 	private String senha; //senha de cadastro
 	
 	@Size (min = 2, max = 500)
-	private String imagem_perfil_url; //imagem de perfil
+	private String imagemPerfilURL; //imagem de perfil
 	
 	@NotBlank
 	@Size(min=5, max=20)
@@ -111,11 +111,11 @@ public class Usuario {
 	}
 
 	public String getImagem_perfil_url() {
-		return imagem_perfil_url;
+		return imagemPerfilURL;
 	}
 
-	public void setImagem_perfil_url(String imagem_perfil_url) {
-		this.imagem_perfil_url = imagem_perfil_url;
+	public void setImagem_perfil_url(String imagemPerfilURL) {
+		this.imagemPerfilURL = imagemPerfilURL;
 	}
 	
 	public String getPapel() {
