@@ -18,14 +18,14 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long>{
 	
 	public List<Usuario> findByCidadeContainingIgnoreCaseAndPapelIs (String cidade, String papel); //filtrar por cidades das instituições
 	
-	public List<Usuario> findByIdadeMinGreaterThanEqual (int idadeMin); //filtrar idade minima
+	public List<Usuario> findByIdadeMinGreaterThanEqualAndPapelIs (int idadeMin, String papel); //filtrar idade minima
 	
-	public List<Usuario> findByIdadeMaxLessThanEqual (int idadeMax); //filtrar idade maxima
+	public List<Usuario> findByIdadeMaxLessThanEqualAndPapelIs (int idadeMax, String papel); //filtrar idade maxima
 	
-	public List<Usuario> findByEscolaridadeMinContainingIgnoreCase (String nivel); //filtrar nivel de escolaridade
+	public List<Usuario> findByEscolaridadeMinContainingIgnoreCaseAndPapelIs (String nivel, String papel); //filtrar nivel de escolaridade
 	
-	public List<Usuario> findByGeneroSelecaoContainingIgnoreCase (String genero); //filtrar genero
+	public List<Usuario> findByGeneroSelecaoContainingIgnoreCaseAndPapelIs (String genero, String papel); //filtrar genero
 	
-	public List<Usuario> findByTipoContainingIgnoreCase (String tipo); //filtrar tipo ead, presencial ou os dois
+	public List<Usuario> findByTipoContainingIgnoreCaseAndPapelIs (String tipo, String papel); //filtrar tipo ead, presencial ou os dois
 
 }
