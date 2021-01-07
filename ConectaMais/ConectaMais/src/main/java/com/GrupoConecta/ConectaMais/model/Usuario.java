@@ -53,10 +53,8 @@ public class Usuario {
 	@Size (min = 2, max = 255)
 	private String cidade; //cidades onde atua
 	
-	@Min(0)
 	private int idadeMin; //idade mínima da seleção
 	
-	@Min(0)
 	private int idadeMax; //idade máxima da seleção
 	
 
