@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  p {
+    color: white;
+    margin-bottom: 0%;
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+  
+  h1 {
+    font-size: 58pt;
+    color: white;
+    font-weight: 300;
+  }
+  
+  #secao01 {
+    background-image: url("/assets/img/fig01.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    margin: 0;
+    height: max-content;
+  }
+  
+  #secao02 {
+    margin: 0;
+    border: 0;
+    height: max-content;
+    background-color: #007A80;
+  }
+  
+  #secao03 {
+    margin: 0;
+    border: 0;
+    height: max-content;
+    background-color: #007A80;
+  }
+  
+  #secao04 {
+    margin: 0;
+    border: 0;
+    height: max-content;
+    background-color: #007A80;
+    margin: 0;
+  }
+  
+  #secao05 {
+    margin: 0;
+    border: 0;
+    height: max-content;
+    background-color: #007A80;
+    margin: 0;
+  }
+  
+  #secao06 {
+    margin: 0;
+    border: 0;
+    height: max-content;
+    background-color: #007A80;
+    margin: 0;
+  }
+  
+  .fs-65 {
+    font-size: 65pt;
+    color: white;
+  }
+  
+  .fs-16 {
+    font-size: 16pt;
+    color: white;
+  }
+  
+  .fs-18 {
+    font-size: 18pt;
+    color: white;
+  }
+  
+  
+  .alert-link {
+    color: white;
+  }
+  
+  .alert-link:hover {
+    color: #FF914D;
+  }
+  
+  .btn-outline-secondary {
+    border-color: #007A80;
+    background-color: #007A80;
+    color: white;
+    font-size: x-large;
+    text-shadow: none;
+  }
+  
+  .nav-item {
+    font-size: x-large;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
+    padding-right: 20px;
+  }
+  
+  .btn-special {
+    background-color: #1B3659;
+    padding: 50px 50px;
+  }
+  
+  
+  /* effeito na secao04 */
+  .classnew {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  
+  }
+  
+  .classnew .card {
+    position: relative;
+    border-radius: 10px;
+  }
+  
+  .classnew .card .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f00;
+    transition: 0.7s;
+    z-index: 1;
+  }
+  
+  .classnew .card:nth-child(1) .icon {
+    background: #1B3659;
+  }
+  
+  .classnew .card:nth-child(2) .icon {
+    background: #1B3659;
+  }
+  
+  .classnew .card:nth-child(3) .icon {
+    background: #1B3659;
+  }
+  
+  
+  .classnew .card .icon .fa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    transition: 0.7s;
+    color: #fff;
+  }
+  
+  i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    transition: 0.7s;
+    color: #fff;
+  }
+  
+  .classnew .card .face {
+    width: 300px;
+    height: 200px;
+    transition: 0.5s;
+  }
+  
+  .classnew .card .face.face1 {
+    position: relative;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(100px);
+  }
+  
+  .classnew .card:hover .face.face1 {
+    background: #ff0057;
+    transform: translateY(0px);
+  }
+  
+  .classnew .card .face.face1 .content {
+    opacity: 1;
+    transition: 0.5s;
+  }
+  
+  .classnew .card:hover .face.face1 .content {
+    opacity: 1;
+  }
+  
+  .classnew .card .face.face1 .content i {
+    max-width: 100px;
+  }
+  
+  .classnew .card .face.face2 {
+    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    transform: translateY(-100px);
+  }
+  
+  .classnew .card:hover .face.face2 {
+    transform: translateY(0);
+  }
+  
+  .classnew .card .face.face2 .content p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #414141;
+  }
+  
+  .classnew .card .face.face2 .content h3 {
+    margin: 0 0 10px 0;
+    padding: 0;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    color: #1B3659;
+  }
+  
+  .classnew a {
+    text-decoration: none;
+    color: #1B3659;
+  }
+  
+  .classnew a:hover {
+    text-decoration: underline;
+    color: #FF914D;
+  }
+  
+  /* FIM effeito na secao04 */
+  
+  .flip-box {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+    /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-box-front,
+  .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+  
+    backface-visibility: hidden;
+  }
+  
+  
+  .flip-box-front {
+    background-color: #bbb;
+    color: black;
+  }
+  
+  .flip-box-back {
+    background-color: #FF914D;
+    color: white;
+    transform: rotateY(180deg);
+  }
+  
+  
+  .social-icons {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none
+  }
+  
+  .social-icons li {
+    display: inline-block;
+    margin-bottom: 4px
+  }
+  
+  .social-icons li.title {
+    margin-right: 15px;
+    text-transform: uppercase;
+    color: #96a2b2;
+    font-weight: 700;
+    font-size: 13px
+  }
+  
+  .social-icons a {
+    background-color: #eceeef;
+    color: #818a91;
+    font-size: 16px;
+    display: inline-block;
+    line-height: 44px;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    margin-right: 8px;
+    border-radius: 100%;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear
+  }
+  
+  .social-icons a:active,
+  .social-icons a:focus,
+  .social-icons a:hover {
+    color: #fff;
+    background-color: #29aafe
+  }
+  
+  .social-icons.size-sm a {
+    line-height: 34px;
+    height: 34px;
+    width: 34px;
+    font-size: 14px
+  }
+  
+  .social-icons a.instagram:hover {
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+  }
+  
+  .social-icons a.linkedin:hover {
+    background-color: #007bb6
+  }
+  
+  .social-icons a.github:hover {
+    background-color: #211F1F
+  }
+  
+  #noix {
+    filter: grayscale(100%);
+  }
+  
