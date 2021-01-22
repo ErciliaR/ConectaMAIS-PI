@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Scroll } from '@angular/router';
 
 @Component({
-  selector: 'app-pag-inicial',
-  templateUrl: './pag-inicial.component.html',
-  styleUrls: ['./pag-inicial.component.css']
+  selector: 'app-conheca-inst',
+  templateUrl: './conheca-inst.component.html',
+  styleUrls: ['./conheca-inst.component.css']
 })
-export class PagInicialComponent implements OnInit {
- 
+export class ConhecaInstComponent implements OnInit {
+
   constructor() { }
 
-  ngOnInit() { 
+  ngOnInit() {
     window.scroll(0,0)
-    
+
     window.addEventListener('scroll', function (event) {
       var nav = <HTMLElement>document.querySelector('#navbar-changing');
       event.preventDefault();
@@ -23,10 +22,6 @@ export class PagInicialComponent implements OnInit {
         nav.style.transition = 'background-color 200ms linear'
       }
     });
-
-    window.addEventListener("hashchange", function () {
-      window.scrollTo(window.scrollX, window.scrollY - 100);
-    });
-    
   }
+
 }

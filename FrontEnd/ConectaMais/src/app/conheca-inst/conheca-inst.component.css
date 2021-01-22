@@ -1,0 +1,46 @@
+#secao01 {
+  /* fundo com a imagem */
+  background-image: url("/assets/img/fig03.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  margin: 0;
+  border: 0;
+  height: 650px;
+}
+
+h1 {
+  padding-top: 150px;
+  padding-bottom: 200px;
+  margin: 0px;
+}
+
+#bg-inst {
+  background-color: #FF914D;
+  width: 100%;
+  height: max-content;
+}
+
+#bg-fund-white {
+  background-color: white;
+
+}
+
+.btn-outline-secondary {
+  border-color: #007A80;
+  background-color: #007A80;
+  color: white;
+  font-size: x-large;
+  text-shadow: none;
+}
+
+.nav-item {
+  font-size: x-large;
+  text-shadow: 2px 2px 4px #000000;
+  color: white;
+  padding-right: 20px;
+}
+
+.fs-16 {
+  font-size: 16pt;
+}
