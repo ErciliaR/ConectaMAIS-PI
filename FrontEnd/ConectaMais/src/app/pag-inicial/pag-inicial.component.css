@@ -376,3 +376,6 @@ i {
   background-color: #211F1F
 }
 
+#noix {
+  filter: grayscale(100%);
+}
