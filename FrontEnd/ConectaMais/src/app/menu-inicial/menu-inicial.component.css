@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  color: white;
+  margin-bottom: 0%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+h1 {
+  font-size: 58pt;
+  color: white;
+  font-weight: 300;
+}
+
+.fs-65 {
+  font-size: 65pt;
+  color: white;
+}
+
+.fs-16 {
+  font-size: 16pt;
+  color: white;
+}
+
+.fs-18 {
+  font-size: 18pt;
+  color: white;
+}
+
+
+.alert-link {
+  color: white;
+}
+
+.alert-link:hover {
+  color: #FF914D;
+}
+
+.btn-outline-secondary {
+  border-color: #007A80;
+  background-color: #007A80;
+  color: white;
+  font-size: x-large;
+  text-shadow: none;
+}
+
+.nav-item {
+  font-size: x-large;
+  text-shadow: 2px 2px 4px #000000;
+  color: white;
+  padding-right: 20px;
+}
+

@@ -1,28 +1,54 @@
-#bg-login{
-    /* fundo com a imagem */
-    background-image: url('/assets/img/mulher-tecnologia.jpeg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    margin: 0;
-    border: 0;
-    height: max-content;
-    }
-  
-    #form-login{
-        margin-top: 200px;
-        margin-bottom: 200px;
-        padding-bottom: 50px;
-        background-color: white;
-        border: 3px solid #007A80;
-        border-radius: 20px;
-    }
-  
-    #form-login h3{
-      
-      padding: 0;
-      margin: 0;
-      margin-bottom: 20px;
-      text-align: center;
-      
-  }
+#bg-login {
+  /* fundo com a imagem */
+  background-image: url('/assets/img/mulher-tecnologia.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  margin: 0;
+  border: 0;
+  height: 810px; /* foto estava muito pequena para o conteudo */
+}
+
+#form-login {
+  margin-top: 200px;
+  margin-bottom: 200px;
+  padding-bottom: 50px;
+  background-color: white;
+  border: 3px solid #007A80;
+  border-radius: 20px;
+}
+
+#form-login h3 {
+  color: #007A80;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.button {
+  background-color: #007A80;
+  /* Green */
+  border-radius: 10px;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white;
+  color: #007A80;
+  font-weight: bolder;
+  border: 2px solid #007A80;
+}
+
+.button1:hover {
+  background-color: #007A80;
+  color: white;
+}

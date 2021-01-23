@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { PagInicialComponent } from './pag-inicial/pag-inicial.component';
 import { ConhecaInstComponent } from './conheca-inst/conheca-inst.component';
+import { MenuInicialComponent } from './menu-inicial/menu-inicial.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ConhecaInstComponent } from './conheca-inst/conheca-inst.component';
     LoginComponent,
     RodapeComponent,
     PagInicialComponent,
-    ConhecaInstComponent
+    ConhecaInstComponent,
+    MenuInicialComponent
   ],
   imports: [
     BrowserModule,

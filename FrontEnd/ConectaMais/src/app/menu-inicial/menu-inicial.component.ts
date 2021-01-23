@@ -1,25 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, Scroll } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-pag-inicial',
-  templateUrl: './pag-inicial.component.html',
-  styleUrls: ['./pag-inicial.component.css']
+  selector: 'app-menu-inicial',
+  templateUrl: './menu-inicial.component.html',
+  styleUrls: ['./menu-inicial.component.css']
 })
-export class PagInicialComponent implements OnInit {
- 
+export class MenuInicialComponent implements OnInit {
+
   constructor(
     private router: Router
+
   ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     window.scroll(0,0)
-    
-     this.scrollMenu()
-  }
 
-  scrollMenu() {
-    window.addEventListener('scroll',  (event)=> {
+    this.scrollMenu()
+
+  }
+  scrollMenu(){
+    window.addEventListener('scroll',  (event)=>{
       let nav = <HTMLElement>document.querySelector('#navbar-changing');
       let navScroll = nav.scrollHeight
 
@@ -31,10 +32,9 @@ export class PagInicialComponent implements OnInit {
         nav.style.transition = 'background-color 200ms linear'
       }
     });
-
     window.addEventListener("hashchange", function () {
       window.scrollTo(window.scrollX, window.scrollY - 100);
     });
-    
   }
+
 }

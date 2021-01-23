@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, Scroll } from '@angular/router';
 
 @Component({
   selector: 'app-conheca-inst',
@@ -7,21 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConhecaInstComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
-  ngOnInit() {
+    ngOnInit() { 
     window.scroll(0,0)
+    
+     this.scrollMenu()
+  }
 
-    window.addEventListener('scroll', function (event) {
-      var nav = <HTMLElement>document.querySelector('#navbar-changing');
-      event.preventDefault();
-      if (window.scrollY <= nav.scrollHeight) {
+  scrollMenu() {
+    window.addEventListener('scroll',  (event)=> {
+      let nav = <HTMLElement>document.querySelector('#navbar-changing');
+      let navScroll = nav.scrollHeight
+
+
+      if ( navScroll >  window.scrollY) {
         nav.style.backgroundColor = 'transparent';
       } else {
         nav.style.backgroundColor = '#1B3659';
         nav.style.transition = 'background-color 200ms linear'
       }
     });
-  }
 
+    window.addEventListener("hashchange", function () {
+      window.scrollTo(window.scrollX, window.scrollY - 100);
+    });
+  }
 }
