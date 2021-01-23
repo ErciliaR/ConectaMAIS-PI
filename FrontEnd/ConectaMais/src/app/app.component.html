@@ -1,5 +1,5 @@
-<app-menu-inicial *ngIf="showHead"></app-menu-inicial>
+<app-menu-inicial *ngIf="routeHidden"></app-menu-inicial>
 
 <router-outlet></router-outlet>
 
-<app-rodape></app-rodape>
+<app-rodape *ngIf="routeHidden"></app-rodape>

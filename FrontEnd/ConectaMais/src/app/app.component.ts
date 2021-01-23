@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
+import { Router, Event, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,21 +9,24 @@ import { Router, NavigationStart } from '@angular/router';
 export class AppComponent {
   title = 'ConectaMais';
 
-  showHead: boolean = false;
+  routeHidden : boolean = false;
 
-  ngOnInit() {
+  constructor(
+    public router: Router
+    ){    
   }
 
-  constructor(private router: Router) {
-    router.events.forEach((event) => {
-      if (event instanceof NavigationStart) {
-        if (event['url'] == '/home' || event['url'] == '/conheca') {
-          this.showHead = true;
-        } else {
-          this.showHead = false;
-        }
+  ngOnInit() {
+
+    this.router.events.subscribe( (e) => {
+      if (e instanceof NavigationStart) {
+        if (e.url == "/home" || e.url == "/home#inicio" || e.url == "/home#quemSomos" || 
+        e.url == "/home#facaParte" || e.url == "/home#conexoes" || e.url == "/conheca") {
+            this.routeHidden = true;
+        } 
       }
     });
+
   }
 
 }

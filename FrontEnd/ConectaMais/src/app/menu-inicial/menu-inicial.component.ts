@@ -19,6 +19,7 @@ export class MenuInicialComponent implements OnInit {
     this.scrollMenu()
 
   }
+
   scrollMenu(){
     window.addEventListener('scroll',  (event)=>{
       let nav = <HTMLElement>document.querySelector('#navbar-changing');
@@ -32,9 +33,7 @@ export class MenuInicialComponent implements OnInit {
         nav.style.transition = 'background-color 200ms linear'
       }
     });
-    window.addEventListener("hashchange", function () {
-      window.scrollTo(window.scrollX, window.scrollY - 100);
-    });
+    
   }
 
 }
