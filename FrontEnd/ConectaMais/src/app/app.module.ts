@@ -8,6 +8,7 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { PagInicialComponent } from './pag-inicial/pag-inicial.component';
 import { ConhecaInstComponent } from './conheca-inst/conheca-inst.component';
 import { MenuInicialComponent } from './menu-inicial/menu-inicial.component';
+import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MenuInicialComponent } from './menu-inicial/menu-inicial.component';
     RodapeComponent,
     PagInicialComponent,
     ConhecaInstComponent,
-    MenuInicialComponent
+    MenuInicialComponent,
+    MenuUsuarioComponent
   ],
   imports: [
     BrowserModule,
