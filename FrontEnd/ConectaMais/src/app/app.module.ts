@@ -9,6 +9,7 @@ import { PagInicialComponent } from './pag-inicial/pag-inicial.component';
 import { ConhecaInstComponent } from './conheca-inst/conheca-inst.component';
 import { MenuInicialComponent } from './menu-inicial/menu-inicial.component';
 import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
+import { ApoieComponent } from './apoie/apoie.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
     PagInicialComponent,
     ConhecaInstComponent,
     MenuInicialComponent,
-    MenuUsuarioComponent
+    MenuUsuarioComponent,
+    ApoieComponent
   ],
   imports: [
     BrowserModule,
