@@ -1,0 +1,28 @@
+#bg-login{
+    /* fundo com a imagem */
+    background-image: url('/assets/img/mulher-tecnologia.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    margin: 0;
+    border: 0;
+    height: max-content;
+    }
+  
+    #form-login{
+        margin-top: 200px;
+        margin-bottom: 200px;
+        padding-bottom: 50px;
+        background-color: white;
+        border: 3px solid #007A80;
+        border-radius: 20px;
+    }
+  
+    #form-login h3{
+      
+      padding: 0;
+      margin: 0;
+      margin-bottom: 20px;
+      text-align: center;
+      
+  }
