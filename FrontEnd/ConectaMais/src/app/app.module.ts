@@ -1,7 +1,9 @@
+import {HttpClientModule } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RodapeComponent } from './rodape/rodape.component';
@@ -10,6 +12,8 @@ import { ConhecaInstComponent } from './conheca-inst/conheca-inst.component';
 import { MenuInicialComponent } from './menu-inicial/menu-inicial.component';
 import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 import { ApoieComponent } from './apoie/apoie.component';
+import { CadastrarComponent } from './cadastrar/cadastrar.component';
+
 
 @NgModule({
   declarations: [
@@ -20,11 +24,14 @@ import { ApoieComponent } from './apoie/apoie.component';
     ConhecaInstComponent,
     MenuInicialComponent,
     MenuUsuarioComponent,
-    ApoieComponent
+    ApoieComponent,
+    CadastrarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

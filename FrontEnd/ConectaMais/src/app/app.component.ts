@@ -21,12 +21,10 @@ export class AppComponent {
 
     this.router.events.subscribe( (e) => {
       if (e instanceof NavigationStart) {
-        if (e.url == "/home" || e.url == "/home#inicio" || e.url == "/home#quemSomos" || 
-        e.url == "/home#facaParte" || e.url == "/home#conexoes" || e.url == "/home#rodape" || 
-        e.url == "/conheca" || e.url == "/apoie") {
-            this.routeHidden = true;
+        if (e.url.includes("/entrar") || e.url.includes("/cadastrar")) {
+            this.routeHidden = false;
         } else {
-          this.routeHidden = false;
+          this.routeHidden = true;
         }
       }
     });
