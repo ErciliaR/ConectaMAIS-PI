@@ -14,13 +14,17 @@ export class CadastrarComponent implements OnInit {
   confirmarPassword: string 
   papelUser: string
 
+  showBlock : boolean = false;
+
   constructor(
     private router: Router,
     private authService: AuthService 
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
+    window.scroll(0,0);
+
+    this.papelUsuario;
   }
 
   confirmarSenha(event: any) {
@@ -31,13 +35,9 @@ export class CadastrarComponent implements OnInit {
     this.papelUser = event.target.value
     
     if(this.papelUser == "usuarioInstituicao"){
-      for (let i = 0; i < 7; i++){
-        document.getElementsByClassName("Instituicao")[i].style.display = 'block';
-      }      
+      this.showBlock = true;    
     } else {
-      for (let i = 0; i < 7; i++){
-        document.getElementsByClassName("Instituicao")[i].style.display = 'none';
-      } 
+      this.showBlock = false; 
     }
   }
 

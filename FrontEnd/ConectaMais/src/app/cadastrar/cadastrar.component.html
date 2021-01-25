@@ -51,27 +51,27 @@
         </div>
 
         <!-- instituiçao for selecionada -->
-        <div class="form-group Instituicao">
+        <div class="form-group" *ngIf="showBlock">
           <label for="descricao" class="d-flex ">Descrição:</label>
           <input class="form-control" type="text" name="descricao" id="descricao"
             placeholder="Descreva os valores e objetivos da instituição">
         </div>
-        <div class="form-group Instituicao">
+        <div class="form-group" *ngIf="showBlock">
           <label for="cidade" class="d-flex ">Cidade:</label>
           <input class=" form-control" type="text" name="cidade" id="cidade"
             placeholder="Locais de atuação">
         </div>
-        <div class="form-group Instituicao">
+        <div class="form-group" *ngIf="showBlock">
           <label for="idadeMin" class="d-flex ">Idade mínima de participantes:</label>
           <input class="form-control" type="number" name="IdadeMin" id="IdadeMin"
             placeholder="Entre com número">
         </div>
-        <div class="form-group Instituicao">
+        <div class="form-group" *ngIf="showBlock">
           <label for="idadeMax" class="d-flex ">Idade máxima de participantes:</label>
           <input class="form-control" type="number" name="IdadeMax" id="IdadeMax"
             placeholder="Entre com número">
         </div>
-        <div class="form-group Instituicao">
+        <div class="form-group" *ngIf="showBlock">
           <label for="escolaridade" class="d-flex ">Escolaridade mínima de participantes:</label>
           <select class="form-control" name="escolaridadeMin" id="escolaridadeMin">
             <option> Selecione uma escolaridade mínima</option>
@@ -80,7 +80,7 @@
             <option value="superiorIncompleto">Ensino superior incompleto</option>
           </select>
         </div>
-        <div class="form-group Instituicao">
+        <div class="form-group" *ngIf="showBlock">
           <label for="genero" class="d-flex ">Gênero de participantes:</label>
           <select class="form-control" name="generoSelecao" id="generoSelecao">
             <option> Selecione um gênero foco</option>
@@ -89,7 +89,7 @@
             <option value="todos">Todos os gêneros</option>
           </select>
         </div>
-        <div class="form-group Instituicao">
+        <div class="form-group" *ngIf="showBlock">
           <label for="tipo" class="d-flex ">Tipo de ensino:</label>
           <select class="form-control" name="tipo" id="tipo">
             <option> Selecione uma forma de ensino</option>
