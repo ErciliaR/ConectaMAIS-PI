@@ -1,0 +1,120 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 pt1 p-0  ">
+      <img src="/assets/img/fig08.jpg" width="100%" alt="">
+    </div>
+    <div class="col-12 d-flex justify-content-center zind">CADASTRO</div>
+    <div class="col-12 pt2">
+      <div class="row">
+        <img src="" alt="">
+        <div class="col-1"></div>
+        <div class="col-5 quadrado1 p-5 mr-2 mt-5">
+          <p><b>Cadastre-se na nossa plataforma e interaja com as instituições</b> que te aproximaram do mundo da
+            tecnologia! Abrace essa oportunidade... </p>
+        </div>
+
+        <div class="col-5 quadrado2 p-5 ml-2 mt-5">
+          <p><b>Cadastre a sua instituição</b> e faça parte da nossa plataforma. Dê visibilidade aos seus programas,
+            bootcamps e hackathons ao seu público alvo!</p>
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-10 mt-5  mb-5 usuario">
+      <h2 class="mt-5">Usuário</h2>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="email" class="d-flex ">Nome:</label>
+          <input [(ngModel)]="user.nome" class="form-control" type="text" name="nome " id="nome"
+            placeholder="Seu email">
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="email" class="d-flex ">Email:</label>
+          <input [(ngModel)]="user.email" class="form-control" type="text" name="email " id="email"
+            placeholder="Seu email">
+        </div>
+        <div class="form-group">
+          <label for="imagem" class="d-flex ">Imagem do perfil:</label>
+          <input [(ngModel)]="user.email" class="form-control" type="text" name="imagem " id="imagem"
+            placeholder="URL da imagem">
+        </div>
+        <div class="form-group">
+          <label for="papel" class="d-flex ">Tipo de usuário:</label>
+          <select (change)="papelUsuario($event)" class="form-control" name="papel" id="papel">
+            <option> Selecione um tipo de usuário</option>
+            <option value="usuarioComum"> Estudante</option>
+            <option value="usuarioInstituicao"> Instituição</option>
+          </select>
+        </div>
+
+        <!-- instituiçao for selecionada -->
+        <div class="form-group Instituicao">
+          <label for="descricao" class="d-flex ">Descrição:</label>
+          <input class="form-control" type="text" name="descricao" id="descricao"
+            placeholder="Descreva os valores e objetivos da instituição">
+        </div>
+        <div class="form-group Instituicao">
+          <label for="cidade" class="d-flex ">Cidade:</label>
+          <input class=" form-control" type="text" name="cidade" id="cidade"
+            placeholder="Locais de atuação">
+        </div>
+        <div class="form-group Instituicao">
+          <label for="idadeMin" class="d-flex ">Idade mínima de participantes:</label>
+          <input class="form-control" type="number" name="IdadeMin" id="IdadeMin"
+            placeholder="Entre com número">
+        </div>
+        <div class="form-group Instituicao">
+          <label for="idadeMax" class="d-flex ">Idade máxima de participantes:</label>
+          <input class="form-control" type="number" name="IdadeMax" id="IdadeMax"
+            placeholder="Entre com número">
+        </div>
+        <div class="form-group Instituicao">
+          <label for="escolaridade" class="d-flex ">Escolaridade mínima de participantes:</label>
+          <select class="form-control" name="escolaridadeMin" id="escolaridadeMin">
+            <option> Selecione uma escolaridade mínima</option>
+            <option value="medioIncompleto">Ensino médio incompleto</option>
+            <option value="medioCompleto"> Ensino médio completo</option>
+            <option value="superiorIncompleto">Ensino superior incompleto</option>
+          </select>
+        </div>
+        <div class="form-group Instituicao">
+          <label for="genero" class="d-flex ">Gênero de participantes:</label>
+          <select class="form-control" name="generoSelecao" id="generoSelecao">
+            <option> Selecione um gênero foco</option>
+            <option value="feminino">Feminino CIS e TRANS</option>
+            <option value="masculino">Masculino CIS e TRANS</option>
+            <option value="todos">Todos os gêneros</option>
+          </select>
+        </div>
+        <div class="form-group Instituicao">
+          <label for="tipo" class="d-flex ">Tipo de ensino:</label>
+          <select class="form-control" name="tipo" id="tipo">
+            <option> Selecione uma forma de ensino</option>
+            <option value="presencial">Presencial</option>
+            <option value="ead">EAD</option>
+            <option value="presencial&ead">Presencial ou EAD</option>
+          </select>
+        </div>
+        <!-- /instituiçao for selecionada -->
+    
+        <div class="form-group">
+          <label for="senha" class="d-flex ">Senha:</label>
+          <input (input)="confirmarSenha($event)"  class="form-control" type="password" name="senha " id="senha" placeholder="Sua senha">
+        </div>
+        <div class="form-group">
+          <label for="confirmSenha" class="d-flex ">Confirme sua senha:</label>
+          <input [(ngModel)]="user.senha" class="form-control" type="password" name="confirmSenha " id="confirmSenha"
+            placeholder="Repita a senha">
+        </div>
+
+        <div class="d-flex justify-content-end pb-5">
+          <button (click)="cadastrar()" type="submit" class="btn btn-success style-button">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>

@@ -29,7 +29,7 @@ export class MenuInicialComponent implements OnInit {
         nav.style.backgroundColor = 'transparent';
       } else {
         nav.style.backgroundColor = '#1B3659';
-        nav.style.transition = 'background-color 200ms linear'
+        nav.style.transition = 'background-color 200ms linear';
       }
     });
 
