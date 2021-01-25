@@ -6,12 +6,12 @@
   background-position: center;
   margin: 0;
   border: 0;
-  height: 810px; /* foto estava muito pequena para o conteudo */
+  height: auto; /* foto estava muito pequena para o conteudo */
 }
 
 #form-login {
-  margin-top: 200px;
-  margin-bottom: 200px;
+  margin-top: 100px;
+  margin-bottom: 180px;
   padding-bottom: 50px;
   background-color: white;
   border: 3px solid #007A80;

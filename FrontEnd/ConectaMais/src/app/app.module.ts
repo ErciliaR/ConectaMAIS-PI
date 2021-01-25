@@ -15,6 +15,7 @@ import { ApoieComponent } from './apoie/apoie.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
