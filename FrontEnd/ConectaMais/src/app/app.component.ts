@@ -14,19 +14,20 @@ export class AppComponent {
   constructor(
     public router: Router
     ){    
-  
-  
+      
   }
 
   ngOnInit() {
 
     this.router.events.subscribe( (e) => {
       if (e instanceof NavigationStart) {
-        if (e.url == "" || e.url == "/home" || e.url == "/home#inicio" || e.url == "/home#quemSomos" || 
+        if (e.url == "/home" || e.url == "/home#inicio" || e.url == "/home#quemSomos" || 
         e.url == "/home#facaParte" || e.url == "/home#conexoes" || e.url == "/home#rodape" || 
         e.url == "/conheca" || e.url == "/apoie") {
             this.routeHidden = true;
-        } 
+        } else {
+          this.routeHidden = false;
+        }
       }
     });
 
