@@ -27,9 +27,9 @@
   color: white;
   font-size: 16px;
   display: inline-block;
-  line-height: 44px;
-  width: 44px;
-  height: 44px;
+  line-height: 34px;
+  width: 34px;
+  height: 34px;
   text-align: center;
   margin-right: 8px;
   border-radius: 100%;
@@ -46,9 +46,9 @@
 }
 
 .social-icons.size-sm a {
-  line-height: 34px;
-  height: 34px;
-  width: 34px;
+  line-height: 24px;
+  height: 24px;
+  width: 24px;
   font-size: 14px
 }
 
@@ -81,13 +81,13 @@
 }
 
 .nav-item {
-  font-size: larger;
+  font-size: medium;
   color: white;
 }
 
 .vertical-nav {
-  min-width: 17rem;
-  width: 17rem;
+  min-width: 15rem;
+  width: 15rem;
   height: 100vh;
   position: fixed;
   z-index: 1;
@@ -96,6 +96,20 @@
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
   background-color: #1B3659;
+}
+
+/* for toggle behavior */
+#sidebarCollapse {
+  position: fixed;
+  margin: 3%;
+  /* top: 50%; */
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 200;
+}
+
+#sidebar.active {
+  margin-left: -17rem;
 }
 
 .copyright-text {

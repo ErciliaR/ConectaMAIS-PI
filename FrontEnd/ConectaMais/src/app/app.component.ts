@@ -9,7 +9,7 @@ import { Router, Event, NavigationStart } from '@angular/router';
 export class AppComponent {
   title = 'ConectaMais';
 
-  routeHidden : boolean = false;
+  routeShow : boolean = false;
 
   constructor(
     public router: Router
@@ -22,9 +22,9 @@ export class AppComponent {
     this.router.events.subscribe( (e) => {
       if (e instanceof NavigationStart) {
         if (e.url.includes("/entrar") || e.url.includes("/cadastrar")) {
-            this.routeHidden = false;
+            this.routeShow = false;
         } else {
-          this.routeHidden = true;
+          this.routeShow = true;
         }
       }
     });

@@ -12,5 +12,11 @@ export class MenuUsuarioComponent implements OnInit {
   ngOnInit() {
   
   }
+
+  expandirMenu(event: any){
+    let elemento1 = document.querySelector("#sidebar");
+    elemento1?.classList.toggle("active")
+  }
+
 }
 
