@@ -109,11 +109,11 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public String getImagem_perfil_url() {
+	public String getImagemPerfilURL() {
 		return imagemPerfilURL;
 	}
 
-	public void setImagem_perfil_url(String imagemPerfilURL) {
+	public void setImagemPerfilURL(String imagemPerfilURL) {
 		this.imagemPerfilURL = imagemPerfilURL;
 	}
 	

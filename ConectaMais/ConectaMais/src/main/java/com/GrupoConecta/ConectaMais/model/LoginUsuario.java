@@ -3,6 +3,8 @@ package com.GrupoConecta.ConectaMais.model;
 public class LoginUsuario {
 
 	/* atributos */
+	private long id;
+	
 	private String nome; //nome do usuário (estudantes e ongs)
 	
 	private String email; //email de cadastro
@@ -11,17 +13,37 @@ public class LoginUsuario {
 	
 	private String papel; //definir o tipo de usuario para questões de segurança {admin, usuarioInstituicao, usuarioComum}
 
+	private String foto;
+	
 	private String token; //chave encriptografada
 
-	/* métodos */
+	/* métodos */	
 	public String getNome() {
 		return nome;
 	}
-
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	
+	
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
 	public String getEmail() {
 		return email;
 	}

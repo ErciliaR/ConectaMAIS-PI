@@ -1,4 +1,64 @@
+.container-fluid {
+  background-color: #225555;
+}
 
+.pt2 {
+  background-color: #225555;
+}
+
+.quadrado1,
+.quadrado2 {
+  background-color: #007a80;
+  border-radius: 30px;
+  height: 600px;
+  color: white;
+  font-size: 36px;
+  text-align: center;
+}
+
+.quadrado1 p,
+.quadrado2 p {
+  margin-top: 50px;
+}
+
+.usuario {
+  background-color: #007a80;
+  border-radius: 30px;
+  height: max-content;
+  color: white;
+  font-size: 36px;
+  text-align: center;
+}
+
+.usuario {
+  font-size: 20px;
+}
+
+.style-button {
+  color: #225555 !important;
+  background-color: #fff !important;
+  border-color: #225555 !important;
+  font-weight: bolder;
+  border-width: 3px !important;
+
+}
+
+.style-button:hover {
+  color: white !important;
+  background-color: #225555 !important;
+  border-color: #225555 !important;
+  font-weight: bolder;
+  border-width: 3px !important;
+
+}
+
+.zind {
+  margin-top: -480px;
+  font-size: 50px;
+  color: white;
+  text-shadow: 5px 5px 20px black;
+}
+=======
 .pt1{
     margin-top: -250px;
     opacity: 58%;
@@ -60,3 +120,4 @@
     color: white;
     text-shadow: 5px 5px 20px black;
 }
+

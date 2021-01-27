@@ -20,7 +20,7 @@ h1 {
   font-weight: 300;
 }
 
-#secao01 {
+.secao01 {
   background-image: url("/assets/img/fig01.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -29,29 +29,21 @@ h1 {
   height: max-content;
 }
 
-#secao02 {
+.secao02 {
   margin: 0;
   border: 0;
   height: max-content;
   background-color: #007A80;
 }
 
-#secao03 {
+.secao03 {
   margin: 0;
   border: 0;
   height: max-content;
   background-color: #007A80;
 }
 
-#secao04 {
-  margin: 0;
-  border: 0;
-  height: max-content;
-  background-color: #007A80;
-  margin: 0;
-}
-
-#secao05 {
+.secao04 {
   margin: 0;
   border: 0;
   height: max-content;
@@ -59,12 +51,29 @@ h1 {
   margin: 0;
 }
 
-#secao06 {
+.secao05 {
   margin: 0;
   border: 0;
   height: max-content;
   background-color: #007A80;
   margin: 0;
+}
+
+.secao06 {
+  margin: 0;
+  border: 0;
+  height: max-content;
+  background-color: #007A80;
+  margin: 0;
+}
+
+.anchor {
+  display: block;
+  height: 115px;
+  /*same height as header*/
+  margin-top: -115px;
+  /*same height as header*/
+  visibility: hidden;
 }
 
 .fs-65 {
