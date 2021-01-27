@@ -25,7 +25,6 @@ export class CadastrarComponent implements OnInit {
   ngOnInit() {
     window.scroll(0,0);
 
-    this.papelUsuario;
   }
   confirmSenha(event: any) {
     this.confirmarSenha = event.target.value
@@ -46,10 +45,11 @@ export class CadastrarComponent implements OnInit {
     this.usuario.papel = this.papelUsuario
 
     if(this.usuario.senha != this.confirmarSenha) {
-      alert('A senha e confirmar senha devem ser iguais')
+      alert('As senhas devem ser iguais')
     } else {
       this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
+        this.router.navigate(['/entrar'])
         alert('Usuário cadastrado com sucesso')
       })
     }
