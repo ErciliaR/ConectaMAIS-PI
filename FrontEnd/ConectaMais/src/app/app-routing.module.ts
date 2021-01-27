@@ -7,6 +7,7 @@ import { ApoieComponent } from './apoie/apoie.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 
 import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
+import { FeedComponent } from './feed/feed.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -15,7 +16,7 @@ const routes: Routes = [
   {path: 'conheca', component: ConhecaInstComponent},
   {path: 'apoie', component: ApoieComponent},
   {path: 'cadastrar', component: CadastrarComponent},
-  {path: 'inicioFeed', component: MenuUsuarioComponent},
+  {path: 'feed', component: FeedComponent},
 ];
 
 @NgModule({

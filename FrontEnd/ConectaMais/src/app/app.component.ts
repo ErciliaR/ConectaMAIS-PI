@@ -21,7 +21,7 @@ export class AppComponent {
 
     this.router.events.subscribe( (e) => {
       if (e instanceof NavigationStart) {
-        if (e.url.includes("/entrar") || e.url.includes("/cadastrar")) {
+        if (e.url.includes("/entrar") || e.url.includes("/cadastrar") || e.url.includes("/feed")) {
             this.routeShow = false;
         } else {
           this.routeShow = true;
