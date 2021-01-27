@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "ConectaMais"
+  "defaultProject": "ConectaMais",
+  "cli": {
+    "analytics": "963bf45f-457f-4d29-ac49-630fe31636da"
+  }
 }
