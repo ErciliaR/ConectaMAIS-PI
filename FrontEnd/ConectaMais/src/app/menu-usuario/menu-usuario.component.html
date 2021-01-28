@@ -1,54 +1,63 @@
-<div class="vertical-nav d-flex flex-column justify-content-between fixed" id="sidebar">
-  <div class="p-0 bg-transparent">
-    <div class="media-body" style="color: #FF914D; background-color: #007A80; margin-top: 160px;">
-      <h4 class="m-0 py-2 text-center font-weight-bold" style="text-shadow: 0.5px 0.5px 1px #000000;">Ercilia Regina
-      </h4>
-    </div>
+<body>
 
-    <ul class="nav flex-column pb-4 align-items-center" style="background-color: #1B3659;">
-      <li class="nav-item px-0 py-1">
-        <a href="#" class="nav-link text-white text-uppercase">Perfil</a>
-      </li>
-      <li class="nav-item px-0 py-1">
-        <a href="#" class="nav-link text-white text-uppercase">Postagens</a>
-      </li>
-      <li class="nav-item px-0 py-1">
-        <a href="#" class="nav-link text-white text-uppercase">Comentários</a>
-      </li>
-      <li class="nav-item px-0 py-1">
-        <a href="#" class="nav-link text-white text-uppercase">Feed</a>
-      </li>
-      <li class="nav-item pt-1 pb-4 px-0">
-        <a class="btn btn-outline-secondary py-1 px-5 " routerLink='/entrar' style="font-size: medium;">SAIR</a>
-      </li>
-    </ul>
-  </div>
 
-  <div class="py-5 px-3">
-    <div class="media d-flex justify-content-center">
-      <img src="/assets/img/logoColorido&Sombra.png" alt="logo conecta mais" width="100px" class="img-fluid">
-    </div>
-    <div>
-      <ul class="social-icons d-flex justify-content-center pt-3 img-fluid">
-        <li><a class="facebook" href="#"><span class="fab fa-facebook-f" target="_blank"></span></a></li>
-        <li><a class="instagram" href="#"><span class="fab fa-instagram" target="_blank"></span></a></li>
-        <li><a class="github" href="https://github.com/ErciliaR/ConectaMAIS-PI" target="_blank"><span
-              class="fab fa-github-alt"></span></a>
+  <div class="vertical-nav d-flex flex-column justify-content-between fixed" id="sidebar">
+    <div class="p-0 bg-transparent">
+      <div class="media-body" style="color: #FF914D; background-color: #007A80; margin-top: 160px;">
+        <h4 class="m-0 mb-2 py-2 text-center font-weight-bold" style="letter-spacing: 0.2mm;">Ercilia Regina</h4>
+      </div>
+
+      <ul class="nav flex-column pb-4 align-items-center" style="background-color: #1B3659;">
+        <li class="nav-item px-0 py-1">
+          <a href="#" class="nav-link text-white text-uppercase">Perfil</a>
         </li>
-        <li><a class="linkedin m-0" href="#" target="_blank"><span class="fab fa-linkedin-in"></span></a></li>
+        <li class="nav-item px-0 py-1">
+          <a href="#" class="nav-link text-white text-uppercase">Postagens</a>
+        </li>
+        <li class="nav-item px-0 py-1">
+          <a href="#" class="nav-link text-white text-uppercase">Comentários</a>
+        </li>
+        <li class="nav-item px-0 py-1">
+          <a href="#" class="nav-link text-white text-uppercase">Feed</a>
+        </li>
+        <li class="nav-item pt-1 pb-4 px-0">
+          <a class="btn btn-outline-secondary py-1 px-5 " routerLink='/entrar' style="font-size: medium;">SAIR</a>
+        </li>
       </ul>
     </div>
-    <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by
-      <a class="alert-link text-white">Conecta+</a>.
-    </p>
+
+    <div class="py-5 px-3">
+      <div class="media d-flex justify-content-center">
+        <img src="/assets/img/logoColorido&Sombra.png" alt="logo conecta mais" width="100px" class="img-fluid">
+      </div>
+      <div>
+        <ul class="social-icons d-flex justify-content-center pt-3 img-fluid">
+          <li><a class="facebook" href="#"><span class="fab fa-facebook-f" target="_blank"></span></a></li>
+          <li><a class="instagram" href="#"><span class="fab fa-instagram" target="_blank"></span></a></li>
+          <li><a class="github" href="https://github.com/ErciliaR/ConectaMAIS-PI" target="_blank"><span
+                class="fab fa-github-alt"></span></a>
+          </li>
+          <li><a class="linkedin m-0" href="#" target="_blank"><span class="fab fa-linkedin-in"></span></a></li>
+        </ul>
+      </div>
+      <p class="copyright-text text-white text-center" style="font-size: small;">Copyright &copy; 2021 All Rights
+        Reserved
+        by <a class="alert-link text-white">Conecta+</a>
+      </p>
+    </div>
+
   </div>
 
-</div>
 
-<div class="pt-5">
   <button (click)="expandirMenu($event)" id="sidebarCollapse" type="button"
-    class="media justify-content-center border-0 bg-transparent">
-    <img src="/assets/img/Erci.jpg" alt="..." width="150px" class="m-0 p-2 rounded-circle img-fluid"
+    class="media justify-content-center border-0 bg-transparent pt-5"
+    style=" margin-top: 75px; margin-left: 45px; margin-right: 45px;">
+    <img src="/assets/img/profile01.png" alt="..." class="m-0 p-2 rounded-circle img-fluid size-changing"
       style="background-color: #007A80; border: none;">
   </button>
-</div>
+
+
+  <div class="page-content" id="content">
+    <app-feed></app-feed>
+  </div>
+</body>

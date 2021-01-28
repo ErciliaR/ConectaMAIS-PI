@@ -15,7 +15,11 @@ export class MenuUsuarioComponent implements OnInit {
 
   expandirMenu(event: any){
     let elemento1 = document.querySelector("#sidebar");
+    let elemento2 = document.querySelector("#content");
+    let elemento3 = document.querySelector(".size-changing")
     elemento1?.classList.toggle("active")
+    elemento2?.classList.toggle("active")
+    
   }
 
 }

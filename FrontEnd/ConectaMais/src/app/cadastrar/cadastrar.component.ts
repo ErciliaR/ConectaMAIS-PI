@@ -62,6 +62,10 @@ export class CadastrarComponent implements OnInit {
     this.usuario.generoSelecao = this.genSelecao
     this.usuario.tipo = this.tipoAula
 
+    if (this.usuario.imagemPerfilURL == ""){
+      this.usuario.imagemPerfilURL = "../assests/img/profile.png"
+    }
+
     if(this.usuario.senha != this.confirmarSenha) {
       alert('As senhas devem ser iguais')
     } else {
