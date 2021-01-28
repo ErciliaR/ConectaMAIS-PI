@@ -48,7 +48,7 @@ public class UserService {
 				loginUsuario.get().setToken(authHeader);
 				loginUsuario.get().setId(usuario.get().getUsuarioID());
 				loginUsuario.get().setNome(usuario.get().getNome());
-				loginUsuario.get().setFoto(usuario.get().getImagemPerfilURL());
+				loginUsuario.get().setImagemPerfilURL(usuario.get().getImagemPerfilURL());
 				loginUsuario.get().setPapel(usuario.get().getPapel());
 
 				return loginUsuario;
