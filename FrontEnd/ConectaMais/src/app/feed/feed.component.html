@@ -1,11 +1,11 @@
-<div class="container-fluid" id="padrao">
-    <!-- formulario de publicação -->
+<div class="container-fluid" id="padrao1">
+  <!-- formulario de publicação -->
   <h4 class="text-center text-white  mb-5" style="padding-top: 135px; text-shadow: 2px 2px 4px #000000;">Faça uma
     postagem para que os estudantes te encontrem.</h4>
 
   <p class="text-center">
-    <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample"
-      aria-expanded="false" aria-controls="collapseExample" id="criarPost">
+    <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+      aria-controls="collapseExample" id="criarPost">
       Criar nova postagem
     </button>
   </p>
@@ -26,7 +26,8 @@
             <option value="noticia">Noticia</option>
           </select>
           <label for="descricao" class="">Descrição</label>
-          <textarea [(ngModel)]='postagem.conteudoPostagem' class="form-control mb-3" name="descricao" id="descricao" rows="5"></textarea>
+          <textarea [(ngModel)]='postagem.conteudoPostagem' class="form-control mb-3" name="descricao" id="descricao"
+            rows="5"></textarea>
           <div class="row d-flex justify-content-end m-0">
             <button (click)='publicar()' class="button button1">Publicar</button>
           </div>
@@ -40,7 +41,7 @@
   <!-- feed de postagem -->
   <hr class="mt-5">
   <h4 class="text-center text-white  my-5" style="text-shadow: 2px 2px 4px #000000;">Feed de postagens</h4>
-  <div class="row d-flex justify-content-center mb-5" *ngFor= 'let item of listaPostagens'>
+  <div class="row d-flex justify-content-center mb-5" *ngFor='let item of listaPostagens'>
     <div class="col-md-9 bg-white" id="formularioPostagem" style="padding-left: 64px; padding-right: 64px;">
       <div class="row">
         <div class="col-md-8 text-left pl-3 pr-0 ">
@@ -54,8 +55,9 @@
           <p class="text-left">{{item.conteudoPostagem}}</p>
           <p><small>Autor: {{item.instituicaoObj.nome}}</small></p>
           <p class="text-right pr-3"><small>
-            Postado em {{item.dataCriacaoPostagem | date: 'dd/MM/yyyy'}} às {{item.dataCriacaoPostagem | date: 'HH:mm'}}
-          </small></p>
+              Postado em {{item.dataCriacaoPostagem | date: 'dd/MM/yyyy'}} às
+              {{item.dataCriacaoPostagem | date: 'HH:mm'}}
+            </small></p>
         </div>
 
       </div>
@@ -66,6 +68,10 @@
   <div class="row d-flex justify-content-center mt-5 pb-5">
     <button>Carregar mais...</button>
   </div>
-    <!-- /feed de postagem -->
+  <!-- /feed de postagem -->
+  <div class="position-fixed-bottom" style="height:450px;" id="padrao2">
+
+  </div>
 </div>
+
 
