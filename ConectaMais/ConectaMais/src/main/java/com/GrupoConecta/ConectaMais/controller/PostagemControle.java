@@ -42,7 +42,7 @@ public class PostagemControle {
 		return ResponseEntity.ok(repositorio02.findAllByConteudoPostagemContainingIgnoreCase(conteudoPostagem));
 	}
 	
-	@GetMapping("/{titulo}")
+	@GetMapping("/titulo/{titulo}")
 	public ResponseEntity<List<Postagem>> PegueTitulo(@PathVariable String titulo){
 		return ResponseEntity.ok(repositorio02.findAllByTituloContainingIgnoreCase(titulo));
 	}
