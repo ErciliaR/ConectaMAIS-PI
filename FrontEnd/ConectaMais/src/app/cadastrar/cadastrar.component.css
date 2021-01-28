@@ -1,3 +1,4 @@
+
 #secao01 {
   /* fundo com a imagem */
   background-image: url("/assets/img/fig08.jpg");
@@ -71,8 +72,4 @@
 
 input:invalid {
   border: solid red 3px;
-}
-
-input:valid {
-  border: solid green 3px;
 }

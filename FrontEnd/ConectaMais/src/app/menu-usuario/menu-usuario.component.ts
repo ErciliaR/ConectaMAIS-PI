@@ -23,6 +23,7 @@ export class MenuUsuarioComponent implements OnInit {
     elemento1?.classList.toggle("active")
     elemento2?.classList.toggle("active")
     
+
   }
 
   irMinhasPost() {

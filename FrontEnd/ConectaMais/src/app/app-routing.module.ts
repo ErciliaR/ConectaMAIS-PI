@@ -18,7 +18,6 @@ const routes: Routes = [
   {path: 'apoie', component: ApoieComponent},
   {path: 'cadastrar', component: CadastrarComponent},
   {path: 'feed', component: MenuUsuarioComponent},
-  {path: 'minhas-postagens', component: MinhasPostagensComponent}
 ];
 
 @NgModule({

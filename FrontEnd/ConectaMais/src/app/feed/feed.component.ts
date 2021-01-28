@@ -11,7 +11,6 @@ import { PostagemService } from '../service/postagem.service';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit {
-
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
 
@@ -37,8 +36,6 @@ export class FeedComponent implements OnInit {
   temaSelect(event: any){
     this.temaSelecionado = event.target.value
   }
-
-  
 
   getAllPostagens(){
     this.postagemService.getAllPostagem().subscribe((resp: Postagem[])=>{

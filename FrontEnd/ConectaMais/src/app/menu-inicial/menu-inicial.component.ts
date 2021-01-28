@@ -23,7 +23,7 @@ export class MenuInicialComponent implements OnInit {
   scrollMenu(){
     window.addEventListener('scroll',  (event)=>{
       let nav = <HTMLElement>document.querySelector('#navbar-changing');
-      
+
       if ( 120 >  window.scrollY) {
         nav.style.backgroundColor = 'transparent';
       } else {
