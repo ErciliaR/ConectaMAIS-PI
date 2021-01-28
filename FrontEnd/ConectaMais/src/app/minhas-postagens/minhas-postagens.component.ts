@@ -53,7 +53,21 @@ export class MinhasPostagensComponent implements OnInit {
   }
 
   atualizar(){
+    this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem)=>{
+      this.postagem = resp
+      console.log(resp)
+      alert('Postagem atualizada com sucesso!')
+      this.findByIdUser()
+      this.findByIdPostagem(this.postagem.postagemID)
+    })
+  }
 
+  deletar(){
+    this.postagemService.deletePostagem(this.postagem.postagemID).subscribe(()=>{
+      alert('Postagem apagada com sucesso!')
+      this.findByIdUser()
+      this.findByIdPostagem(this.postagem.postagemID)
+    })
   }
   
 }
