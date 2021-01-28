@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 import { UserLogin } from '../model/UserLogin';
 import { AuthService } from '../service/auth.service';
 
@@ -24,7 +25,13 @@ export class LoginComponent implements OnInit {
   entrar(){
     this.auth.entrar(this.userLogin).subscribe((resp: UserLogin)=>{
       this.userLogin = resp
-      this.router.navigate(['/inicioFeed'])
+
+      environment.token = this.userLogin.token
+      environment.nome = this.userLogin.nome
+      environment.imagemPerfilURL = this.userLogin.imagemPerfilURL
+      environment.id = this.userLogin.id
+      
+      this.router.navigate(['/feed'])
     })
   }
 

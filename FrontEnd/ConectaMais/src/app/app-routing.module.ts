@@ -7,6 +7,8 @@ import { ApoieComponent } from './apoie/apoie.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 
 import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
+import { FeedComponent } from './feed/feed.component';
+import { MinhasPostagensComponent } from './minhas-postagens/minhas-postagens.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},

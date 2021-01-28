@@ -13,7 +13,7 @@ public class LoginUsuario {
 	
 	private String papel; //definir o tipo de usuario para questões de segurança {admin, usuarioInstituicao, usuarioComum}
 
-	private String foto;
+	private String imagemPerfilURL;
 	
 	private String token; //chave encriptografada
 
@@ -34,14 +34,12 @@ public class LoginUsuario {
 		this.id = id;
 	}
 
-	
-	
-	public String getFoto() {
-		return foto;
+	public String getImagemPerfilURL() {
+		return imagemPerfilURL;
 	}
 
-	public void setFoto(String foto) {
-		this.foto = foto;
+	public void setImagemPerfilURL(String imagemPerfilURL) {
+		this.imagemPerfilURL = imagemPerfilURL;
 	}
 
 	public String getEmail() {

@@ -10,13 +10,14 @@
           <a href="#" class="nav-link text-white text-uppercase">Perfil</a>
         </li>
         <li class="nav-item px-0 py-1">
-          <a href="#" class="nav-link text-white text-uppercase">Postagens</a>
+
+          <a  (click)="irMinhasPost()" type="button" class="nav-link text-white text-uppercase">Minhas postagens</a>
         </li>
         <li class="nav-item px-0 py-1">
           <a href="#" class="nav-link text-white text-uppercase">Comentários</a>
         </li>
         <li class="nav-item px-0 py-1">
-          <a href="#" class="nav-link text-white text-uppercase">Feed</a>
+          <a (click)='irFeed()' type="button" class="nav-link text-white text-uppercase">Feed</a>
         </li>
         <li class="nav-item pt-1 pb-4 px-0">
           <a class="btn btn-outline-secondary py-1 px-5 " routerLink='/entrar' style="font-size: medium;">SAIR</a>
@@ -46,8 +47,8 @@
 
   </div>
 
+  <button (click)="expandirMenu()" id="sidebarCollapse" type="button"
 
-  <button (click)="expandirMenu($event)" id="sidebarCollapse" type="button"
     class="media justify-content-center border-0 bg-transparent pt-5"
     style=" margin-top: 75px; margin-left: 45px; margin-right: 45px;">
     <img src="/assets/img/profile01.png" alt="..." class="m-0 p-2 rounded-circle img-fluid size-changing"
@@ -56,6 +57,8 @@
 
 
   <div class="page-content" id="content">
-    <app-feed></app-feed>
+
+    <app-feed *ngIf="showFeed"></app-feed>
+    <app-minhas-postagens *ngIf="showMyPost"></app-minhas-postagens>
   </div>
 </body>
