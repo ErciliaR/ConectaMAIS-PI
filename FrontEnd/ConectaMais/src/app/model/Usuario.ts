@@ -2,6 +2,7 @@ import { Comentario } from "./Comentario"
 import { Postagem } from "./Postagem"
 
 export class Usuario{
+    // atributos de usuario
     public usuarioID: number
     public nome: string
     public email: string
@@ -12,6 +13,10 @@ export class Usuario{
     public cidade: string
     public idadeMin: number
     public idadeMax: number
+    public escolaridadeMin: string
+    public generoSelecao: string
+    public tipo: string
+    // relacoes entre tabelas
     public comentarioObj: Comentario[]
     public postagemObj: Postagem[]
 }

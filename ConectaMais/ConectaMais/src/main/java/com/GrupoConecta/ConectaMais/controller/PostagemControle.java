@@ -22,7 +22,7 @@ import com.GrupoConecta.ConectaMais.repository.PostagemRepositorio;
 
 @RestController
 @RequestMapping("/postagem")
-@CrossOrigin(value="*", allowedHeaders="*")
+@CrossOrigin(origins="*", allowedHeaders="*")
 public class PostagemControle {
 	@Autowired
 	private PostagemRepositorio repositorio02;

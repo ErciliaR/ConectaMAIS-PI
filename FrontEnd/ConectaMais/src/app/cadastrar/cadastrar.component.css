@@ -1,9 +1,20 @@
+#secao01 {
+  /* fundo com a imagem */
+  background-image: url("/assets/img/fig08.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  margin: 0;
+  border: 0;
+  height: 650px;
+}
+
 .container-fluid {
-  background-color: #225555;
+  background-color: #007a80;
 }
 
 .pt2 {
-  background-color: #225555;
+  background-color: #007a80;
 }
 
 .quadrado1,
@@ -22,7 +33,7 @@
 }
 
 .usuario {
-  background-color: #007a80;
+  background-color: #225555;
   border-radius: 30px;
   height: max-content;
   color: white;
@@ -35,18 +46,17 @@
 }
 
 .style-button {
-  color: #225555 !important;
+  color: #007a80 !important;
   background-color: #fff !important;
-  border-color: #225555 !important;
+  border-color: #007a80 !important;
   font-weight: bolder;
   border-width: 3px !important;
-
 }
 
 .style-button:hover {
   color: white !important;
-  background-color: #225555 !important;
-  border-color: #225555 !important;
+  background-color: #007a80 !important;
+  border-color: #007a80 !important;
   font-weight: bolder;
   border-width: 3px !important;
 
@@ -57,4 +67,15 @@
   font-size: 50px;
   color: white;
   text-shadow: 5px 5px 20px black;
+<<<<<<< HEAD
+=======
+}
+
+input:invalid {
+  border: solid red 3px;
+}
+
+input:valid {
+  border: solid green 3px;
+>>>>>>> 2892ffe08266866f5bc0e54353611902b6235e75
 }
