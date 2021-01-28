@@ -10,10 +10,16 @@ import { AuthService } from '../service/auth.service';
 })
 export class CadastrarComponent implements OnInit {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 80f7351cc8c7c82cd63c96ee6164e855ecbbf44f
   usuario: Usuario = new Usuario()
   confirmarSenha: string
   papelUsuario: string
+  nivel: string
+  genSelecao: string
+  tipoAula: string
 
   showBlock : boolean = false;
 
@@ -27,9 +33,6 @@ export class CadastrarComponent implements OnInit {
     window.scroll(0,0);
 
   }
-  confirmSenha(event: any) {
-    this.confirmarSenha = event.target.value
-  }
 
   papelUser(event: any){
     this.papelUsuario = event.target.value
@@ -42,8 +45,30 @@ export class CadastrarComponent implements OnInit {
     }
   }
 
+  nivelEscolar(event: any){
+    this.nivel = event.target.value
+  }
+  generoSelect(event:any){
+    this.genSelecao = event.target.value
+  }
+
+  tipoEnsino(event: any){
+    this.tipoAula = event.target.value
+  }
+
+  confirmSenha(event: any) {
+    this.confirmarSenha = event.target.value
+  }
+
   cadastrar(){
     this.usuario.papel = this.papelUsuario
+    this.usuario.escolaridadeMin = this.nivel
+    this.usuario.generoSelecao = this.genSelecao
+    this.usuario.tipo = this.tipoAula
+
+    if (this.usuario.imagemPerfilURL == ""){
+      this.usuario.imagemPerfilURL = "../assests/img/profile.png"
+    }
 
     if(this.usuario.senha != this.confirmarSenha) {
       alert('As senhas devem ser iguais')
