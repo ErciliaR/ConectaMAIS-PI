@@ -15,6 +15,7 @@ import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 import { ApoieComponent } from './apoie/apoie.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { FeedComponent } from './feed/feed.component';
+import { MinhasPostagensComponent } from './minhas-postagens/minhas-postagens.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FeedComponent } from './feed/feed.component';
     MenuUsuarioComponent,
     ApoieComponent,
     CadastrarComponent,
-    FeedComponent
+    FeedComponent,
+    MinhasPostagensComponent
   ],
   imports: [
     BrowserModule,
