@@ -30,10 +30,30 @@ export class MinhasPostagensComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
+
+    window.addEventListener("click", function(event: any) {
+    if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+          }
+        }
+      }
+    });
+
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
     }
+    
     this.findByIdUser()
+  }
+
+  dropdowFunc(){
+     let element1 = document.getElementById("myDropdown")
+     element1?.classList.toggle("show");
   }
 
   temaSelect(event: any){

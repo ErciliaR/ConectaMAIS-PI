@@ -14,102 +14,101 @@
           <button (click)='findByIdPostagem(item.postagemID)' class="btn btn-danger" data-toggle="modal"
             data-target="#apagarPostagem">Apagar</button>
         </div>
-      </div>
-      <hr>
-      <div class="row  ml-3 mx-0">
-        <div class="col-md-12 p-0 ">
-          <p class="text-left">{{item.conteudoPostagem}}</p>
-          <p class="text-right pr-3"><small>
-              Postado em {{item.dataCriacaoPostagem | date: 'dd/MM/yyyy'}} às {{item.dataCriacaoPostagem |
+        <hr>
+        <div class="row  ml-3 mx-0">
+          <div class="col-md-12 p-0 ">
+            <p class="text-left">{{item.conteudoPostagem}}</p>
+            <p class="text-right pr-3"><small>
+                Postado em {{item.dataCriacaoPostagem | date: 'dd/MM/yyyy'}} às {{item.dataCriacaoPostagem |
                             date: 'HH:mm'}}
-            </small></p>
+              </small></p>
+          </div>
+
         </div>
 
       </div>
+    </div>
 
+    <div class="row d-flex justify-content-center mt-5 pb-5">
+      <button>Carregar mais...</button>
+    </div>
+    <!-- /minhas postagens -->
+    <div class="position-fixed-bottom" style="height: 450px;" id="padrao2">
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center mt-5 pb-5">
-    <button>Carregar mais...</button>
-  </div>
-  <!-- /minhas postagens -->
-  <div class="position-fixed-bottom" style="height: 450px;" id="padrao2">
-  </div>
-</div>
 
 
 
-
-<!-- Modal editar -->
-<div class="modal fade" id="editarPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">Editar Postagem</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <div class="form-group">
-          <label for="titulo">Título</label>
-          <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo"
-            placeholder="Digite o título">
+  <!-- Modal editar -->
+  <div class="modal fade" id="editarPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="TituloModalCentralizado">Editar Postagem</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
 
-        <div class="form-group">
-          <label for="texto">Texto</label>
-          <textarea [(ngModel)]='postagem.conteudoPostagem' class="form-control" name="texto" id="texto"
-            rows="3"></textarea>
-        </div>
+          <div class="form-group">
+            <label for="titulo">Título</label>
+            <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo"
+              placeholder="Digite o título">
+          </div>
 
-        <div class="form-group">
-          <label for="texto">Tema:</label>
-          <select [(ngModel)]='postagem.tema' (change)='temaSelect($event)' class="form-control" name="tema" id="tema">
-            <option>Escolha um tema novamente</option>
-            <option value="programa">Programa</option>
-            <option value="bootcamp">Bootcamp</option>
-            <option value="hackaton">Hackaton</option>
-            <option value="evento">Evento</option>
-            <option value="noticia">Noticia</option>
-          </select>
+          <div class="form-group">
+            <label for="texto">Texto</label>
+            <textarea [(ngModel)]='postagem.conteudoPostagem' class="form-control" name="texto" id="texto"
+              rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="texto">Tema:</label>
+            <select [(ngModel)]='postagem.tema' (change)='temaSelect($event)' class="form-control" name="tema"
+              id="tema">
+              <option value="Programa">Programa</option>
+              <option value="Bootcamp">Bootcamp</option>
+              <option value="Hackaton">Hackaton</option>
+              <option value="Evento">Evento</option>
+              <option value="Noticia">Noticia</option>
+            </select>
+
+          </div>
 
         </div>
-
-      </div>
-      <div class="modal-footer">
-        <button (click)='atualizar()' type="button" class="btn btn-info " data-dismiss="modal">Atualizar</button>
-        <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Cancelar</button>
+        <div class="modal-footer">
+          <button (click)='atualizar()' type="button" class="btn btn-info " data-dismiss="modal">Atualizar</button>
+          <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Cancelar</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- /Modal editar -->
+  <!-- /Modal editar -->
 
-<!-- Modal apagar -->
-<div class="modal fade" id="apagarPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">Apagar Postagem</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Tem certeza que deseja apagar esta postagem?<br><small>Os comentários relacionados a ele serão igualmente
-            apagados</small></p>
+  <!-- Modal apagar -->
+  <div class="modal fade" id="apagarPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="TituloModalCentralizado">Apagar Postagem</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Tem certeza que deseja apagar esta postagem?<br><small>Os comentários relacionados a ele serão igualmente
+              apagados</small></p>
 
-      </div>
-      <div class="modal-footer">
-        <button (click)='deletar()' type="button" class="btn btn-info " data-dismiss="modal">Sim</button>
-        <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Não</button>
+        </div>
+        <div class="modal-footer">
+          <button (click)='deletar()' type="button" class="btn btn-info " data-dismiss="modal">Sim</button>
+          <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Não</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- /Modal apagar -->
+  <!-- /Modal apagar -->

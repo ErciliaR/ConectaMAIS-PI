@@ -34,11 +34,12 @@
 }
 
 .usuario {
-  background-color: #225555;
+  background-color: white;
   border-radius: 30px;
   height: max-content;
-  color: white;
+  color: #007a80;
   font-size: 36px;
+  font-weight: bolder;
   text-align: center;
 }
 
@@ -72,4 +73,8 @@
 
 input:invalid {
   border: solid red 3px;
+}
+
+input:valid {
+  border: solid green 3px;
 }
