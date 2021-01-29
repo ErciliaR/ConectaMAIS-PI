@@ -1,11 +1,12 @@
 <div class="container-fluid" id="padrao1">
   <!-- formulario de publicação -->
-  <h4 class="text-center text-white mb-5 text-uppercase" style="padding-top: 135px; text-shadow: 2px 2px 4px #000000;"
-    *ngIf="showMsg1">Faça uma postagem para que os estudantes te encontrem.</h4>
+  <h4 *ngIf="showMsg1" class="text-center text-white mb-5 text-uppercase"
+    style="padding-top: 135px; text-shadow: 2px 2px 4px #000000;">Faça uma 
+    postagem para que os estudantes te encontrem</h4>
 
   <h4 *ngIf="showMsg2" class="text-center text-white mb-5 text-uppercase"
     style="padding-top: 135px; text-shadow: 2px 2px 4px #000000;">Faça um
-    comentario e interaja com suas instituições favoritas.</h4>
+    comentario e interaja com suas instituições favoritas</h4>
 
   <p class="text-center">
     <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
@@ -65,30 +66,35 @@
               {{item.dataCriacaoPostagem | date: 'HH:mm'}}
             </small>
           </p>
-          <p><a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
-              aria-expanded="false" aria-controls="collapseExample">
+          <p><a class="btn btn-primary" data-toggle="collapse" href="#collapseComentario" role="button"
+              aria-expanded="false" aria-controls="collapseComentario">
               Comentarios
             </a></p>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-              Some placeholder content for the collapse component. This panel is hidden by default but revealed when
-              the user activates the relevant trigger.
+          <div class="collapse" id="collapseComentario">
+            <div class="card card-body" *ngFor='let item of listaComentarios'>{{item.conteudoComentario}}
+              <p class="pr-3 d-flex justify-content-between">
+                <small class="text-left"> <b>Autor@: {{item.usuarioObj.nome}}</b></small>
+                <small class="text-right">Postado em {{item.dataCriacaoComentario | date: 'dd/MM/yyyy'}} às
+                  {{item.dataCriacaoComentario | date: 'HH:mm'}}</small>
+              </p>
             </div>
-            <p class="pr-3 d-flex justify-content-between">
-              <small class="text-left"> <b>Autor@: Fulano</b></small>
-              <small class="text-right">Postado em xxxxxx às xxxx</small>
-            </p>
+          </div>
+          <div class="input-group mb-3">
+            <input [(ngModel)]="comentario.conteudoComentario" (keyup)="findByPostagemId(item.postagemID)" type="text"
+              class="form-control" placeholder="Adicione um comentário...">
+            <div class="input-group-append">
+              <button (click)='comentar()' class="btn">Comentar</button>
+            </div>
           </div>
         </div>
 
       </div>
     </div>
 
-    <div class="row d-flex justify-content-center mt-5 pb-5">
-      <button>Carregar mais...</button>
-    </div>
-    <!-- /feed de postagem -->
-    <div class="position-fixed-bottom" style="height:450px;" id="padrao2">
-
-    </div>
   </div>
+  <div class="row d-flex justify-content-center mt-5 pb-5">
+    <button>Carregar mais...</button>
+  </div>
+  <!-- /feed de postagem -->
+  <div class="position-fixed-bottom" style="height:450px;" id="padrao2"></div>
+</div>

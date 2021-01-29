@@ -21,4 +21,8 @@ export class ComentarioService {
     return this.http.get<Comentario[]>('http://localhost:8080/comentario', this.token)
   }
   
+  postComentario(comentario: Comentario): Observable<Comentario>{
+    return this.http.post<Comentario>('http://localhost:8080/comentario', comentario, this.token)
+  }
+
 }

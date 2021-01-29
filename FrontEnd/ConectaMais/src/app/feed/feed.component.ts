@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import { Comentario } from '../model/Comentario';
 import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
 import { AuthService } from '../service/auth.service';
+import { ComentarioService } from '../service/comentario.service';
 import { PostagemService } from '../service/postagem.service';
 
 @Component({
@@ -16,11 +18,19 @@ export class FeedComponent implements OnInit {
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
 
+
+  comentario: Comentario = new Comentario()
+  listaComentarios: Comentario[]
+
   temaSelecionado: string
+  idPostagem: number
 
   usuario: Usuario = new Usuario()
   idUser = environment.id
   papelUser = environment.papel
+
+
+
   
   showMsg1:boolean = false
   showMsg2:boolean = false
@@ -28,6 +38,7 @@ export class FeedComponent implements OnInit {
   constructor(
     private router: Router,
     private postagemService: PostagemService,
+    private comentarioService: ComentarioService,
     private authService: AuthService,
     private route: ActivatedRoute
   ) { }
@@ -42,6 +53,8 @@ export class FeedComponent implements OnInit {
     this.papelUserIs()
     
     this.getAllPostagens()
+
+    this.getAllComentarios()
   
   }
 
@@ -55,13 +68,27 @@ export class FeedComponent implements OnInit {
     }
   }
 
-    temaSelect(event: any){
+  findByPostagemId(idPost:number){
+    this.idPostagem = idPost
+    this.postagemService.getByIdPostagem(idPost).subscribe((resp: Postagem)=>{
+      this.postagem = resp
+
+    })
+  }
+
+  temaSelect(event: any){
     this.temaSelecionado = event.target.value
   }
 
   getAllPostagens(){
     this.postagemService.getAllPostagem().subscribe((resp: Postagem[])=>{
       this.listaPostagens = resp
+    })
+  }
+
+  getAllComentarios(){
+    this.comentarioService.getAllComentario().subscribe((resp: Comentario[])=>{
+      this.listaComentarios = resp
     })
   }
 
@@ -77,5 +104,21 @@ export class FeedComponent implements OnInit {
       this.postagem = new Postagem()
       this.getAllPostagens()
     })
+  }
+
+  comentar(){
+    this.usuario.usuarioID = this.idUser
+    this.comentario.usuarioObj = this.usuario
+    this.postagem.postagemID = this.idPostagem
+    this.comentario.postagemObj = this.postagem
+
+    console.log(this.comentario)
+
+    // this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario)=>{
+    //   this.comentario = resp
+    //   alert('Comentário realizada com sucesso!')
+    //   this.comentario = new Comentario()
+    //   this.getAllComentarios()
+    // })
   }
 }
