@@ -8,7 +8,8 @@
       <ul class="nav flex-column pb-4 align-items-center" style="background-color: #1B3659;">
         <li class="nav-item px-0">
           <a (click)="irMeuPerfil()" [routerLink]="['/feed', idUser]" type="button"
-            class="nav-link text-white text-uppercase my-1">Meu perfil</a>
+            class="nav-link text-white text-uppercase my-1">Meu perfil</a> 
+            <!-- Precisamos corrigir URGENTE -->
         </li>
         <li class="nav-item px-0">
           <a (click)="irMinhasPost()" type="button" class="nav-link text-white text-uppercase my-1"
@@ -61,6 +62,6 @@
     <app-feed *ngIf="showFeed"></app-feed>
     <app-minhas-postagens *ngIf="showMyPost"></app-minhas-postagens>
     <app-perfil *ngIf="showMyProfile"></app-perfil>
-    
+
   </div>
 </body>

@@ -23,7 +23,7 @@ export class FeedComponent implements OnInit {
   listaComentarios: Comentario[]
 
   temaSelecionado: string
-  idPostagem: number
+  
 
   usuario: Usuario = new Usuario()
   idUser = environment.id
@@ -50,6 +50,8 @@ export class FeedComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
 
+    this.findByIdUser()
+
     this.papelUserIs()
     
     this.getAllPostagens()
@@ -68,11 +70,15 @@ export class FeedComponent implements OnInit {
     }
   }
 
-  findByPostagemId(idPost:number){
-    this.idPostagem = idPost
-    this.postagemService.getByIdPostagem(idPost).subscribe((resp: Postagem)=>{
-      this.postagem = resp
+  findByIdUser(){
+    this.authService.getByIdUser(this.idUser).subscribe((resp: Usuario)=>{
+      this.usuario = resp
+    })
+  }
 
+  findByIdPostagem(postagemID: number){
+    this.postagemService.getByIdPostagem(postagemID).subscribe((resp: Postagem)=>{
+      this.postagem = resp
     })
   }
 
@@ -108,18 +114,18 @@ export class FeedComponent implements OnInit {
 
   comentar(){
     this.usuario.usuarioID = this.idUser
-    this.postagem.postagemID = this.idPostagem
-    console.log(this.idPostagem)
+    
     this.comentario.postagemObj = this.postagem
     this.comentario.usuarioObj = this.usuario
 
-    
+    console.log(this.comentario)
+    this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario)=>{
+      this.comentario = resp
 
-    // this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario)=>{
-    //   this.comentario = resp
-    //   alert('Comentário realizada com sucesso!')
-    //   this.comentario = new Comentario()
-    //   this.getAllComentarios()
-    // })
+      alert('Comentário realizada com sucesso!')
+      this.comentario = new Comentario()
+      this.getAllPostagens()
+      this.getAllComentarios()
+    })
   }
 }
