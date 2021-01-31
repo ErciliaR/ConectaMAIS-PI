@@ -59,7 +59,7 @@ export class FeedComponent implements OnInit {
   }
 
    papelUserIs(){
-    if (this.papelUser == "usuarioInstituicao") {
+    if (this.papelUser == "Instituição") {
       this.showMsg1 = true
       this.showMsg2 = false
     } else {

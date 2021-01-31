@@ -78,3 +78,15 @@ input:invalid {
 input:valid {
   border: solid green 3px;
 }
+
+.textarea-wrapper {
+  position: relative;
+}
+
+.remaning {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  color: #007a80;
+  font-weight: bolder;
+}

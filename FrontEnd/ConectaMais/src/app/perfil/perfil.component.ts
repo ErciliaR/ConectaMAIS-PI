@@ -50,7 +50,7 @@ export class PerfilComponent implements OnInit {
   }
 
   papelUserIs(){
-    if (this.papelUser == "usuarioInstituicao") {
+    if (this.papelUser == "Instituição") {
     this.showBlock = true;    
     } else {
       this.showBlock = false; 

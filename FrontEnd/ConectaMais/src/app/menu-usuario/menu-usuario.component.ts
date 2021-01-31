@@ -34,12 +34,16 @@ export class MenuUsuarioComponent implements OnInit {
     
     this.findByIdUser()
 
+    if (this.imagemUser == null){
+      this.imagemUser = "/assets/img/profile01.png"
+    }
+
     this.papelUserIs()
   
   }
 
     papelUserIs(){
-    if (this.papelUser == "usuarioInstituicao") {
+    if (this.papelUser == "Instituição") {
       this.showBtn1 = true
     } else {
       this.showBtn1 = false
@@ -57,7 +61,7 @@ export class MenuUsuarioComponent implements OnInit {
   }
 
   findByIdUser(){
-    this.authService.getByIdUser(this.id).subscribe((resp: Usuario)=>{
+    this.authService.getByIdUser(this.idUser).subscribe((resp: Usuario)=>{
       this.usuario = resp
     })
   }
