@@ -1,4 +1,4 @@
-<div class="container-fluid" id="padrao1">
+<div class="container-fluid p-0" id="padrao1">
   <!-- minhas postagem -->
   <h4 class="text-center text-white mt-0 py-5" style="text-shadow: 2px 2px 4px #000000;">Minhas postagens</h4>
   <div class="row d-flex justify-content-center mb-5" *ngFor='let item of usuario.postagemObj'>
@@ -6,25 +6,20 @@
       <div class="row">
         <div class="col-md-8 text-left pl-3 pr-0 ">
           <h4 class="mt-3">{{item.titulo}}</h4>
-          <p class="mb-0">{{item.tema}}</p>
+          <p class="mb-0"><b>{{item.tema}}</b></p>
         </div>
         <div class="col-md-4 mx-0 mt-2 pr-3 d-flex align-self-center justify-content-end ">
-          <button (click)='findByIdPostagem(item.postagemID)' class="btn btn-info mr-3" data-toggle="modal"
-            data-target="#editarPostagem">Editar</button>
-          <button (click)='findByIdPostagem(item.postagemID)' class="btn btn-danger" data-toggle="modal"
-            data-target="#apagarPostagem">Apagar</button>
+          <button (click)='findByIdPostagem(item.postagemID)' class="btn rounded-circle mr-3" id="edit"
+            data-toggle="modal" data-target="#editarPostagem"><i class="fas fa-pencil-alt"></i></button>
+          <button (click)='findByIdPostagem(item.postagemID)' class="btn rounded-circle" id="alert" data-toggle="modal"
+            data-target="#apagarPostagem"><i class="fas fa-trash-alt"></i></button>
         </div>
         <hr>
-        <div class="row  ml-3 mx-0">
-          <div class="col-md-12 p-0 ">
-            <p class="text-left">{{item.conteudoPostagem}}</p>
-            <p class="text-right pr-3"><small>
-                Postado em {{item.dataCriacaoPostagem | date: 'dd/MM/yyyy'}} às {{item.dataCriacaoPostagem |
-                            date: 'HH:mm'}}
-              </small></p>
-          </div>
 
-        </div>
+        <p class="text-left ml-3">{{item.conteudoPostagem}}</p>
+        <p class="text-right ml-3 pr-3"><small>Postado em {{item.dataCriacaoPostagem | date: 'dd/MM/yyyy'}} às {{item.dataCriacaoPostagem |
+        date: 'HH:mm'}}
+        </small></p>
 
       </div>
     </div>
@@ -34,7 +29,7 @@
     <button>Carregar mais...</button>
   </div>
   <!-- /minhas postagens -->
-  <div class="position-fixed-bottom" style="height: 450px;" id="padrao2"></div>
+  <div class="position-fixed-bottom" style="height: 350px;" id="padrao2"></div>
 
 
 

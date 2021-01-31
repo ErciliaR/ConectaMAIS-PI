@@ -15,6 +15,7 @@ import { ApoieComponent } from './apoie/apoie.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { FeedComponent } from './feed/feed.component';
 import { MinhasPostagensComponent } from './minhas-postagens/minhas-postagens.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MinhasPostagensComponent } from './minhas-postagens/minhas-postagens.co
     ApoieComponent,
     CadastrarComponent,
     FeedComponent,
-    MinhasPostagensComponent
+    MinhasPostagensComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

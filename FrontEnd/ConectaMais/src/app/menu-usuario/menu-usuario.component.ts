@@ -20,6 +20,7 @@ export class MenuUsuarioComponent implements OnInit {
 
   showFeed: boolean = true
   showMyPost: boolean = false
+  showMyProfile: boolean = false
 
   showBtn1:boolean = false
 
@@ -56,7 +57,7 @@ export class MenuUsuarioComponent implements OnInit {
   }
 
   findByIdUser(){
-    this.authService.getByIdUser(this.idUser).subscribe((resp: Usuario)=>{
+    this.authService.getByIdUser(this.id).subscribe((resp: Usuario)=>{
       this.usuario = resp
     })
   }
@@ -64,11 +65,19 @@ export class MenuUsuarioComponent implements OnInit {
   irMinhasPost() {
     this.showFeed = false
     this.showMyPost = true
+    this.showMyProfile = false
   }
 
   irFeed() {
     this.showFeed = true
     this.showMyPost = false
+    this.showMyProfile = false
+  }
+
+  irMeuPerfil(){
+    this.showFeed = false
+    this.showMyPost = false
+    this.showMyProfile = true
   }
 
 }

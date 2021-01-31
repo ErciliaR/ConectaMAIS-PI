@@ -37,7 +37,35 @@
     background-color: #007A80;
     color: white;
   }
-  
+
+  #edit {
+    outline: black;
+    border: 1px solid;
+    background-color: transparent;
+    color: black;
+  }
+
+  #edit:hover {
+    outline: #007a80;
+    border: 1px solid;
+    background-color: #007a80;
+    color: white;
+  }
+
+  #alert {
+    outline: black;
+    border: 1px solid;
+    background-color: transparent;
+    color: black;
+  }
+
+  #alert:hover {
+    outline: red;
+    border: 1px solid;
+    background-color: red;
+    color: white;
+  }
+
   #formularioPostagem {
     border-radius: 20px;
   }
@@ -51,7 +79,7 @@
     height: max-content;
   }
 
-    #padrao2 {
+  #padrao2 {
        background-image: url("/assets/img/padrao2.png");
        background-repeat: no-repeat;
        background-size: 100%;

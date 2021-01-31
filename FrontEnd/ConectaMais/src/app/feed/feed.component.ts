@@ -108,11 +108,12 @@ export class FeedComponent implements OnInit {
 
   comentar(){
     this.usuario.usuarioID = this.idUser
-    this.comentario.usuarioObj = this.usuario
     this.postagem.postagemID = this.idPostagem
+    console.log(this.idPostagem)
     this.comentario.postagemObj = this.postagem
+    this.comentario.usuarioObj = this.usuario
 
-    console.log(this.comentario)
+    
 
     // this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario)=>{
     //   this.comentario = resp

@@ -1,0 +1,92 @@
+<div class="container-fluid p-0" id="padrao1">
+
+
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10 mt-5  mb-5 usuario">
+    <h2 class="mt-5">Seus dados</h2>
+    <div class="col-md-12">
+      <div class="form-group was-validated">
+        <label for="nome" class="d-flex ">Nome:</label>
+        <input [(ngModel)]="usuario.nome" class="form-control mb-3" type="text" name="nome " id="nome"
+          placeholder="Seu nome" required>
+
+        <label for="email" class="d-flex ">Email:</label>
+        <input [(ngModel)]="usuario.email" class="form-control mb-3" type="email" name="email " id="email"
+          placeholder="Seu email" required>
+
+      <!-- instituiçao for selecionada -->
+      <div class="form-group" *ngIf="showBlock">
+        <label for="descricao" class="d-flex ">Descrição:</label>
+        <input [(ngModel)]="usuario.descricao" class="form-control" type="text" name="descricao" id="descricao"
+          placeholder="Descreva os valores e objetivos da instituição">
+      </div>
+      <div class="form-group" *ngIf="showBlock">
+        <label for="cidade" class="d-flex ">Cidade:</label>
+        <input [(ngModel)]="usuario.cidade" class=" form-control" type="text" name="cidade" id="cidade"
+          placeholder="Locais de atuação">
+      </div>
+      <div class="form-group" *ngIf="showBlock">
+        <label for="idadeMin" class="d-flex ">Idade mínima de participantes:</label>
+        <input [(ngModel)]="usuario.idadeMin" class="form-control" type="number" min="0" name="IdadeMin" id="IdadeMin"
+          placeholder="Entre com número">
+      </div>
+      <div class="form-group" *ngIf="showBlock">
+        <label for="idadeMax" class="d-flex ">Idade máxima de participantes:</label>
+        <input [(ngModel)]="usuario.idadeMax" class="form-control" type="number" min="0" name="IdadeMax" id="IdadeMax"
+          placeholder="Entre com número">
+      </div>
+      <div class="form-group" *ngIf="showBlock">
+        <label for="escolaridade" class="d-flex ">Escolaridade mínima de participantes:</label>
+        <select [(ngModel)]="usuario.escolaridadeMin" (change)="nivelEscolar($event)" class="form-control"
+          name="escolaridadeMin" id="escolaridadeMin">
+          <option> Selecione uma escolaridade mínima</option>
+          <option value="medioIncompleto">Ensino médio incompleto</option>
+          <option value="medioCompleto"> Ensino médio completo</option>
+          <option value="superiorIncompleto">Ensino superior incompleto</option>
+        </select>
+      </div>
+      <div class="form-group" *ngIf="showBlock">
+        <label for="genero" class="d-flex ">Gênero de participantes:</label>
+        <select [(ngModel)]="usuario.generoSelecao" (change)="generoSelect($event)" class="form-control"
+          name="generoSelecao" id="generoSelecao">
+          <option> Selecione um gênero foco</option>
+          <option value="feminino">Feminino CIS e TRANS</option>
+          <option value="masculino">Masculino CIS e TRANS</option>
+          <option value="todos">Todos os gêneros</option>
+        </select>
+      </div>
+      <div class="form-group" *ngIf="showBlock">
+        <label for="tipo" class="d-flex ">Tipo de ensino:</label>
+        <select [(ngModel)]="usuario.tipo" (change)="tipoEnsino($event)" class="form-control" name="tipo"
+          id="tipo">
+          <option> Selecione uma forma de ensino</option>
+          <option value="presencial">Presencial</option>
+          <option value="ead">EAD</option>
+          <option value="presencial&ead">Presencial ou EAD</option>
+        </select>
+      </div>
+      <!-- /instituiçao for selecionada -->
+      <div class="form-group">
+        <label for="imagem" class="d-flex ">Imagem do perfil:</label>
+        <input [(ngModel)]="usuario.imagemPerfilURL" class="form-control" type="text" name="imagem " id="imagem"
+          placeholder="URL da imagem">
+      </div>
+      <div class="form-group was-validated">
+        <label for="senha" class="d-flex ">Senha:</label>
+        <input (input)="confirmSenha($event)" class="form-control" type="password" name="senha " id="senha"
+          placeholder="Sua senha" required>
+      </div>
+      <div class="form-group was-validated">
+        <label for="confirmSenha" class="d-flex ">Confirme sua senha:</label>
+        <input [(ngModel)]="usuario.senha" class="form-control" type="password" name="confirmSenha " id="confirmSenha"
+          placeholder="Repita a senha" required>
+      </div>
+      <div class="d-flex justify-content-end pb-5">
+        <button (click)="atualizar()" type="submit" class="btn btn-success style-button">Atualizar</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="position-fixed-bottom" style="height: 350px;" id="padrao2"></div>

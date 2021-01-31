@@ -1,7 +1,7 @@
-<div class="container-fluid" id="padrao1">
+<div class="container-fluid p-0" id="padrao1">
   <!-- formulario de publicação -->
   <h4 *ngIf="showMsg1" class="text-center text-white mb-5 text-uppercase"
-    style="padding-top: 135px; text-shadow: 2px 2px 4px #000000;">Faça uma 
+    style="padding-top: 135px; text-shadow: 2px 2px 4px #000000;">Faça uma
     postagem para que os estudantes te encontrem</h4>
 
   <h4 *ngIf="showMsg2" class="text-center text-white mb-5 text-uppercase"
@@ -79,22 +79,23 @@
               </p>
             </div>
           </div>
-          <div class="input-group mb-3">
-            <input [(ngModel)]="comentario.conteudoComentario" (keyup)="findByPostagemId(item.postagemID)" type="text"
-              class="form-control" placeholder="Adicione um comentário...">
-            <div class="input-group-append">
-              <button (click)='comentar()' class="btn">Comentar</button>
-            </div>
-          </div>
         </div>
-
+      </div>
+      <div class="input-group mb-3">
+        <input [(ngModel)]="comentario.conteudoComentario" (blur)="findByPostagemId(item.postagemID)" type="text"
+          class="form-control" placeholder="Adicione um comentário...">
+        <div class="input-group-append">
+          <button (click)='comentar()' class="btn">Comentar</button>
+        </div>
       </div>
     </div>
-
   </div>
+
+
   <div class="row d-flex justify-content-center mt-5 pb-5">
     <button>Carregar mais...</button>
   </div>
+
   <!-- /feed de postagem -->
-  <div class="position-fixed-bottom" style="height:450px;" id="padrao2"></div>
+  <div class="position-fixed-bottom" style="height:350px;" id="padrao2"></div>
 </div>
