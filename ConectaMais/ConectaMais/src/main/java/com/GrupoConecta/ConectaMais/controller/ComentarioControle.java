@@ -22,7 +22,7 @@ import com.GrupoConecta.ConectaMais.repository.ComentarioRepositorio;
 
 @RestController
 @RequestMapping("/comentario")
-@CrossOrigin(value="*", allowedHeaders="*")
+@CrossOrigin(origins="*", allowedHeaders="*")
 public class ComentarioControle {
 	@Autowired
 	private ComentarioRepositorio repositorio03;
