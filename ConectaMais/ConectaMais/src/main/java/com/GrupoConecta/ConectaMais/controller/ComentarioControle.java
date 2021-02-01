@@ -3,10 +3,8 @@ package com.GrupoConecta.ConectaMais.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.GrupoConecta.ConectaMais.model.Comentario;
+import com.GrupoConecta.ConectaMais.model.Postagem;
 import com.GrupoConecta.ConectaMais.repository.ComentarioRepositorio;
 
 @RestController
@@ -39,6 +38,11 @@ public class ComentarioControle {
 	@GetMapping("/conteudo/{conteudoComentario}")
 	public ResponseEntity<List<Comentario>> PegueConteudo(@PathVariable String conteudoComentario){
 		return ResponseEntity.ok(repositorio03.findAllByConteudoComentarioContainingIgnoreCase(conteudoComentario));
+	}
+	
+	@GetMapping("/comentarioPorPostagem/{postId}")
+	public ResponseEntity<List<Comentario>> PegueConteudo(@PathVariable long postId){
+		return ResponseEntity.ok(repositorio03.findAllComentarioByPostagemID(postId));
 	}
 	
 	@PostMapping

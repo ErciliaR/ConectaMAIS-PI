@@ -14,10 +14,13 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="tb_comentario")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "comentarioID")
 public class Comentario {
 	/* atributos */
 	@Id
@@ -40,11 +43,11 @@ public class Comentario {
 
 	/* relação entre tabelas */
 	@ManyToOne //declaração de relacionamento entre tabelas: comentário e usuário
-	@JsonIgnoreProperties("comentarioObj") //declaraçao de chave estrageira da tabela, ignorando coluna comentário em tabela usuário
+	@JsonIgnoreProperties(value = {"comentarioObj"},  allowSetters = true) //declaraçao de chave estrageira da tabela, ignorando coluna comentário em tabela usuário
 	private Usuario usuarioObj; //indicação do usuário que fez o comentário
 	
 	@ManyToOne //declaração de relacionamento entre tabelas: comentário e postagem
-	@JsonIgnoreProperties("comentarioObj") //declaraçao de chave estrageira da tabela, ignorando coluna comentário em tabela postagem
+	//@JsonIgnoreProperties(value = {"comentarioObj"},  allowSetters = true) //declaraçao de chave estrageira da tabela, ignorando coluna comentário em tabela postagem
 	private Postagem postagemObj; //indicação da postagem na qual o comentário foi feito
 
 	/* método */

@@ -23,8 +23,11 @@ public class UserService {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
 		Optional<Usuario> usuarioPresente = usuarioRepositorio.findByEmail(usuario.getEmail()); 
+		
+		if(usuario.getUsuarioID() == 0) {
 		if(usuarioPresente.isPresent()) {
 			return null; // verificando se o email já existe. Se sim, retorne vazio
+			}
 		}
 
 		String senhaEncoder = encoder.encode(usuario.getSenha());
