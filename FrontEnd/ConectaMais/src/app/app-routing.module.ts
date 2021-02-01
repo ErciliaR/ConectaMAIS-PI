@@ -15,8 +15,6 @@ const routes: Routes = [
   {path: 'conheca', component: ConhecaInstComponent},
   {path: 'apoie', component: ApoieComponent},
   {path: 'cadastrar', component: CadastrarComponent},
-  {path: 'feed', component: MenuUsuarioComponent},
-
   {path: 'feed/:{idUser}', component: MenuUsuarioComponent},
 
 ];

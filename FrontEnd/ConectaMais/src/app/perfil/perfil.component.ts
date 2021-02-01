@@ -14,6 +14,7 @@ export class PerfilComponent implements OnInit {
   usuario: Usuario = new Usuario()
   idUser = environment.id
   papelUser = environment.papel
+  senhaUser : string
 
   confirmarSenha: string
   papelUsuario: string
@@ -36,6 +37,9 @@ export class PerfilComponent implements OnInit {
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
     }
+
+    this.senhaUser = ""
+    this.confirmarSenha = ""
 
     this.findByIdUser(this.idUser)
 
@@ -72,29 +76,21 @@ export class PerfilComponent implements OnInit {
     this.confirmarSenha = event.target.value
   }
 
-  // validaAssunto(assunto: string){
-
-  //   let txtConteudo = <HTMLElement>document.getElementById('txtConteudo')
-
-  //   if (assunto.length > 500){
-  //       txtConteudo.innerHTML =  "Caracteres acima do permitido: " + (assunto.length-500)
-  //       txtConteudo.style.color = 'red'
-  //   }
-  //   else{
-  //       txtConteudo.innerHTML = 'restam ' + (500-assunto.length) + " caracteres"
-  //       txtConteudo.style.color = 'green'
-  //   }
-  // }
-
   atualizar(){
     this.usuario.papel = this.papelUser
 
-    console.log(this.usuario)
+    if(this.confirmarSenha == ""){
+      this.confirmarSenha = this.usuario.senha
+      this.senhaUser = this.usuario.senha
+    } 
 
-    if (this.usuario.senha != this.confirmarSenha) {
-      alert('As senhas não são iguais')
-    } else {
-      this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
+    console.log(this.confirmarSenha)
+    console.log(this.senhaUser)
+
+     if (this.senhaUser != this.confirmarSenha) {
+       alert('As senhas não são iguais')
+     } else {
+       this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
         alert('Usuário atualizado com sucesso, faça o login novamente.')
         environment.token = ''

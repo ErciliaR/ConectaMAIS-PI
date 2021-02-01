@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       environment.id = this.userLogin.id
       environment.papel = this.userLogin.papel
       
-      this.router.navigate(['/feed'])
+      this.router.navigate(['/feed/:{idUser}'])
     })
   }
 
