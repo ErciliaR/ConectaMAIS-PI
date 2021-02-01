@@ -19,6 +19,7 @@ export class FeedComponent implements OnInit {
   listaPostagens: Postagem[]
 
 
+
   comentario: Comentario = new Comentario()
   listaComentarios: Comentario[]
 
@@ -55,8 +56,6 @@ export class FeedComponent implements OnInit {
     this.papelUserIs()
     
     this.getAllPostagens()
-
-    this.getAllComentarios()
   
   }
 
@@ -89,11 +88,15 @@ export class FeedComponent implements OnInit {
   getAllPostagens(){
     this.postagemService.getAllPostagem().subscribe((resp: Postagem[])=>{
       this.listaPostagens = resp
+      this.listaPostagens.forEach((item)=> {
+        this.getAllComentariosPorPostagens(item.postagemID)
+      })
+      
     })
   }
 
-  getAllComentarios(){
-    this.comentarioService.getAllComentario().subscribe((resp: Comentario[])=>{
+  getAllComentariosPorPostagens(postId: number){
+    this.comentarioService.getAllComentarioPorPostagem(postId).subscribe((resp: Comentario[])=>{
       this.listaComentarios = resp
     })
   }
@@ -104,7 +107,9 @@ export class FeedComponent implements OnInit {
     this.usuario.usuarioID = this.idUser
     this.postagem.instituicaoObj = this.usuario
 
+    console.log(this.postagem)
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
+      console.log(this.postagem)
       this.postagem = resp
       alert('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
@@ -120,12 +125,10 @@ export class FeedComponent implements OnInit {
 
     console.log(this.comentario)
     this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario)=>{
-      this.comentario = resp
-
+      console.log(this.comentario)
       alert('Comentário realizada com sucesso!')
       this.comentario = new Comentario()
       this.getAllPostagens()
-      this.getAllComentarios()
     })
   }
 }

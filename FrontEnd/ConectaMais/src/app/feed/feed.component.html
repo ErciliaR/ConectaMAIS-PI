@@ -71,17 +71,17 @@
               Comentarios
             </a></p>
           <div class="collapse" id="collapseComentario">
-            <div class="card card-body" *ngFor='let item of listaComentarios'>{{item.conteudoComentario}}
+            <div class="card card-body" *ngFor='let comment of listaComentarios'>{{comment.conteudoComentario}}
               <p class="pr-3 d-flex justify-content-between">
-                <small class="text-left"> <b>Autor@: {{item.usuarioObj.nome}}</b></small>
-                <small class="text-right">Postado em {{item.dataCriacaoComentario | date: 'dd/MM/yyyy'}} às
-                  {{item.dataCriacaoComentario | date: 'HH:mm'}}</small>
+                <small class="text-left"> <b>Autor@: {{comment.usuarioObj.nome}}</b></small>
+                <small class="text-right">Postado em {{comment.dataCriacaoComentario | date: 'dd/MM/yyyy'}} às
+                  {{comment.dataCriacaoComentario | date: 'HH:mm'}}</small>
               </p>
             </div>
-            <div>
+            <!-- <div>
               <button (click)='findByIdPostagem(item.postagemID)' class="btn rounded-circle" id="edit"
                 data-toggle="modal" data-target="#comentarPostagem"><i class="fas fa-comment-dots"></i></button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -130,6 +130,3 @@
   <!-- /feed de postagem -->
   <div class="position-fixed-bottom m-0" style="height:350px;" id="padrao2"></div>
 </div>
-
-
-
