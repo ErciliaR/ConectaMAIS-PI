@@ -1,10 +1,10 @@
 <div class="container-fluid p-0 m-0" id="padrao1">
   <!-- formulario de publicação -->
-  <h4 *ngIf="showMsg1" class="text-center text-white mb-5 text-uppercase"
+  <h4 *ngIf="showMsg1" class="w3-animate-top text-center text-white mb-5 text-uppercase"
     style="padding-top: 135px; text-shadow: 2px 2px 4px #000000;">Faça uma
     postagem para que os estudantes te encontrem</h4>
 
-  <h4 *ngIf="showMsg2" class="text-center text-white mb-5 text-uppercase"
+  <h4 *ngIf="showMsg2" class="w3-animate-top text-center text-white mb-5 text-uppercase"
     style="padding-top: 135px; text-shadow: 2px 2px 4px #000000;">Faça um
     comentario e interaja com suas instituições favoritas</h4>
 
@@ -71,17 +71,17 @@
               Comentarios
             </a></p>
           <div class="collapse" id="collapseComentario">
-            <div class="card card-body" *ngFor='let comment of listaComentarios'>{{comment.conteudoComentario}}
+            <div class="card card-body" *ngFor='let comment of postagemComComentario'>{{comment.conteudoComentario}}
               <p class="pr-3 d-flex justify-content-between">
                 <small class="text-left"> <b>Autor@: {{comment.usuarioObj.nome}}</b></small>
                 <small class="text-right">Postado em {{comment.dataCriacaoComentario | date: 'dd/MM/yyyy'}} às
                   {{comment.dataCriacaoComentario | date: 'HH:mm'}}</small>
               </p>
             </div>
-            <!-- <div>
+            <div>
               <button (click)='findByIdPostagem(item.postagemID)' class="btn rounded-circle" id="edit"
                 data-toggle="modal" data-target="#comentarPostagem"><i class="fas fa-comment-dots"></i></button>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>

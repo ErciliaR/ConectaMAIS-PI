@@ -17,11 +17,13 @@ export class FeedComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
+  postagemComComentario: any[]
 
 
 
   comentario: Comentario = new Comentario()
   listaComentarios: Comentario[]
+  listaMarceloQuer: Comentario[]
 
   temaSelecionado: string
   
@@ -86,20 +88,29 @@ export class FeedComponent implements OnInit {
   }
 
   getAllPostagens(){
+    this.postagemComComentario = []
     this.postagemService.getAllPostagem().subscribe((resp: Postagem[])=>{
       this.listaPostagens = resp
-      this.listaPostagens.forEach((item)=> {
-        this.getAllComentariosPorPostagens(item.postagemID)
+      this.listaPostagens.map((item)=> {
+        console.log(item.postagemID)
+        this.comentarioService.getAllComentarioPorPostagem(item.postagemID).subscribe((resp: Comentario[])=>{
+         this.postagem = item
+          this.postagem.comentarioObj = resp
+          console.log(this.postagem)
+        })
+        this.postagemComComentario.push(this.postagem)
+        this.postagem = new Postagem()
       })
-      
+      console.log(this.postagemComComentario)
     })
+
   }
 
-  getAllComentariosPorPostagens(postId: number){
-    this.comentarioService.getAllComentarioPorPostagem(postId).subscribe((resp: Comentario[])=>{
-      this.listaComentarios = resp
-    })
-  }
+  // getAllComentariosPorPostagens(postId: number) {
+  //   this.comentarioService.getAllComentarioPorPostagem(postId).subscribe((resp: Comentario[])=>{
+  //     this.listaMarceloQuer = resp
+  //   })
+  // }
 
   publicar(){
     this.postagem.tema = this.temaSelecionado
