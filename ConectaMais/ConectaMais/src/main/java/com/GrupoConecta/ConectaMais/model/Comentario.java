@@ -47,7 +47,7 @@ public class Comentario {
 	private Usuario usuarioObj; //indicação do usuário que fez o comentário
 	
 	@ManyToOne //declaração de relacionamento entre tabelas: comentário e postagem
-	//@JsonIgnoreProperties(value = {"comentarioObj"},  allowSetters = true) //declaraçao de chave estrageira da tabela, ignorando coluna comentário em tabela postagem
+	@JsonIgnoreProperties(value = {"comentarioObj"},  allowSetters = true) //declaraçao de chave estrageira da tabela, ignorando coluna comentário em tabela postagem
 	private Postagem postagemObj; //indicação da postagem na qual o comentário foi feito
 
 	/* método */
