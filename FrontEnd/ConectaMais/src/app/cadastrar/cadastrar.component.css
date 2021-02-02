@@ -67,8 +67,6 @@
   font-size: 50px;
   color: white;
   text-shadow: 5px 5px 20px black;
-<<<<<<< HEAD
-=======
 }
 
 input:invalid {
@@ -77,5 +75,4 @@ input:invalid {
 
 input:valid {
   border: solid green 3px;
->>>>>>> 2892ffe08266866f5bc0e54353611902b6235e75
 }
