@@ -92,17 +92,17 @@ export class FeedComponent implements OnInit {
     this.postagemComComentario = []
     this.postagemService.getAllPostagem().subscribe((resp: Postagem[])=>{
       this.listaPostagens = resp
-      this.listaPostagens.map((item)=> {
+      // this.listaPostagens.map((item)=> {
         
-        this.comentarioService.getAllComentarioPorPostagem(item.postagemID).subscribe((resp: Comentario[])=>{
-         this.postagem = item
-         this.postagemComComentario = resp
-         console.log(this.postagemComComentario)
-        })
-        this.postagemComComentario.push(this.comentario)
-        this.comentario = new Comentario()
+        // this.comentarioService.getAllComentarioPorPostagem(item.postagemID).subscribe((resp: Comentario[])=>{
+        //  this.postagem = item
+        //  this.postagemComComentario = resp
+        //  console.log(this.postagemComComentario)
+        // })
+        // this.postagemComComentario.push(this.comentario)
+        // this.comentario = new Comentario()
         this.postagem = new Postagem()
-      })
+      
       
     })
 

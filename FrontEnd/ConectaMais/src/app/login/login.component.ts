@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
       environment.imagemPerfilURL = this.userLogin.imagemPerfilURL
       environment.id = this.userLogin.id
       environment.papel = this.userLogin.papel
+      environment.senha = this.userLogin.senha
       
       this.router.navigate(['/feed/:{idUser}'])
     })

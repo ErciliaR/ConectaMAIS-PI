@@ -14,16 +14,16 @@ export class PerfilComponent implements OnInit {
   usuario: Usuario = new Usuario()
   idUser = environment.id
   papelUser = environment.papel
-  senhaUser : string
 
   confirmarSenha: string
   papelUsuario: string
   nivel: string
   genSelecao: string
   tipoAula: string
-  
+  flagSenha: boolean
 
-  showBlock : boolean = false;
+
+  showBlock: boolean = false;
 
   constructor(
     private router: Router,
@@ -32,43 +32,41 @@ export class PerfilComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
+    window.scroll(0, 0)
 
-    if(environment.token == ''){
+    if (environment.token == '') {
       this.router.navigate(['/entrar'])
     }
 
-    this.senhaUser = ""
-    this.confirmarSenha = ""
-
     this.findByIdUser(this.idUser)
 
+    this.flagSenha = false
     this.papelUserIs()
   }
 
-  findByIdUser(id: number){
-    this.authService.getByIdUser(id).subscribe((resp: Usuario)=>{
+  findByIdUser(id: number) {
+    this.authService.getByIdUser(id).subscribe((resp: Usuario) => {
       this.usuario = resp
-      
+
     })
   }
 
-  papelUserIs(){
+  papelUserIs() {
     if (this.papelUser == "Instituição") {
-    this.showBlock = true;    
+      this.showBlock = true;
     } else {
-      this.showBlock = false; 
+      this.showBlock = false;
     }
   }
 
-  nivelEscolar(event: any){
+  nivelEscolar(event: any) {
     this.nivel = event.target.value
   }
-  generoSelect(event:any){
+  generoSelect(event: any) {
     this.genSelecao = event.target.value
   }
 
-  tipoEnsino(event: any){
+  tipoEnsino(event: any) {
     this.tipoAula = event.target.value
   }
 
@@ -76,29 +74,31 @@ export class PerfilComponent implements OnInit {
     this.confirmarSenha = event.target.value
   }
 
-  atualizar(){
+  atualizar() {
     this.usuario.papel = this.papelUser
 
-    if(this.confirmarSenha == ""){
-      this.confirmarSenha = this.usuario.senha
-      this.senhaUser = this.usuario.senha
-    } 
-
     console.log(this.confirmarSenha)
-    console.log(this.senhaUser)
+    if (this.flagSenha == false) {
+      this.usuario.senha = environment.senha
+    }
 
-     if (this.senhaUser != this.confirmarSenha) {
-       alert('As senhas não são iguais')
-     } else {
-       this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
-        this.usuario = resp
-        alert('Usuário atualizado com sucesso, faça o login novamente.')
-        environment.token = ''
-        environment.nome = ''
-        environment.imagemPerfilURL = ''
-        environment.id = 0
-        this.router.navigate(['/entrar'])
-      })
+    this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
+      this.usuario = resp
+      alert('Usuário atualizado com sucesso, faça o login novamente.')
+      environment.token = ''
+      environment.nome = ''
+      environment.imagemPerfilURL = ''
+      environment.id = 0
+      this.router.navigate(['/entrar'])
+    })
+
+  }
+
+  alterarSenha() {
+    if (this.usuario.senha != this.confirmarSenha) {
+      alert('As senhas não são iguais')
+    } else {
+      this.flagSenha = true
     }
   }
 

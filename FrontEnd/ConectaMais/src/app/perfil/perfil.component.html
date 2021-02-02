@@ -15,8 +15,8 @@
           <input [(ngModel)]="usuario.email" class="form-control mb-3" type="email" name="email " id="email"
             placeholder="Seu email" required>
 
-           <label for="papel" class="d-flex ">Tipo de usuário:</label>
-           <input disabled [(ngModel)]="usuario.papel" class="form-control" id="papel">
+          <label for="papel" class="d-flex ">Tipo de usuário:</label>
+          <input disabled [(ngModel)]="usuario.papel" class="form-control" id="papel">
 
           <!-- instituiçao for selecionada -->
           <div class="form-group" *ngIf="showBlock">
@@ -74,18 +74,11 @@
             <input [(ngModel)]="usuario.imagemPerfilURL" class="form-control" type="text" name="imagem " id="imagem"
               placeholder="URL da imagem">
           </div>
-          <div class="form-group was-validated">
-            <label for="senha" class="d-flex ">Senha:</label>
-            <input (input)="confirmSenha($event)" class="form-control" type="password" name="senha " id="senha"
-              placeholder="Digite a nova senha ou deixe em branco para continuar a mesma">
-          </div>
-          <div class="form-group was-validated">
-            <label for="confirmSenha" class="d-flex ">Confirme sua senha:</label>
-            <input [(ngModel)]="senhaUser" class="form-control" type="password" name="confirmSenha "
-              id="confirmSenha" placeholder="Repita a nova senha se for atualiza-lá">
-          </div>
+          <a href="#"  data-toggle="modal" data-target="#alteraSenha">
+            <small id="trocaSenha" class="form-text text-muted text-left">Clique aqui para alterar a senha.</small>
+          </a>
           <div class="d-flex justify-content-end pb-5">
-            <button (click)="atualizar()" type="submit" class="btn btn-success style-button">Atualizar</button>
+            <button (click)='atualizar()' type="submit" class="btn btn-success style-button">Atualizar</button>
           </div>
         </div>
       </div>
@@ -95,3 +88,57 @@
   <div class="position-fixed-bottom m-0" style="height: 350px;" id="padrao2"></div>
 
 </div>
+
+
+
+
+
+
+
+
+<!-- Modal altera senha -->
+<div class="modal fade" id="alteraSenha" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Alterar senha</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="senha">Senha:</label>
+          <input (input)="confirmSenha($event)" class="form-control" type="password" name="senha " id="senha"
+            placeholder="Digite a nova senha">
+        </div>
+
+        <div class="form-group">
+          <label for="confirmSenha">Confirme sua senha:</label>
+          <input [(ngModel)]="usuario.senha" class="form-control" type="password" name="confirmSenha " id="confirmSenha"
+            placeholder="Repita a nova senha">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button (click)='alterarSenha()' type="button" class="btn btn-info " data-dismiss="modal">Alterar</button>
+        <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal altera senha -->
+
+
+
+<!-- <div class="form-group was-validated">
+            <label for="senha" class="d-flex ">Senha:</label>
+            <input (input)="confirmSenha($event)" class="form-control" type="password" name="senha " id="senha"
+              placeholder="Digite a nova senha ou deixe em branco para continuar a mesma">
+          </div>
+          <div class="form-group was-validated">
+            <label for="confirmSenha" class="d-flex ">Confirme sua senha:</label>
+            <input [(ngModel)]="usuario.senha" class="form-control" type="password" name="confirmSenha "
+              id="confirmSenha" placeholder="Repita a nova senha se for atualiza-lá">
+          </div> -->

@@ -33,8 +33,8 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/usuario/logar").permitAll()
 		.antMatchers("/usuario/cadastrar").permitAll()
 		.antMatchers("/usuario/{id}").permitAll()
-//		.antMatchers("/postagem/{postagemID}").permitAll()
-//		.antMatchers("/comentario/{comentarioID}").permitAll()
+		.antMatchers("/postagem/{postagemID}").permitAll()
+		.antMatchers("/comentario/{comentarioID}").permitAll()
 		.anyRequest().authenticated()
 		.and().httpBasic()
 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // auteticar a cada sessão
