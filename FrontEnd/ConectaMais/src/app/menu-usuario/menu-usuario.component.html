@@ -2,24 +2,27 @@
   <div class="vertical-nav d-flex flex-column justify-content-between fixed" id="sidebar">
     <div class="p-0 bg-transparent">
       <div class="media-body" style="color: #FF914D; background-color: #007A80; margin-top: 160px;">
-        <h4 class="m-0 mb-2 py-2 text-center font-weight-bold" style="letter-spacing: 0.2mm;">Ercilia Regina</h4>
+        <h4 class="m-0 mb-2 py-2 text-center font-weight-bold" style="letter-spacing: 0.2mm;">{{nomeUser}}</h4>
       </div>
 
       <ul class="nav flex-column pb-4 align-items-center" style="background-color: #1B3659;">
-        <li class="nav-item px-0 py-1">
-          <a href="#" class="nav-link text-white text-uppercase">Perfil</a>
+        <li class="nav-item px-0">
+          <a (click)="irMeuPerfil()" [routerLink]="['/feed', idUser]" type="button"
+            class="nav-link text-white text-uppercase my-1">Meu perfil</a> 
+            <!-- Precisamos corrigir URGENTE -->
         </li>
-        <li class="nav-item px-0 py-1">
-          <a  (click)="irMinhasPost()" type="button" class="nav-link text-white text-uppercase">Minhas postagens</a>
+        <li class="nav-item px-0">
+          <a (click)="irMinhasPost()" type="button" class="nav-link text-white text-uppercase my-1"
+            *ngIf="showBtn1">Minhas postagens</a>
         </li>
-        <li class="nav-item px-0 py-1">
-          <a href="#" class="nav-link text-white text-uppercase">Comentários</a>
+        <li class="nav-item px-0">
+          <a href="#" class="nav-link text-white text-uppercase my-1">Meus comentários</a>
         </li>
-        <li class="nav-item px-0 py-1">
-          <a (click)='irFeed()' type="button" class="nav-link text-white text-uppercase">Feed</a>
+        <li class="nav-item px-0">
+          <a (click)='irFeed()' type="button" class="nav-link text-white text-uppercase my-1">Feed</a>
         </li>
         <li class="nav-item pt-1 pb-4 px-0">
-          <a class="btn btn-outline-secondary py-1 px-5 " routerLink='/entrar' style="font-size: medium;">SAIR</a>
+          <a class="btn btn-outline-secondary my-1 py-1 px-5 " routerLink='/entrar' style="font-size: medium;">SAIR</a>
         </li>
       </ul>
     </div>
@@ -46,17 +49,19 @@
 
   </div>
 
-
   <button (click)="expandirMenu()" id="sidebarCollapse" type="button"
     class="media justify-content-center border-0 bg-transparent pt-5"
     style=" margin-top: 75px; margin-left: 45px; margin-right: 45px;">
-    <img src="/assets/img/profile01.png" alt="..." class="m-0 p-2 rounded-circle img-fluid size-changing"
+    <img src="{{imagemUser}}" alt="..." class="m-0 p-2 rounded-circle img-fluid size-changing"
       style="background-color: #007A80; border: none;">
   </button>
 
 
   <div class="page-content" id="content">
+
     <app-feed *ngIf="showFeed"></app-feed>
     <app-minhas-postagens *ngIf="showMyPost"></app-minhas-postagens>
+    <app-perfil *ngIf="showMyProfile"></app-perfil>
+
   </div>
 </body>

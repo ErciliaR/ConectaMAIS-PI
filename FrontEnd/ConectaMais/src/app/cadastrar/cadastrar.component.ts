@@ -17,6 +17,15 @@ export class CadastrarComponent implements OnInit {
   genSelecao: string
   tipoAula: string
 
+  remainingTextNome: number
+  remainingTextEmail: number
+  remainingTextDescricao: number
+  remainingTextCidade: number
+  remainingTextImagem: number
+  remainingTextSenha: number
+  remainingTextConfSenha: number
+  
+
   showBlock : boolean = false;
 
   constructor(
@@ -34,7 +43,7 @@ export class CadastrarComponent implements OnInit {
     this.papelUsuario = event.target.value
     
 
-    if(this.papelUsuario == "usuarioInstituicao"){
+    if(this.papelUsuario == "Instituição"){
       this.showBlock = true;    
     } else {
       this.showBlock = false; 
@@ -48,12 +57,37 @@ export class CadastrarComponent implements OnInit {
     this.genSelecao = event.target.value
   }
 
-  tipoEnsino(event: any){
+  tipoEnsino(event: any) {
     this.tipoAula = event.target.value
   }
 
   confirmSenha(event: any) {
     this.confirmarSenha = event.target.value
+    this.remainingTextSenha = 10 - this.confirmarSenha.length
+  }
+
+  valueChangeNome() {
+    this.remainingTextNome = 20 - this.usuario.nome.length
+  }
+
+  valueChangeEmail(){
+    this.remainingTextEmail = 255 - this.usuario.email.length
+  }
+
+  valueChangeDescricao(){
+    this.remainingTextDescricao = 500 - this.usuario.descricao.length
+  }
+
+  valueChangeCidade(){
+    this.remainingTextCidade = 255 - this.usuario.cidade.length
+  }
+
+  valueChangeImagem(){
+    this.remainingTextImagem = 500 - this.usuario.imagemPerfilURL.length
+  }
+
+  valueChangeConfSenha(){
+    this.remainingTextConfSenha = 10 - this.usuario.senha.length
   }
 
   cadastrar(){
@@ -61,11 +95,7 @@ export class CadastrarComponent implements OnInit {
     this.usuario.escolaridadeMin = this.nivel
     this.usuario.generoSelecao = this.genSelecao
     this.usuario.tipo = this.tipoAula
-
-    if (this.usuario.imagemPerfilURL == ""){
-      this.usuario.imagemPerfilURL = "../assests/img/profile.png"
-    }
-
+    
     if(this.usuario.senha != this.confirmarSenha) {
       alert('As senhas devem ser iguais')
     } else {

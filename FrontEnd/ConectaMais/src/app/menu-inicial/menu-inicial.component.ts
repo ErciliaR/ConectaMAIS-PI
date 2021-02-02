@@ -23,18 +23,15 @@ export class MenuInicialComponent implements OnInit {
   scrollMenu(){
     window.addEventListener('scroll',  (event)=>{
       let nav = <HTMLElement>document.querySelector('#navbar-changing');
-      let navScroll = nav.scrollHeight
-   
-      if ( navScroll >  window.scrollY) {
+
+      if ( 120 >  window.scrollY) {
         nav.style.backgroundColor = 'transparent';
       } else {
         nav.style.backgroundColor = '#1B3659';
         nav.style.transition = 'background-color 200ms linear';
       }
     });
-
-
-    
+  
   }
 
 }

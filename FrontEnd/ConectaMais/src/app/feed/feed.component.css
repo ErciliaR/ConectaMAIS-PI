@@ -42,7 +42,7 @@
   border-radius: 20px;
 }
 
-#padrao {
+#padrao1 {
   background-image: url("/assets/img/padrao.png");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -50,3 +50,12 @@
   width: auto;
   height: max-content;
 }
+
+  #padrao2 {
+     background-image: url("/assets/img/padrao2.png");
+     background-repeat: no-repeat;
+     background-size: 100%;
+     background-position: bottom;
+     width: auto;
+     height: max-content;
+  }

@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-
 import { RodapeComponent } from './rodape/rodape.component';
 import { PagInicialComponent } from './pag-inicial/pag-inicial.component';
 import { ConhecaInstComponent } from './conheca-inst/conheca-inst.component';
@@ -16,6 +15,7 @@ import { ApoieComponent } from './apoie/apoie.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { FeedComponent } from './feed/feed.component';
 import { MinhasPostagensComponent } from './minhas-postagens/minhas-postagens.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { MinhasPostagensComponent } from './minhas-postagens/minhas-postagens.co
     ApoieComponent,
     CadastrarComponent,
     FeedComponent,
-    MinhasPostagensComponent
+    MinhasPostagensComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

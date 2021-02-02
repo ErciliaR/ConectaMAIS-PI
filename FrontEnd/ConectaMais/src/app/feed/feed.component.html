@@ -1,11 +1,16 @@
-<div class="container-fluid" id="padrao">
-    <!-- formulario de publicação -->
-  <h4 class="text-center text-white  mb-5" style="padding-top: 135px; text-shadow: 2px 2px 4px #000000;">Faça uma
-    postagem para que os estudantes te encontrem.</h4>
+<div class="container-fluid p-0 m-0" id="padrao1">
+  <!-- formulario de publicação -->
+  <h4 *ngIf="showMsg1" class="w3-animate-top text-center text-white mb-5 text-uppercase"
+    style="padding-top: 135px; text-shadow: 2px 2px 4px #000000;">Faça uma
+    postagem para que os estudantes te encontrem</h4>
+
+  <h4 *ngIf="showMsg2" class="w3-animate-top text-center text-white mb-5 text-uppercase"
+    style="padding-top: 135px; text-shadow: 2px 2px 4px #000000;">Faça um
+    comentario e interaja com suas instituições favoritas</h4>
 
   <p class="text-center">
-    <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample"
-      aria-expanded="false" aria-controls="collapseExample" id="criarPost">
+    <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+      aria-controls="collapseExample" id="criarPost" *ngIf="showMsg1">
       Criar nova postagem
     </button>
   </p>
@@ -19,16 +24,18 @@
           <label for="tema">Tema</label>
           <select (change)='temaSelect($event)' class="form-control" name="tema" id="tema">
             <option></option>
-            <option value="programa">Programa</option>
-            <option value="bootcamp">Bootcamp</option>
-            <option value="hackaton">Hackaton</option>
-            <option value="evento">Evento</option>
-            <option value="noticia">Noticia</option>
+            <option value="Programa">Programa</option>
+            <option value="Bootcamp">Bootcamp</option>
+            <option value="Hackaton">Hackaton</option>
+            <option value="Evento">Evento</option>
+            <option value="Notícia">Notícia</option>
           </select>
-          <label for="descricao" class="">Descrição</label>
-          <textarea [(ngModel)]='postagem.conteudoPostagem' class="form-control mb-3" name="descricao" id="descricao" rows="5"></textarea>
+          <label for="descricao" class="">Conteudo de postagem:</label>
+          <textarea [(ngModel)]='postagem.conteudoPostagem' class="form-control mb-3" name="descricao" id="descricao"
+            rows="5"></textarea>
           <div class="row d-flex justify-content-end m-0">
-            <button (click)='publicar()' class="button button1">Publicar</button>
+            <button (click)='publicar()' class="button button1" data-toggle="collapse" data-target="#collapseExample"
+              aria-expanded="false" aria-controls="collapseExample">Publicar</button>
           </div>
         </div>
 
@@ -39,33 +46,87 @@
 
   <!-- feed de postagem -->
   <hr class="mt-5">
-  <h4 class="text-center text-white  my-5" style="text-shadow: 2px 2px 4px #000000;">Feed de postagens</h4>
-  <div class="row d-flex justify-content-center mb-5" *ngFor= 'let item of listaPostagens'>
+  <h4 class="text-center text-white my-5" style="text-shadow: 2px 2px 4px #000000;">Feed de postagens</h4>
+  <div class="row d-flex justify-content-center mb-5" *ngFor='let item of listaPostagens'>
     <div class="col-md-9 bg-white" id="formularioPostagem" style="padding-left: 64px; padding-right: 64px;">
       <div class="row">
         <div class="col-md-8 text-left pl-3 pr-0 ">
           <h4 class="mt-3">{{item.titulo}}</h4>
-          <p class="mb-0">{{item.tema}}</p>
+          <p class="mb-0"><b>{{item.tema}}</b></p>
+
         </div>
       </div>
       <hr>
       <div class="row  ml-3 mx-0">
         <div class="col-md-12 p-0 ">
           <p class="text-left">{{item.conteudoPostagem}}</p>
-          <p><small>Autor: {{item.instituicaoObj.nome}}</small></p>
-          <p class="text-right pr-3"><small>
-            Postado em {{item.dataCriacaoPostagem | date: 'dd/MM/yyyy'}} às {{item.dataCriacaoPostagem | date: 'HH:mm'}}
-          </small></p>
+          <p class="pr-3 d-flex justify-content-between">
+            <small class="text-left"> <b>Autor@: {{item.instituicaoObj.nome}}</b></small>
+            <small class="text-right">Postado em {{item.dataCriacaoPostagem | date: 'dd/MM/yyyy'}} às
+              {{item.dataCriacaoPostagem | date: 'HH:mm'}}
+            </small>
+          </p>
+          <p><a class="btn btn-primary" data-toggle="collapse" href="#collapseComentario" role="button"
+              aria-expanded="false" aria-controls="collapseComentario">
+              Comentarios
+            </a></p>
+          <div class="collapse" id="collapseComentario">
+            <div class="card card-body" *ngFor='let comment of postagemComComentario'>{{comment.conteudoComentario}}
+              <p class="pr-3 d-flex justify-content-between">
+                <small class="text-left"> <b>Autor@: {{comment.usuarioObj.nome}}</b></small>
+                <small class="text-right">Postado em {{comment.dataCriacaoComentario | date: 'dd/MM/yyyy'}} às
+                  {{comment.dataCriacaoComentario | date: 'HH:mm'}}</small>
+              </p>
+            </div>
+            <div>
+              <button (click)='findByIdPostagem(item.postagemID)' class="btn rounded-circle" id="edit"
+                data-toggle="modal" data-target="#comentarPostagem"><i class="fas fa-comment-dots"></i></button>
+            </div>
+          </div>
         </div>
-
       </div>
-
+      <!-- <div class="input-group mb-3">
+        <input [(ngModel)]="comentario.conteudoComentario" (blur)="findByPostagemId(item.postagemID)" type="text"
+          class="form-control" placeholder="Adicione um comentário...">
+        <div class="input-group-append">
+          <button (click)='comentar()' class="btn">Comentar</button>
+        </div>
+      </div> -->
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center mt-5 pb-5">
+  <!-- Modal comentar -->
+  <div class="modal fade" id="comentarPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="TituloModalCentralizado">Adicione um comentário</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <!-- <label for="texto">Contéudo:</label> -->
+            <textarea [(ngModel)]='comentario.conteudoComentario' class="form-control" name="texto" id="texto"
+              rows="3" placeholder="Adicione um comentario"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button (click)='comentar()' type="button" class="btn btn-info " data-dismiss="modal">Comentar</button>
+          <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Modal comentar -->
+
+
+  <div class="row d-flex justify-content-center pt-5 pb-5 m-0">
     <button>Carregar mais...</button>
   </div>
-    <!-- /feed de postagem -->
-</div>
 
+  <!-- /feed de postagem -->
+  <div class="position-fixed-bottom m-0" style="height:350px;" id="padrao2"></div>
+</div>

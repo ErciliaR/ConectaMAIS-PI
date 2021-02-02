@@ -51,11 +51,11 @@ public class Postagem {
 
 	/* relação entre tabelas */
 	@ManyToOne //declaração de relacionamento entre tabelas: postagem e usuário instituição
-	@JsonIgnoreProperties("postagemObj") //declaraçao de chave estrageira da tabela, ignorando coluna postagem em tabela instituição
+	@JsonIgnoreProperties(value = {"postagemObj"},  allowSetters = true) //declaraçao de chave estrageira da tabela, ignorando coluna postagem em tabela instituição
 	private Usuario instituicaoObj; //indicação da insituição que fez a postagem
 
 	@OneToMany(mappedBy = "postagemObj", cascade = CascadeType.ALL) //mapeamento por coluna postagem e efeito cascata em tabela comentário
-	@JsonIgnoreProperties("postagemObj") //declaraçao de chave estrageira da tabela comentário, ignorando coluna postagem
+	@JsonIgnoreProperties(value = {"postagemObj"},  allowSetters = true) //declaraçao de chave estrageira da tabela comentário, ignorando coluna postagem
 	private List<Comentario> comentarioObj; //listagem dos comentários feitas na postagem
 
 	/* método */

@@ -24,7 +24,7 @@ import com.GrupoConecta.ConectaMais.service.UserService;
 
 @RestController
 @RequestMapping("/usuario")
-@CrossOrigin(value="*", allowedHeaders="*")
+@CrossOrigin(origins="*", allowedHeaders="*")
 public class UsuarioControle {
 	
 	@Autowired

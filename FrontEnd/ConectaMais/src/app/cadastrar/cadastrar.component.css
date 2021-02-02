@@ -1,3 +1,4 @@
+
 #secao01 {
   /* fundo com a imagem */
   background-image: url("/assets/img/fig08.jpg");
@@ -33,11 +34,12 @@
 }
 
 .usuario {
-  background-color: #225555;
+  background-color: white;
   border-radius: 30px;
   height: max-content;
-  color: white;
+  color: #007a80;
   font-size: 36px;
+  font-weight: bolder;
   text-align: center;
 }
 
@@ -75,4 +77,16 @@ input:invalid {
 
 input:valid {
   border: solid green 3px;
+}
+
+.textarea-wrapper {
+  position: relative;
+}
+
+.remaning {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  color: #007a80;
+  font-weight: bolder;
 }

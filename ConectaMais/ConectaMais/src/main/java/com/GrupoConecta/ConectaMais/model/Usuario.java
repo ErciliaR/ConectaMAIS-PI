@@ -11,14 +11,16 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="tb_usuario")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "usuarioID")
 public class Usuario {
 	/* atributos */
 	@Id //identifica a chave primaria
@@ -39,7 +41,7 @@ public class Usuario {
 	@Size (min = 5, max = 100)
 	private String senha; //senha de cadastro
 	
-	@Size (min = 2, max = 500)
+	@Size (max = 500)
 	private String imagemPerfilURL; //imagem de perfil
 	
 	@NotBlank
@@ -58,10 +60,10 @@ public class Usuario {
 	private int idadeMax; //idade máxima da seleção
 	
 
-	@Size(min=3,max=20)
+	@Size(min=3,max=21)
 	private String escolaridadeMin; //escolaridade mínima da seleção: {medioIncompleto, medioCompleto, superiorIncompleto, superiorCompleto}
 
-	@Size(min=3,max=20)
+	@Size(min=3,max=21)
 	private String generoSelecao; //gênero que participam na seleção: {femininoCISeTRANS, masculinoCISeTRANS, naoBinario, todos}
 	
 	@Size(min=3,max=20)
@@ -69,11 +71,11 @@ public class Usuario {
 	
 	/* relação entre tabelas */
 	@OneToMany(mappedBy="usuarioObj", cascade = CascadeType.ALL) //mapeamento por coluna usuario e efeito cascata em tabela comentário
-	@JsonIgnoreProperties("usuarioObj") //declaraçao de chave estrageira da tabela comentário, ignorando coluna usuário
+	@JsonIgnoreProperties(value = {"usuarioObj"},  allowSetters = true) //declaraçao de chave estrageira da tabela comentário, ignorando coluna usuário
 	private List<Comentario> comentarioObj; //listagem dos comentarios feitos pelo usuário
 	
 	@OneToMany(mappedBy="instituicaoObj", cascade=CascadeType.ALL) //mapeamento por coluna instituição e efeito cascata em tabela postagem
-	@JsonIgnoreProperties("instituicaoObj") //declaraçao de chave estrageira da tabela postagem, ignorando coluna instituição
+	@JsonIgnoreProperties(value = {"instituicaoObj"},  allowSetters = true) //declaraçao de chave estrageira da tabela postagem, ignorando coluna instituição
 	private List<Postagem> postagemObj; //listagem das postagens feitas pela insituição
 
 	/* métodos */

@@ -6,6 +6,7 @@ export class Comentario{
     public conteudoComentario: string
     public dataCriacaoComentario: Date
     public dataAtualizacaoComentario: Date
+    // relacoes entre tabelas
     public usuarioObj: Usuario
     public postagemObj: Postagem
 }
