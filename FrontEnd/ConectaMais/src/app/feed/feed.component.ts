@@ -78,35 +78,15 @@ export class FeedComponent implements OnInit {
     }
   }
 
-  findByIdUser(id: any) {
-    console.log(id)
-    this.nomeUser = ""
-    if(id == {} && id !== null){
-      this.nomeUser = this.postagem.instituicaoObj.nome
-      console.log(this.nomeUser)
-    } else{
-      this.authService.getByIdUser(id).subscribe((resp: Usuario)=>{
-      this.nomeUser = resp.nome
-      console.log(this.nomeUser)
-    })
-    }    
-  }
-
   findByIdUsuario(){
     this.authService.getByIdUser(this.idUser).subscribe((resp: Usuario)=>{
       this.usuario = resp
     })
   }
 
-  findByIdPostagem(id: number) {
-    this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem)=>{
-      console.log(resp)
-      return resp;
-    })
-  }
-
   findByIdComentario(comentarioID: number){
     this.comentarioService.getByIdComentario(comentarioID).subscribe((resp: Comentario)=>{
+      console.log(resp)
       this.comentario = resp
     })
   }
@@ -118,7 +98,6 @@ export class FeedComponent implements OnInit {
   getAllPostagens(){
     this.postagemService.getAllPostagem().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
-      this.findByIdUser
     })
 
   }
@@ -172,6 +151,7 @@ export class FeedComponent implements OnInit {
       alert('Postagem apagada com sucesso!')
       this.findByIdUsuario()
       this.findByIdComentario(this.comentario.comentarioID)
+      this.getAllPostagens()
     })
   }
 
@@ -181,6 +161,7 @@ export class FeedComponent implements OnInit {
       alert('Postagem atualizada com sucesso!')
       this.findByIdUsuario()
       this.findByIdComentario(this.comentario.comentarioID)
+      this.getAllPostagens()
     })
 
   }

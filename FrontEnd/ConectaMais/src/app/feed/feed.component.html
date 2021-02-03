@@ -70,14 +70,12 @@
 
           <div class="accordion" [attr.id]="'coment' + post.postagemID">
 
-            <div class="mt-2" id="headingTwo">
-              <h5 class="mb-0">
-                <button class="btn btn-link collapsed " type="button" data-toggle="collapse"
+            <div class="mt-2 justify-content-end" id="headingTwo">
+              <h5 class="mb-2">
+                <button class="btn my-btn collapsed " type="button" data-toggle="collapse"
                   [attr.data-target]="'#' + 'comentButton' + post.postagemID" aria-expanded="false"
                   aria-controls="collapseTwo">
-                  <p class="text-primary font-weight-bold">
-                    <i class="fa fa-comment-o" aria-hidden="true"></i> Comentar
-                  </p>
+                    <i class="fas fa-comment-alt-dots"></i>Comentar
                 </button>
               </h5>
             </div>
@@ -105,19 +103,20 @@
                   <div class="card mb-3 shadow border-0">
                     <div class="card-body">
                       <div class="row">
-                        <div class="col-md-10 mb-3 d-flex align-items-center">
+                        <div class="col-md-10 d-flex align-items-center">
                           <!-- imagem do usuario -->
                           <img src="https://i.imgur.com/iPnUWdQ.png" class=" rounded-circle w-40 img-fluid mr-2" alt="">
                           <span class="font-weight-bold">{{comment.usuarioObj.nome}}:</span>
                         </div>
                         <div class="col-md-2 d-flex justify-content-end">
                           <button (click)='findByIdComentario(comment.comentarioID)'
-                            class="btn  btn-sm rounded-circle mr-3" id="edit"
+                            class="btn mr-3 rounded-circle" id="edit"
                             data-toggle="modal" data-target="#editarComentario"><i
-                              class="fas fa-pencil-alt"></i></button>
-                          <button (click)='findByIdComentario(comment.comentarioID)' class="btn  btn-sm rounded-circle"
+                              class="fas fa-pencil-alt img-fluid"></i></button>
+                          <button (click)='findByIdComentario(comment.comentarioID)' class="btn rounded-circle"
                             id="alert"
-                            data-toggle="modal" data-target="#apagarComentario"><i class="fas fa-trash-alt"></i></button>
+                            data-toggle="modal" data-target="#apagarComentario"><i
+                              class="fas fa-trash-alt"></i></button>
                         </div>
                       </div>
                       <div class="row">

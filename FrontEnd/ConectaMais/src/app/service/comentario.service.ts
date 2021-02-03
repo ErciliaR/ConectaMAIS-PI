@@ -23,7 +23,7 @@ export class ComentarioService {
   }
 
   getByIdComentario(comentarioID: number): Observable<Comentario>{
-    return this.http.get<Comentario>(`http://localhost:8080/postagem/${comentarioID}`, this.token)
+    return this.http.get<Comentario>(`http://localhost:8080/comentario/${comentarioID}`, this.token)
   }
 
   getAllComentarioPorPostagem(postagemID: number): Observable<Comentario[]>{

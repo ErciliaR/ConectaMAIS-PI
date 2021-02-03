@@ -43,11 +43,11 @@ public class Comentario {
 
 	/* relação entre tabelas */
 	@ManyToOne //declaração de relacionamento entre tabelas: comentário e usuário
-	@JsonIgnoreProperties(value = {"comentarioObj"},  allowSetters = true) //declaraçao de chave estrageira da tabela, ignorando coluna comentário em tabela usuário
+	@JsonIgnoreProperties(value = {"comentarioObj", "postagemObj"}) //declaraçao de chave estrageira da tabela, ignorando coluna comentário em tabela usuário
 	private Usuario usuarioObj; //indicação do usuário que fez o comentário
 	
 	@ManyToOne //declaração de relacionamento entre tabelas: comentário e postagem
-	@JsonIgnoreProperties(value = {"comentarioObj"},  allowSetters = true) //declaraçao de chave estrageira da tabela, ignorando coluna comentário em tabela postagem
+	@JsonIgnoreProperties(value = {"comentarioObj", "usuarioObj"}) //declaraçao de chave estrageira da tabela, ignorando coluna comentário em tabela postagem
 	private Postagem postagemObj; //indicação da postagem na qual o comentário foi feito
 
 	/* método */
