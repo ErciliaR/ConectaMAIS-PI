@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -28,7 +29,8 @@ export class PerfilComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -77,14 +79,13 @@ export class PerfilComponent implements OnInit {
   atualizar() {
     this.usuario.papel = this.papelUser
 
-    console.log(this.confirmarSenha)
     if (this.flagSenha == false) {
       this.usuario.senha = environment.senha
     }
 
     this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
       this.usuario = resp
-      alert('Usuário atualizado com sucesso, faça o login novamente.')
+      this.alertas.showAlertSuccess('Usuário atualizado com sucesso, faça o login novamente.')
       environment.token = ''
       environment.nome = ''
       environment.imagemPerfilURL = ''
@@ -96,7 +97,7 @@ export class PerfilComponent implements OnInit {
 
   alterarSenha() {
     if (this.usuario.senha != this.confirmarSenha) {
-      alert('As senhas não são iguais')
+      this.alertas.showAlertDanger('As senhas não são iguais')
     } else {
       this.flagSenha = true
     }

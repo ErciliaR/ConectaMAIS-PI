@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Comentario } from '../model/Comentario';
 import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { ComentarioService } from '../service/comentario.service';
 import { PostagemService } from '../service/postagem.service';
@@ -44,7 +45,8 @@ export class FeedComponent implements OnInit {
     private postagemService: PostagemService,
     private comentarioService: ComentarioService,
     private authService: AuthService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -85,7 +87,6 @@ export class FeedComponent implements OnInit {
   }
 
   findByTituloPostagem() {
-
     if (this.tituloPesquisa == '') {
       this.getAllPostagens
     } else {
@@ -112,8 +113,7 @@ export class FeedComponent implements OnInit {
       // })
       // this.postagemComComentario.push(this.comentario)
       // this.comentario = new Comentario()
-      this.postagem = new Postagem()
-
+      //this.postagem = new Postagem()
 
     })
 
@@ -135,7 +135,7 @@ export class FeedComponent implements OnInit {
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       console.log(this.postagem)
       this.postagem = resp
-      alert('Postagem realizada com sucesso!')
+      this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
       this.getAllPostagens()
     })
@@ -150,7 +150,7 @@ export class FeedComponent implements OnInit {
     console.log(this.comentario)
     this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario) => {
       console.log(this.comentario)
-      alert('Comentário realizada com sucesso!')
+      this.alertas.showAlertSuccess('Comentário realizada com sucesso!')
       this.comentario = new Comentario()
       this.getAllPostagens()
     })

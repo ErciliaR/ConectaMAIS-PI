@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -16,6 +17,8 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { FeedComponent } from './feed/feed.component';
 import { MinhasPostagensComponent } from './minhas-postagens/minhas-postagens.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { AlertasComponent } from './alertas/alertas.component';
+
 
 @NgModule({
   declarations: [
@@ -30,13 +33,15 @@ import { PerfilComponent } from './perfil/perfil.component';
     CadastrarComponent,
     FeedComponent,
     MinhasPostagensComponent,
-    PerfilComponent
+    PerfilComponent,
+    AlertasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
