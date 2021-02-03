@@ -12,6 +12,7 @@ import { AuthService } from '../service/auth.service';
 export class LoginComponent implements OnInit {
 
   userLogin: UserLogin = new UserLogin()
+  value: number
 
   constructor(
     private auth: AuthService,
@@ -33,7 +34,7 @@ export class LoginComponent implements OnInit {
       environment.papel = this.userLogin.papel
       environment.senha = this.userLogin.senha
       
-      this.router.navigate(['/feed/:{idUser}'])
+      this.router.navigate(['/feed/:this.userLogin.id'])
     })
   }
 

@@ -34,12 +34,10 @@ export class MenuUsuarioComponent implements OnInit {
     
     this.findByIdUser()
 
-    if (this.imagemUser == null || this.imagemUser == ''){
+    if (this.imagemUser == null || this.imagemUser == ""){
       this.imagemUser = "/assets/img/profile01.png"
     }
-
     this.papelUserIs()
-  
   }
 
     papelUserIs(){
