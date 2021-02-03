@@ -19,8 +19,9 @@
     <div class="row d-flex justify-content-center ">
       <div class="col-md-9 bg-white" id="formularioPostagem">
         <div class="form-group mx-5">
-          <label for="titulo" class="mt-5">Título</label>
-          <input [(ngModel)]='postagem.titulo' class="form-control mb-2" type="text" name="titulo" id="titulo">
+          <label for="tituloPostagem" class="mt-5">Título</label>
+          <input [(ngModel)]='postagem.titulo' class="form-control mb-2" type="text" name="tituloPostagem"
+            id="tituloPostagem">
           <label for="tema">Tema</label>
           <select (change)='temaSelect($event)' class="form-control" name="tema" id="tema">
             <option></option>
@@ -47,81 +48,156 @@
   <!-- feed de postagem -->
   <hr class="mt-5">
   <h4 class="text-center text-white my-5" style="text-shadow: 2px 2px 4px #000000;">Feed de postagens</h4>
-  <div class="row d-flex justify-content-center mb-5" *ngFor='let item of listaPostagens'>
+  <div class="row d-flex justify-content-center mb-5" *ngFor='let post of listaPostagens'>
     <div class="col-md-9 bg-white" id="formularioPostagem" style="padding-left: 64px; padding-right: 64px;">
       <div class="row">
         <div class="col-md-8 text-left pl-3 pr-0 ">
-          <h4 class="mt-3">{{item.titulo}}</h4>
-          <p class="mb-0"><b>{{item.tema}}</b></p>
-
+          <h4 class="mt-3">{{post.titulo}}</h4>
+          <p class="mb-0"><b>{{post.tema}}</b></p>
         </div>
       </div>
       <hr>
       <div class="row  ml-3 mx-0">
         <div class="col-md-12 p-0 ">
-          <p class="text-left">{{item.conteudoPostagem}}</p>
+          <p class="text-left">{{post.conteudoPostagem}}</p>
           <p class="pr-3 d-flex justify-content-between">
-            <small class="text-left"> <b>Autor@: {{item.instituicaoObj.nome}}</b></small>
-            <small class="text-right">Postado em {{item.dataCriacaoPostagem | date: 'dd/MM/yyyy'}} às
-              {{item.dataCriacaoPostagem | date: 'HH:mm'}}
+            <small class="text-left"> <b>Autor@:
+                {{post.instituicaoObj.nome}}</b></small>
+            <small class="text-right">Postado em {{post.dataCriacaoPostagem | date: 'dd/MM/yyyy'}} às
+              {{post.dataCriacaoPostagem | date: 'HH:mm'}}
             </small>
           </p>
-          <p><a class="btn btn-primary" data-toggle="collapse" href="#collapseComentario" role="button"
-              aria-expanded="false" aria-controls="collapseComentario">
-              Comentarios
-            </a></p>
-          <div class="collapse" id="collapseComentario">
-            <div class="card card-body" *ngFor='let comment of postagemComComentario'>{{comment.conteudoComentario}}
-              <p class="pr-3 d-flex justify-content-between">
-                <small class="text-left"> <b>Autor@: {{comment.usuarioObj.nome}}</b></small>
-                <small class="text-right">Postado em {{comment.dataCriacaoComentario | date: 'dd/MM/yyyy'}} às
-                  {{comment.dataCriacaoComentario | date: 'HH:mm'}}</small>
-              </p>
+
+          <div class="accordion" [attr.id]="'coment' + post.postagemID">
+
+            <div class="mt-2" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed " type="button" data-toggle="collapse"
+                  [attr.data-target]="'#' + 'comentButton' + post.postagemID" aria-expanded="false"
+                  aria-controls="collapseTwo">
+                  <p class="text-primary font-weight-bold">
+                    <i class="fa fa-comment-o" aria-hidden="true"></i> Comentar
+                  </p>
+                </button>
+              </h5>
             </div>
-            <div>
-              <button (click)='findByIdPostagem(item.postagemID)' class="btn rounded-circle" id="edit"
-                data-toggle="modal" data-target="#comentarPostagem"><i class="fas fa-comment-dots"></i></button>
+            <div [attr.id]="'comentButton' + post.postagemID" class="collapse" aria-labelledby="headingTwo"
+              [attr.data-parent]="'#' + 'coment' + post.postagemID">
+              <div class="row mt-3 mb-3 d-flex justify-content-center">
+                <div class="col-md-11">
+                  <div class="row">
+                    <div class="col-md-10 pr-1">
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="conteudotxt" aria-describedby="emailHelp"
+                          placeholder="Digite aqui seu comentário" [(ngModel)]='comentario.conteudoComentario'>
+                      </div>
+                    </div>
+                    <div class="col-md-2 pl-1">
+                      <button class="btn btn-outline-primary w-100"
+                        (click)='comentar(this.post.postagemID)'>Publicar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row d-flex justify-content-center" *ngFor='let comment of post.comentarioObj'>
+                <div class="col-md-11">
+                  <div class="card mb-3 shadow border-0">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-10 mb-3 d-flex align-items-center">
+                          <!-- imagem do usuario -->
+                          <img src="https://i.imgur.com/iPnUWdQ.png" class=" rounded-circle w-40 img-fluid mr-2" alt="">
+                          <span class="font-weight-bold">{{comment.usuarioObj.nome}}:</span>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-end">
+                          <button (click)='findByIdComentario(comment.comentarioID)'
+                            class="btn  btn-sm rounded-circle mr-3" id="edit"
+                            data-toggle="modal" data-target="#editarComentario"><i
+                              class="fas fa-pencil-alt"></i></button>
+                          <button (click)='findByIdComentario(comment.comentarioID)' class="btn  btn-sm rounded-circle"
+                            id="alert"
+                            data-toggle="modal" data-target="#apagarComentario"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-10">
+                          <p class="card-text ml-4" aria-describedby="texto">{{comment.conteudoComentario}} </p>
+                        </div>
+                      </div>
+
+                      <hr>
+
+                      <div class="d-flex justify-content-end">
+                        <small id="texto" class="form-text m-0 text-muted text-monospace">
+                          Postado em {{ comment.dataCriacaoComentario | date:'dd/MM/yyyy'}} às
+                          {{comment.dataCriacaoComentario | date:'HH:mm'}}
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- <div class="input-group mb-3">
-        <input [(ngModel)]="comentario.conteudoComentario" (blur)="findByPostagemId(item.postagemID)" type="text"
-          class="form-control" placeholder="Adicione um comentário...">
-        <div class="input-group-append">
-          <button (click)='comentar()' class="btn">Comentar</button>
-        </div>
-      </div> -->
-    </div>
-  </div>
 
-  <!-- Modal comentar -->
-  <div class="modal fade" id="comentarPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="TituloModalCentralizado">Adicione um comentário</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <!-- <label for="texto">Contéudo:</label> -->
-            <textarea [(ngModel)]='comentario.conteudoComentario' class="form-control" name="texto" id="texto"
-              rows="3" placeholder="Adicione um comentario"></textarea>
+      <!-- Modal editar -->
+      <div class="modal fade" id="editarComentario" tabindex="-1" role="dialog"
+        aria-labelledby="TituloModalCentralizado"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="TituloModalCentralizado">Editar Comentário</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+               <div class="form-group">
+                <label for="texto">Texto</label>
+                <textarea [(ngModel)]='comentario.conteudoComentario' class="form-control" name="texto" id="texto"
+                  rows="3"></textarea>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button (click)='atualizarComentario()' type="button" class="btn btn-info " data-dismiss="modal">Atualizar</button>
+              <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Cancelar</button>
+            </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button (click)='comentar()' type="button" class="btn btn-info " data-dismiss="modal">Comentar</button>
-          <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Cancelar</button>
+      </div>
+      <!-- /Modal editar -->
+
+      <!-- Modal apagar -->
+      <div class="modal fade" id="apagarComentario" tabindex="-1" role="dialog"
+        aria-labelledby="TituloModalCentralizado"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="TituloModalCentralizado">Apagar Comentário</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Tem certeza que deseja apagar este comentário?</p>
+            </div>
+            <div class="modal-footer">
+              <button (click)='deletarComentario()' type="button" class="btn btn-info " data-dismiss="modal">Sim</button>
+              <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Não</button>
+            </div>
+          </div>
         </div>
       </div>
+      <!-- /Modal apagar -->
     </div>
   </div>
-  <!-- /Modal comentar -->
-
 
   <div class="row d-flex justify-content-center pt-5 pb-5 m-0">
     <button>Carregar mais...</button>

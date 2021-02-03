@@ -38,9 +38,6 @@ export class PerfilComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
 
-    this.senhaUser = ""
-    this.confirmarSenha = ""
-
     this.findByIdUser(this.idUser)
 
     this.papelUserIs()
@@ -79,15 +76,7 @@ export class PerfilComponent implements OnInit {
   atualizar(){
     this.usuario.papel = this.papelUser
 
-    if(this.confirmarSenha == ""){
-      this.confirmarSenha = this.usuario.senha
-      this.senhaUser = this.usuario.senha
-    } 
-
-    console.log(this.confirmarSenha)
-    console.log(this.senhaUser)
-
-     if (this.senhaUser != this.confirmarSenha) {
+     if (this.usuario.senha != this.confirmarSenha) {
        alert('As senhas não são iguais')
      } else {
        this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {

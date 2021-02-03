@@ -5,7 +5,6 @@ import { PagInicialComponent } from './pag-inicial/pag-inicial.component';
 import { ConhecaInstComponent } from './conheca-inst/conheca-inst.component';
 import { ApoieComponent } from './apoie/apoie.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
-
 import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 
 const routes: Routes = [
@@ -15,7 +14,7 @@ const routes: Routes = [
   {path: 'conheca', component: ConhecaInstComponent},
   {path: 'apoie', component: ApoieComponent},
   {path: 'cadastrar', component: CadastrarComponent},
-  {path: 'feed/:{idUser}', component: MenuUsuarioComponent},
+  {path: 'feed/:id', component: MenuUsuarioComponent},
 
 ];
 
