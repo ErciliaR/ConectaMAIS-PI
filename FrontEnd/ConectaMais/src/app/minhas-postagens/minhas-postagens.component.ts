@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 
@@ -26,6 +27,7 @@ export class MinhasPostagensComponent implements OnInit {
     private postagemService: PostagemService,
     private authService: AuthService,
     private route: ActivatedRoute,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -76,7 +78,7 @@ export class MinhasPostagensComponent implements OnInit {
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem)=>{
       this.postagem = resp
       console.log(resp)
-      alert('Postagem atualizada com sucesso!')
+      this.alertas.showAlertSuccess('Postagem atualizada com sucesso!')
       this.findByIdUser()
       this.findByIdPostagem(this.postagem.postagemID)
     })
@@ -84,7 +86,7 @@ export class MinhasPostagensComponent implements OnInit {
 
   deletar(){
     this.postagemService.deletePostagem(this.postagem.postagemID).subscribe(()=>{
-      alert('Postagem apagada com sucesso!')
+      this.alertas.showAlertSuccess('Postagem apagada com sucesso!')
       this.findByIdUser()
       this.findByIdPostagem(this.postagem.postagemID)
     })
