@@ -17,17 +17,17 @@ export class FeedComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
-  
+  tituloPesquisa: string
 
 
 
   comentario: Comentario = new Comentario()
   listaComentarios: Comentario[]
   postagemComComentario: Comentario[]
-  
+
 
   temaSelecionado: string
-  
+
 
   usuario: Usuario = new Usuario()
   idUser = environment.id
@@ -35,9 +35,9 @@ export class FeedComponent implements OnInit {
 
 
 
-  
-  showMsg1:boolean = false
-  showMsg2:boolean = false
+
+  showMsg1: boolean = false
+  showMsg2: boolean = false
 
   constructor(
     private router: Router,
@@ -48,21 +48,21 @@ export class FeedComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
+    window.scroll(0, 0)
 
-    if(environment.token == ''){
+    if (environment.token == '') {
       this.router.navigate(['/entrar'])
     }
 
     this.findByIdUser()
 
     this.papelUserIs()
-    
+
     this.getAllPostagens()
-  
+
   }
 
-   papelUserIs(){
+  papelUserIs() {
     if (this.papelUser == "Instituição") {
       this.showMsg1 = true
       this.showMsg2 = false
@@ -72,38 +72,49 @@ export class FeedComponent implements OnInit {
     }
   }
 
-  findByIdUser(){
-    this.authService.getByIdUser(this.idUser).subscribe((resp: Usuario)=>{
+  findByIdUser() {
+    this.authService.getByIdUser(this.idUser).subscribe((resp: Usuario) => {
       this.usuario = resp
     })
   }
 
-  findByIdPostagem(postagemID: number){
-    this.postagemService.getByIdPostagem(postagemID).subscribe((resp: Postagem)=>{
+  findByIdPostagem(postagemID: number) {
+    this.postagemService.getByIdPostagem(postagemID).subscribe((resp: Postagem) => {
       this.postagem = resp
     })
   }
 
-  temaSelect(event: any){
+  findByTituloPostagem() {
+
+    if (this.tituloPesquisa == '') {
+      this.getAllPostagens
+    } else {
+      this.postagemService.getByTituloPostagem(this.tituloPesquisa).subscribe((resp: Postagem[]) => {
+        this.listaPostagens = resp
+      })
+    }
+  }
+
+  temaSelect(event: any) {
     this.temaSelecionado = event.target.value
   }
 
-  getAllPostagens(){
+  getAllPostagens() {
     this.postagemComComentario = []
-    this.postagemService.getAllPostagem().subscribe((resp: Postagem[])=>{
+    this.postagemService.getAllPostagem().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
       // this.listaPostagens.map((item)=> {
-        
-        // this.comentarioService.getAllComentarioPorPostagem(item.postagemID).subscribe((resp: Comentario[])=>{
-        //  this.postagem = item
-        //  this.postagemComComentario = resp
-        //  console.log(this.postagemComComentario)
-        // })
-        // this.postagemComComentario.push(this.comentario)
-        // this.comentario = new Comentario()
-        this.postagem = new Postagem()
-      
-      
+
+      // this.comentarioService.getAllComentarioPorPostagem(item.postagemID).subscribe((resp: Comentario[])=>{
+      //  this.postagem = item
+      //  this.postagemComComentario = resp
+      //  console.log(this.postagemComComentario)
+      // })
+      // this.postagemComComentario.push(this.comentario)
+      // this.comentario = new Comentario()
+      this.postagem = new Postagem()
+
+
     })
 
   }
@@ -114,14 +125,14 @@ export class FeedComponent implements OnInit {
   //   })
   // }
 
-  publicar(){
+  publicar() {
     this.postagem.tema = this.temaSelecionado
 
     this.usuario.usuarioID = this.idUser
     this.postagem.instituicaoObj = this.usuario
 
     console.log(this.postagem)
-    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
+    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       console.log(this.postagem)
       this.postagem = resp
       alert('Postagem realizada com sucesso!')
@@ -130,14 +141,14 @@ export class FeedComponent implements OnInit {
     })
   }
 
-  comentar(){
+  comentar() {
     this.usuario.usuarioID = this.idUser
-    
+
     this.comentario.postagemObj = this.postagem
     this.comentario.usuarioObj = this.usuario
 
     console.log(this.comentario)
-    this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario)=>{
+    this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario) => {
       console.log(this.comentario)
       alert('Comentário realizada com sucesso!')
       this.comentario = new Comentario()
