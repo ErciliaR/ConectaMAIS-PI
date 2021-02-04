@@ -70,11 +70,11 @@ public class Usuario {
 	
 	/* relação entre tabelas */
 	@OneToMany(mappedBy="usuarioObj", cascade = CascadeType.ALL) //mapeamento por coluna usuario e efeito cascata em tabela comentário
-	@JsonIgnoreProperties(value = {"usuarioObj"},  allowSetters = true) //declaraçao de chave estrageira da tabela comentário, ignorando coluna usuário
+	@JsonIgnoreProperties(value = {"usuarioObj"}) //declaraçao de chave estrageira da tabela comentário, ignorando coluna usuário
 	private List<Comentario> comentarioObj; //listagem dos comentarios feitos pelo usuário
 	
 	@OneToMany(mappedBy="instituicaoObj", cascade=CascadeType.ALL) //mapeamento por coluna instituição e efeito cascata em tabela postagem
-	@JsonIgnoreProperties(value = {"instituicaoObj"},  allowSetters = true) //declaraçao de chave estrageira da tabela postagem, ignorando coluna instituição
+	@JsonIgnoreProperties(value = {"instituicaoObj"}) //declaraçao de chave estrageira da tabela postagem, ignorando coluna instituição
 	private List<Postagem> postagemObj; //listagem das postagens feitas pela insituição
 
 	/* métodos */
