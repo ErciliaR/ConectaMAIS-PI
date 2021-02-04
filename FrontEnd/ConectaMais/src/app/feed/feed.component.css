@@ -62,30 +62,35 @@
   }
 
    #edit {
-     outline: black;
+     outline: white;
      border: 1px solid;
      background-color: transparent;
-     color: black;
+     color: white;
    }
 
    #edit:hover {
-     outline: #007a80;
+     outline: #FF914D;
      border: 1px solid;
-     background-color: #007a80;
+     background-color: #FF914D;
      color: white;
    }
 
    #alert {
-     outline: black;
+     outline: white;
      border: 1px solid;
      background-color: transparent;
-     color: black;
+     color: white;
    }
 
    #alert:hover {
      outline: red;
      border: 1px solid;
      background-color: red;
+     color: white;
+   }
+
+   .bg-conecta{
+     background-color: #007a80;
      color: white;
    }
 
