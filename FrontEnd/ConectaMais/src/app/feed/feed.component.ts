@@ -102,8 +102,8 @@ export class FeedComponent implements OnInit {
   }
 
   findByTituloPostagem() {
-    if (this.tituloPesquisa == '') {
-      this.getAllPostagens
+    if (this.tituloPesquisa == '' || this.tituloPesquisa == null) {
+      this.getAllPostagens()
     } else {
       this.postagemService.getByTituloPostagem(this.tituloPesquisa).subscribe((resp: Postagem[]) => {
         this.listaPostagens = resp
@@ -137,7 +137,6 @@ export class FeedComponent implements OnInit {
       this.postagem = resp
       this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
-      this.temaSelecionado = ""
       this.getAllPostagens()
     }, err => {
       alert(`Erro ao inserir a dúvida: ${err.status}`);

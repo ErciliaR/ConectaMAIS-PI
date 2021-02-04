@@ -23,8 +23,8 @@
           <input [(ngModel)]='postagem.titulo' class="form-control mb-2" type="text" name="tituloPostagem"
             id="tituloPostagem">
           <label for="tema">Tema</label>
-          <select (change)='temaSelect($event)' class="form-control" name="tema" id="tema">
-            <option></option>
+          <select (change)='temaSelect($event)' class="custom-select mb-2" name="tema" id="tema">
+            <option selected>Selecione o tema</option>
             <option value="Programa">Programa</option>
             <option value="Bootcamp">Bootcamp</option>
             <option value="Hackaton">Hackaton</option>
@@ -54,7 +54,7 @@
     <div class="col-md-4">
       <div class="form-group">
         <input type="text" class="form-control" id="titulo" placeholder="Digite um título de postagem para pesquisar"
-          [(ngModel)]='tituloPesquisa' (keyup)='findByTituloPostagem()'>
+          [(ngModel)]='tituloPesquisa' (ngModelChange)='findByTituloPostagem()'>
       </div>
     </div>
   </div>
