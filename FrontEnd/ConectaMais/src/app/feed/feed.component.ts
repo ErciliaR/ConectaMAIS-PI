@@ -22,8 +22,6 @@ export class FeedComponent implements OnInit {
   listaPostagens: Postagem[]
   tituloPesquisa: string
 
-
-
   comentario: Comentario = new Comentario()
   listaComentarios: Comentario[]
 
@@ -33,7 +31,6 @@ export class FeedComponent implements OnInit {
 
   userLogin: UserLogin = new UserLogin()
   user: Usuario = new Usuario()
-
 
   usuario: Usuario = new Usuario()
   idUser = environment.id
@@ -47,7 +44,8 @@ export class FeedComponent implements OnInit {
   testeP: Postagem = new Postagem()
   testeU: Usuario = new Usuario()
 
-
+  key = 'data'
+  reverse = true
 
   constructor(
     private router: Router,

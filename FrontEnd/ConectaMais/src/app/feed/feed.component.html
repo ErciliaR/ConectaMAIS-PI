@@ -59,7 +59,8 @@
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center mb-5" *ngFor='let post of listaPostagens'>
+  <div class="row d-flex justify-content-center mb-5" 
+  *ngFor='let post of listaPostagens | orderBy: key : reverse'>
     <div class="col-md-9 bg-white" id="formularioPostagem" style="padding-left: 64px; padding-right: 64px;">
       <div class="row">
         <div class="col-md-8 text-left pl-3 pr-0 ">
