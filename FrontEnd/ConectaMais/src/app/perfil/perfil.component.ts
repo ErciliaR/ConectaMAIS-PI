@@ -23,6 +23,13 @@ export class PerfilComponent implements OnInit {
   tipoAula: string
   flagSenha: boolean
 
+  remainingTextNome: number
+  remainingTextEmail: number
+  remainingTextDescricao: number
+  remainingTextCidade: number
+  remainingTextImagem: number
+  remainingTextSenha: number
+  remainingTextConfSenha: number
 
   showBlock: boolean = false;
 
@@ -74,6 +81,30 @@ export class PerfilComponent implements OnInit {
 
   confirmSenha(event: any) {
     this.confirmarSenha = event.target.value
+  }
+
+  valueChangeNome() {
+    this.remainingTextNome = 20 - this.usuario.nome.length
+  }
+
+  valueChangeEmail(){
+    this.remainingTextEmail = 255 - this.usuario.email.length
+  }
+
+  valueChangeDescricao(){
+    this.remainingTextDescricao = 500 - this.usuario.descricao.length
+  }
+
+  valueChangeCidade(){
+    this.remainingTextCidade = 255 - this.usuario.cidade.length
+  }
+
+  valueChangeImagem(){
+    this.remainingTextImagem = 500 - this.usuario.imagemPerfilURL.length
+  }
+
+  valueChangeConfSenha(){
+    this.remainingTextConfSenha = 10 - this.usuario.senha.length
   }
 
   atualizar() {
