@@ -18,7 +18,6 @@
     <!-- /texto_chamada -->
   </div>
 
-
   <!-- quem_somos -->
   <span class="anchor" id="quemSomos"></span>
   <div class="secao02 d-flex align-items-center container-fluid pb-5 pt-5">
@@ -27,8 +26,10 @@
       <p class="text-center fs-18" style="margin-right: 5%; margin-left: 5%;">
         Nossos equipe foi fundada por pessoas como você que está do outro lado da tela. Iniciamos nosso apredizado e
         carreira na área de programação graças a organizações como essa! Com o desejo de
-        levar a oportunidade que nos foi oferecida a mais pessoas e promover maior diversidade ao ambiente da tecnologia,
-        a equipe do CONECTA+ criou esta plataforma como projeto integrador do nosso bootcamp na Generation Brasil. Sinta-se a
+        levar a oportunidade que nos foi oferecida a mais pessoas e promover maior diversidade ao ambiente da
+        tecnologia,
+        a equipe do CONECTA+ criou esta plataforma como projeto integrador do nosso bootcamp na Generation Brasil.
+        Sinta-se a
         vontade para navegar nesse espaço e conhecer organizações, eventos e noticias da área. Nosso intuito é te ajudar
         a fazer novas conexões!</p>
     </div>
@@ -60,18 +61,16 @@
       </div>
     </div>
     <!-- cards -->
-    <div class="container-fluid">
+    <div class="container-fluid none-show">
       <div class="classnew">
         <div class="card mr-3">
-          <a href="#" target="_blank">
-            <div class="face face1">
-              <div class="content">
-                <div class="icon">
-                  <i class="fas fa-graduation-cap"></i>
-                </div>
+          <div class="face face1">
+            <div class="content">
+              <div class="icon">
+                <i class="fas fa-graduation-cap"></i>
               </div>
             </div>
-          </a>
+          </div>
           <div class="face face2">
             <div class="content">
               <h3>
@@ -81,18 +80,15 @@
                 gostaria de conhecer mais a área, quero estudar e conhecer os projetos disponíveis.</p>
             </div>
           </div>
-
         </div>
         <div class="card mr-3">
-          <a href="#" target="_blank">
-            <div class="face face1">
-              <div class="content">
-                <div class="icon">
-                  <i class="fas fa-handshake"></i>
-                </div>
+          <div class="face face1">
+            <div class="content">
+              <div class="icon">
+                <i class="fas fa-handshake"></i>
               </div>
             </div>
-          </a>
+          </div>
           <div class="face face2">
             <div class="content">
               <h3>
@@ -106,15 +102,13 @@
           </div>
         </div>
         <div class="card">
-          <a href="#" target="_blank">
-            <div class="face face1">
-              <div class="content">
-                <div class="icon">
-                  <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
-                </div>
+          <div class="face face1">
+            <div class="content">
+              <div class="icon">
+                <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
               </div>
             </div>
-          </a>
+          </div>
           <div class="face face2">
             <div class="content">
               <h3>
@@ -130,6 +124,32 @@
       </div>
     </div>
     <!-- /cards -->
+    <!-- media -->
+    <div class="card-deck show-if">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a routerLink='/cadastrar' target="_blank" class="font-weight-bold" style="color: #1B3659;">ESTUDE</a></h3>
+          <p class="card-text text-center font-weight-bolder" style="color: #1B3659;">Sou estudante de tecnologia ou
+            gostaria de conhecer mais a área, quero estudar e conhecer os projetos disponíveis.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><a routerLink='/cadastrar' target="_blank" class="font-weight-bold" style="color: #1B3659;">PARTICIPE</a></h3>
+          <p class="card-text text-center font-weight-bolder" style="color: #1B3659;">Sou uma instituição de ensino
+            e gostaria de impactar a vida de estudantes de tecnologia, seja com cursos, projetos, programas, entre
+            outros...</p>
+        </div>
+      </div>
+      <div class="card m-0">
+        <div class="card-body">
+          <h3 class="card-title"><a routerLink='/apoie' target="_blank" class="font-weight-bold" style="color: #1B3659;">DOE</a></h3>
+          <p class="card-text text-center font-weight-bolder" style="color: #1B3659;">Acredito que a união de
+            esforços e gente boa nos leva muito mais longe e quero contribuir ativamente com a transformação social do país.</p>
+        </div>
+      </div>
+    </div>
+    <!-- /media -->
   </div>
   <!-- /faca_parte -->
 
@@ -222,18 +242,19 @@
       <div class="flip-box mr-2">
         <div class="flip-box-inner">
           <div class="flip-box-front">
-            <img id="noix" src="/assets/img/Caio.jpg" alt="Caio" style="width:300px;height:auto;">
+            <img id="noix" class="img-founder" src="/assets/img/Caio.jpg" alt="Caio">
           </div>
           <div class="flip-box-back">
             <h2 class="mt-2 text-center">Caio Tairone</h2>
-            <p class="mt-2 mb-2 text-center font-weight-bolder"> Desenvolverdor Fullstack JAVA</p>
-            <p class="text-left">Sempre tive a visão da tecnologia como algo realmente presente na
+            <p class="mt-2 mb-2 text-center font-weight-bolder none-show"> Desenvolverdor Fullstack JAVA</p>
+            <p class="text-left none-show">Sempre tive a visão da tecnologia como algo realmente presente na
               vida das pessoas, nesses últimos anos pude perceber como essa ideia
-              já esta presente, ainda não para todos. Com o Conecta + vamos fazer essa ponte 
+              já esta presente, ainda não para todos. Com o Conecta + vamos fazer essa ponte
               entre aluno e instituição.</p>
             <div class="pt-2">
               <ul class="social-icons text-right">
-                <li><a class="instagram" href="https://www.instagram.com/caiotsv/" target="_blank"><span class="fab fa-instagram" ></span></a></li>
+                <li><a class="instagram" href="https://www.instagram.com/caiotsv/" target="_blank"><span
+                      class="fab fa-instagram"></span></a></li>
                 <li><a class="github" href="https://github.com/tairone32" target="_blank"><span
                       class="fab fa-github-alt"></span></a>
                 </li>
@@ -247,17 +268,18 @@
       <div class="flip-box mr-2">
         <div class="flip-box-inner">
           <div class="flip-box-front">
-            <img id="noix" src="/assets/img/Erci.jpg" alt="Ercilia" style="width:300px;height:auto">
+            <img id="noix" class="img-founder" src="/assets/img/Erci.jpg" alt="Ercilia">
           </div>
           <div class="flip-box-back">
             <h2 class="mt-2 text-center">Ercília Dantas</h2>
-            <p class="mt-2 mb-2 text-center font-weight-bolder"> Desenvolverdora Fullstack JAVA</p>
-            <p class="text-left">A tecnologia causa mudanças transformadoras em quem a conhece e ser
-               o condutor dessa mudança é o que me emociona e inspira. Nunca é tarde pra se reinventar,
-                nossa metamorfose é continua. O destino final é esculpir uma versão melhor que a anterior!</p>
+            <p class="mt-2 mb-2 text-center font-weight-bolder none-show"> Desenvolverdora Fullstack JAVA</p>
+            <p class="text-left none-show">A tecnologia causa mudanças transformadoras em quem a conhece e ser
+              o condutor dessa mudança é o que me emociona e inspira. Nunca é tarde pra se reinventar,
+              nossa metamorfose é continua. O destino final é esculpir uma versão melhor que a anterior!</p>
             <div class="pt-2">
               <ul class="social-icons text-right">
-                <li><a class="instagram" href="https://www.instagram.com/ercilia_regina/" target="_blank"><span class="fab fa-instagram" ></span></a></li>
+                <li><a class="instagram" href="https://www.instagram.com/ercilia_regina/" target="_blank"><span
+                      class="fab fa-instagram"></span></a></li>
                 <li><a class="github" href="https://github.com/ErciliaR" target="_blank"><span
                       class="fab fa-github-alt"></span></a></li>
                 <li><a class="linkedin" href="https://www.linkedin.com/in/erc%C3%ADlia-regina-silva-dantas-97008ab3/"
@@ -270,17 +292,18 @@
       <div class="flip-box">
         <div class="flip-box-inner">
           <div class="flip-box-front">
-            <img id="noix" src="/assets/img/Leo.jpg" alt="Leo" style="width:300px;height:auto">
+            <img id="noix" class="img-founder" src="/assets/img/Leo.jpg" alt="Leo">
           </div>
           <div class="flip-box-back">
             <h2 class="mt-2 text-center">Leonardo Silva</h2>
-            <p class="mt-2 mb-2 text-center font-weight-bolder"> Desenvolverdor Fullstack JAVA</p>
-            <p class="text-left">Sempre tentei entender como as coisas funcionam. Mas nunca parei
-               para entender o desenvolvimento de softwares. Até receber a oportunidade de realizar
-               um curso de Java, na Generation, e descobri uma profunda paixão por solucionar problemas.</p>
+            <p class="mt-2 mb-2 text-center font-weight-bolder none-show"> Desenvolverdor Fullstack JAVA</p>
+            <p class="text-left none-show">Sempre tentei entender como as coisas funcionam. Mas nunca parei
+              para entender o desenvolvimento de softwares. Até receber a oportunidade de realizar
+              um curso de Java, na Generation, e descobri uma profunda paixão por solucionar problemas.</p>
             <div class="pt-2">
               <ul class="social-icons text-right">
-                <li><a class="instagram" href="https://www.instagram.com/leeomatheus/" target="_blank"><span class="fab fa-instagram" ></span></a></li>
+                <li><a class="instagram" href="https://www.instagram.com/leeomatheus/" target="_blank"><span
+                      class="fab fa-instagram"></span></a></li>
                 <li><a class="github" href="https://github.com/LeonardoMFSilva" target="_blank"><span
                       class="fab fa-github-alt"></span></a>
                 </li>
@@ -296,15 +319,15 @@
       <div class="flip-box mr-2">
         <div class="flip-box-inner">
           <div class="flip-box-front">
-            <img id="noix" src="/assets/img/Lucas.jpg" alt="Lucas" style="width:300px;height:auto">
+            <img id="noix" class="img-founder" src="/assets/img/Lucas.jpg" alt="Lucas">
           </div>
           <div class="flip-box-back">
             <h2 class="mt-2 text-center">Lucas Chagas</h2>
-            <p class="mt-2 mb-2 text-center font-weight-bolder"> Desenvolverdor Fullstack JAVA</p>
-            <p class="text-left">Durante minha formação em engenharia, descobri o mundo da programação.
-                  Me encantei de primeira, foi minha matéria preferida! Depois disso consegui uma chance única:
-                  Se tornar desenvolvedor em 3 meses. Agora trilho neste caminho incrível.</p>
-                  
+            <p class="mt-2 mb-2 text-center font-weight-bolder none-show"> Desenvolverdor Fullstack JAVA</p>
+            <p class="text-left none-show">Durante minha formação em engenharia, descobri o mundo da programação.
+              Me encantei de primeira, foi minha matéria preferida! Depois disso consegui uma chance única:
+              Se tornar desenvolvedor em 3 meses. Agora trilho neste caminho incrível.</p>
+
             <div class="pt-2">
               <ul class="social-icons text-right">
                 <li><a class="github" href="https://github.com/LucasWilliam2100" target="_blank"><span
@@ -321,18 +344,19 @@
       <div class="flip-box">
         <div class="flip-box-inner">
           <div class="flip-box-front">
-            <img id="noix" src="/assets/img/Vitin.jpg" alt="Vitor" style="width:300px;height:auto">
+            <img id="noix" class="img-founder" src="/assets/img/Vitin.jpg" alt="Vitor">
           </div>
           <div class="flip-box-back">
             <h2 class="mt-2 text-center">Vitor Cutri</h2>
-            <p class="mt-2 mb-2 text-center font-weight-bolder"> Desenvolverdor Fullstack JAVA</p>
-            <p class="text-left">Apaixonado por tecnologia, busco impactar e transformar o mundo ao meu redor.
-               Além de sempre querer saber o porquê das coisas, adoro lidar com desafios e solucionar problemas.
-                Busco todos os dias ser uma versão melhor de mim mesmo.
+            <p class="mt-2 mb-2 text-center font-weight-bolder none-show"> Desenvolverdor Fullstack JAVA</p>
+            <p class="text-left none-show">Apaixonado por tecnologia, busco impactar e transformar o mundo ao meu redor.
+              Além de sempre querer saber o porquê das coisas, adoro lidar com desafios e solucionar problemas.
+              Busco todos os dias ser uma versão melhor de mim mesmo.
             </p>
             <div class="pt-2">
               <ul class="social-icons text-right">
-                <li><a class="instagram" href="https://www.instagram.com/miguelcutri/" target="_blank"><span class="fab fa-instagram"></span></a></li>
+                <li><a class="instagram" href="https://www.instagram.com/miguelcutri/" target="_blank"><span
+                      class="fab fa-instagram"></span></a></li>
                 <li><a class="github" href="https://github.com/Miguelcutri" target="_blank"><span
                       class="fab fa-github-alt"></span></a>
                 </li>

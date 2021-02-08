@@ -1,3 +1,67 @@
+@media (max-width: 800px) {
+  .fs-65{
+    font-size: large;
+  }
+  .fs-16{
+    font-size: smaller;
+  }
+  .fs-18{
+    font-size: small;
+  }
+  .btn-outline-secondary{
+    font-size: smaller !important;
+      border-color: #1B3659 !important;
+      background-color: #1B3659 !important;
+  }
+  h1 {
+    font-size: x-large !important;
+  }
+  h2{
+    font-size: medium;
+  }
+  h3{
+    font-size: medium;
+  }
+  p{
+    font-size: smaller;
+  }
+  .secao01 {
+
+    background-position: bottom !important;
+    height: 280px !important;
+  }
+
+  .show-if{
+    display: block !important;
+  }
+
+  .flip-box {
+    width: 90px !important;
+    height: 90px !important;
+  }
+  .img-founder {
+    width: 90px !important;
+  }
+  .none-show{
+    display: none !important;
+  }
+  .social-icons a {
+    font-size: 12px !important;
+    line-height: 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .anchor {
+    height: 74px;
+    /*same height as header*/
+    margin-top: -74px;
+    /*same height as header*/
+  }
+
+}
+
+
 p {
   color: white;
   margin-bottom: 0%;
@@ -97,6 +161,11 @@ h1 {
 
 
 /* effeito na secao04 */
+  .show-if {
+    display: none;
+  }
+
+
 .classnew {
   width: 100%;
   position: relative;
@@ -242,6 +311,10 @@ i {
 }
 
 /* This container is needed to position the front and back side */
+.img-founder {
+  width: 300px;
+  height: auto;
+}
 .flip-box-inner {
   position: relative;
   width: 100%;
