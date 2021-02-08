@@ -50,7 +50,7 @@ public class Postagem {
 	private Date dataAtualizacaoPostagem = new java.sql.Date(System.currentTimeMillis()); // data de atualizaçcão da postagem
 
 	/* relação entre tabelas */
-	@OneToMany(mappedBy = "postagemObj", cascade = CascadeType.REMOVE) //mapeamento por coluna postagem e efeito cascata em tabela comentário
+	@OneToMany(mappedBy = "postagemObj", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}) //mapeamento por coluna postagem e efeito cascata em tabela comentário
 	@JsonIgnoreProperties(value = {"postagemObj"}) //declaraçao de chave estrageira da tabela comentário, ignorando coluna postagem
 	private List<Comentario> comentarioObj; //listagem dos comentários feitas na postagem
 

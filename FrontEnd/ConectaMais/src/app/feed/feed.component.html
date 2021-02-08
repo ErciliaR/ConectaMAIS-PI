@@ -23,8 +23,8 @@
           <input [(ngModel)]='postagem.titulo' class="form-control mb-2" type="text" name="tituloPostagem"
             id="tituloPostagem">
           <label for="tema">Tema</label>
-          <select (change)='temaSelect($event)' class="custom-select mb-2" name="tema" id="tema">
-            <option selected>Selecione o tema</option>
+          <select (change)='temaSelect($event)' class="form-control mb-2" name="tema" id="tema">
+            <option value="">Selecione o tema</option>
             <option value="Programa">Programa</option>
             <option value="Bootcamp">Bootcamp</option>
             <option value="Hackaton">Hackaton</option>
@@ -87,7 +87,7 @@
                 <button class="btn my-btn collapsed " type="button" data-toggle="collapse"
                   [attr.data-target]="'#' + 'comentButton' + post.postagemID" aria-expanded="false"
                   aria-controls="collapseTwo">
-                    <i class="fas fa-comments mr-2"></i>Comentários
+                  <i class="fas fa-comments mr-2"></i>Comentários
                 </button>
               </h5>
             </div>
@@ -98,13 +98,12 @@
                   <div class="row">
                     <div class="col-md-10 pr-1">
                       <div class="form-group">
-                        <input type="text" class="form-control" id="conteudotxt" aria-describedby="emailHelp"
+                        <input type="text" class="form-control" aria-describedby="emailHelp"
                           placeholder="Digite aqui seu comentário" [(ngModel)]='comentario.conteudoComentario'>
                       </div>
                     </div>
                     <div class="col-md-2">
-                      <button class="btn my-btn w-100"
-                        (click)='comentar(this.post.postagemID)'>Publicar</button>
+                      <button class="btn my-btn w-100" (click)='comentar(this.post.postagemID)'>Publicar</button>
                     </div>
                   </div>
                 </div>
@@ -121,13 +120,13 @@
                           <span class="font-weight-bold">{{comment.usuarioObj.nome}}:</span>
                         </div>
                         <div class="col-md-2 d-flex justify-content-end">
-                          <button (click)='findByIdComentario(comment.comentarioID)'
-                            class="btn mr-3 rounded-circle" id="edit"
-                            data-toggle="modal" data-target="#editarComentario"><i
+                          <button *ngIf="idUser == comment.usuarioObj.usuarioID"
+                            (click)='findByIdComentario(comment.comentarioID)' class="btn mr-3 rounded-circle"
+                            id="edit" data-toggle="modal" data-target="#editarComentario"><i
                               class="fas fa-pencil-alt img-fluid"></i></button>
-                          <button (click)='findByIdComentario(comment.comentarioID)' class="btn rounded-circle"
-                            id="alert"
-                            data-toggle="modal" data-target="#apagarComentario"><i
+                          <button *ngIf="idUser == comment.usuarioObj.usuarioID"
+                            (click)='findByIdComentario(comment.comentarioID)' class="btn rounded-circle"
+                            id="alert" data-toggle="modal" data-target="#apagarComentario"><i
                               class="fas fa-trash-alt"></i></button>
                         </div>
                       </div>
@@ -157,8 +156,7 @@
 
       <!-- Modal editar -->
       <div class="modal fade" id="editarComentario" tabindex="-1" role="dialog"
-        aria-labelledby="TituloModalCentralizado"
-        aria-hidden="true">
+        aria-labelledby="TituloModalCentralizado" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -169,7 +167,7 @@
             </div>
             <div class="modal-body">
 
-               <div class="form-group">
+              <div class="form-group">
                 <label for="texto">Texto</label>
                 <textarea [(ngModel)]='comentario.conteudoComentario' class="form-control" name="texto" id="texto"
                   rows="3"></textarea>
@@ -188,8 +186,7 @@
 
       <!-- Modal apagar -->
       <div class="modal fade" id="apagarComentario" tabindex="-1" role="dialog"
-        aria-labelledby="TituloModalCentralizado"
-        aria-hidden="true">
+        aria-labelledby="TituloModalCentralizado" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -202,7 +199,8 @@
               <p>Tem certeza que deseja apagar este comentário?</p>
             </div>
             <div class="modal-footer">
-              <button (click)='deletarComentario()' type="button" class="btn btn-success " data-dismiss="modal">Sim</button>
+              <button (click)='deletarComentario()' type="button" class="btn btn-success "
+                data-dismiss="modal">Sim</button>
               <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Não</button>
             </div>
           </div>
