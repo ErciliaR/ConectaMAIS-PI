@@ -119,10 +119,12 @@
                           <span class="font-weight-bold">{{comment.usuarioObj.nome}}:</span>
                         </div>
                         <div class="col-md-2 d-flex justify-content-end">
-                          <button (click)='findByIdComentario(comment.comentarioID)' class="btn mr-3 rounded-circle"
+                          <button *ngIf="idUser == comment.usuarioObj.usuarioID"
+                            (click)='findByIdComentario(comment.comentarioID)' class="btn mr-3 rounded-circle"
                             id="edit" data-toggle="modal" data-target="#editarComentario"><i
                               class="fas fa-pencil-alt img-fluid"></i></button>
-                          <button (click)='findByIdComentario(comment.comentarioID)' class="btn rounded-circle"
+                          <button *ngIf="idUser == comment.usuarioObj.usuarioID"
+                            (click)='findByIdComentario(comment.comentarioID)' class="btn rounded-circle"
                             id="alert" data-toggle="modal" data-target="#apagarComentario"><i
                               class="fas fa-trash-alt"></i></button>
                         </div>
