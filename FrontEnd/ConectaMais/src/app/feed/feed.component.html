@@ -7,14 +7,14 @@
   <h4 *ngIf="showMsg2" class="w3-animate-top text-center text-white mb-5 text-uppercase"
     style="padding-top: 135px; text-shadow: 2px 2px 4px #000000;">Faça um
     comentario e interaja com suas instituições favoritas</h4>
-
-  <p class="text-center">
-    <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-      aria-controls="collapseExample" id="criarPost" *ngIf="showMsg1">
-      Criar nova postagem
-    </button>
-  </p>
-
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-8">
+      <p class="text-center">
+        <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="criarPost" *ngIf="showMsg1">
+          Criar nova postagem</button>
+      </p>
+    </div>
+  </div>
   <div class="collapse" id="collapseExample">
     <div class="row d-flex justify-content-center ">
       <div class="col-md-9 bg-white" id="formularioPostagem">
@@ -59,8 +59,7 @@
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center mb-5" 
-  *ngFor='let post of listaPostagens | orderBy: key : reverse'>
+  <div class="row d-flex justify-content-center mb-5" *ngFor='let post of listaPostagens | orderBy: key : reverse'>
     <div class="col-md-9 bg-white" id="formularioPostagem" style="padding-left: 64px; padding-right: 64px;">
       <div class="row">
         <div class="col-md-8 text-left pl-3 pr-0 ">
@@ -121,12 +120,12 @@
                         </div>
                         <div class="col-md-2 d-flex justify-content-end">
                           <button *ngIf="idUser == comment.usuarioObj.usuarioID"
-                            (click)='findByIdComentario(comment.comentarioID)' class="btn mr-3 rounded-circle"
-                            id="edit" data-toggle="modal" data-target="#editarComentario"><i
+                            (click)='findByIdComentario(comment.comentarioID)' class="btn mr-3 rounded-circle" id="edit"
+                            data-toggle="modal" data-target="#editarComentario"><i
                               class="fas fa-pencil-alt img-fluid"></i></button>
                           <button *ngIf="idUser == comment.usuarioObj.usuarioID"
-                            (click)='findByIdComentario(comment.comentarioID)' class="btn rounded-circle"
-                            id="alert" data-toggle="modal" data-target="#apagarComentario"><i
+                            (click)='findByIdComentario(comment.comentarioID)' class="btn rounded-circle" id="alert"
+                            data-toggle="modal" data-target="#apagarComentario"><i
                               class="fas fa-trash-alt"></i></button>
                         </div>
                       </div>

@@ -15,6 +15,23 @@ h1 {
   margin: 0px;
 }
 
+@media screen and (max-width: 1000px) {
+  #secao01 {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 620px) {
+  #secao01 {
+    height: 200px;
+  }
+  h1{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+    font-size: 20px;
+  }
+}
+
 #bg-inst {
   background-color: #007A80;
   width: 100%;

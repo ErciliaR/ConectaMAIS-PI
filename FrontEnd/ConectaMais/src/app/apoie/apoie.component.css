@@ -6,13 +6,36 @@
   background-position: center;
   margin: 0;
   border: 0;
-  height: 650px;
+  height: 580px;
 }
 
 h1 {
   padding-top: 150px;
   padding-bottom: 200px;
   margin: 0px;
+}
+
+
+@media screen and (max-width: 1000px) {
+  #secao01 {
+    height: 350px;
+  }
+  h1{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+  }
+}
+@media screen and (max-width: 620px) {
+  #secao01 {
+    height: 200px;
+  }
+  h1{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+    font-size: 20px;
+  }
 }
 
 #bg-inst {
