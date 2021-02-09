@@ -8,6 +8,15 @@ html {
     scroll-behavior: smooth;
 }
 
+body h1, h2, h3 {
+  Font-Family: 'Bree Serif', Serif;
+  
+}
+
+body p, a{
+  Font-Family: 'Alegreya', Serif;
+}
+
 .fs-65 {
     font-size: 65pt;
     color: white;
