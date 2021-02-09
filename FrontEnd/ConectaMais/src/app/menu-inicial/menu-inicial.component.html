@@ -1,18 +1,18 @@
-  <nav id="navbar-changing" class="navbar navbar-expand-lg navbar-dark fixed-top p-0 w-100">
-    <div class="container-fluid p-0">
+  <nav id="navbar-changing" class="navbar navbar-expand-lg navbar-dark fixed-top p-0 pb-3 w-100">
+    <div class="row container-fluid p-0" id="barra-menu">
       <!-- logotipo -->
-      <a class="navbar-brand m-0 ml-5 pb-3 pt-3" href="/home#inicio">
-        <img src="/assets/img/logoColorido&Sombra.png" id="logo" alt="Logo Conecta Mais" width="100px" height="100px"
-          class="img-fluid">
+      <a class="navbar-brand m-0 ml-2 pb-3 pt-1" href="/home#inicio">
+        <img src="/assets/img/logoColorido&Sombra.png" alt="Logo Conecta Mais" class="img-fluid" id="logo">
       </a>
       <!-- /logotipo -->
       <!-- itens_do_menu -->
-      <button class="navbar-toggler mr-5" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler justify-content-end mr-1" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse d-flex justify-content-end p-0" id="navbarSupportedContent">
-        <ul class=" nav navbar-nav mr-5 d-flex align-items-center">
+      <div class="collapse navbar-collapse justify-content-end p-0 mr-1" id="navbarSupportedContent">
+        <ul class="nav navbar-nav d-flex align-items-end">
           <li class="nav-item">
             <a class="nav-link" href="/home#quemSomos">QUEM SOMOS</a>
           </li>
@@ -22,8 +22,8 @@
           <li class="nav-item">
             <a class="nav-link " href="/home#conexoes">CONEXÕES</a>
           </li>
-          <li class="nav-item" style="padding-right: 0% !important;">
-            <a class="btn btn-outline-secondary p-2" routerLink='/entrar'>ENTRAR</a>
+          <li class="nav-item" id="botao-entrar" style="padding-right: 0% !important;">
+            <a class="btn btn-outline-secondary p-2"  routerLink='/entrar'>ENTRAR</a>
           </li>
         </ul>
       </div>

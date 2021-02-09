@@ -25,7 +25,7 @@ export class MenuInicialComponent implements OnInit {
       let nav = <HTMLElement>document.querySelector('#navbar-changing');
 
       if ( 120 >  window.scrollY) {
-        nav.style.backgroundColor = 'transparent';
+       
       } else {
         nav.style.backgroundColor = '#1B3659';
         nav.style.transition = 'background-color 200ms linear';

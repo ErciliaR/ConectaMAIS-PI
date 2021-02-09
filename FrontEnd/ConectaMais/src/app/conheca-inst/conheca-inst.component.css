@@ -15,14 +15,14 @@ h1 {
   margin: 0px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 980px) {
   #secao01 {
-    height: 350px;
+    height: 400px;
   }
 }
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 520px) {
   #secao01 {
-    height: 200px;
+    height: 250px;
   }
   h1{
     padding-top: 0px;

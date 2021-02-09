@@ -66,4 +66,32 @@ h1 {
   color: white;
 }
 
+#logo{
+  width: 100px;
+  height: auto;
+}
+
+#navbar-changing {
+  background-color: transparent;
+}
+
+@media (max-width: 800px){
+  #logo{
+    width: 50px;
+    height: auto;
+  }
+  .nav-link{
+    font-size: large;
+  }
+  .btn-outline-secondary{
+    font-size: large !important;
+  }
+  #navbar-changing{
+    background-color: #1B3659 !important;
+  }
+  #botao-entrar{
+    margin-right: 15px !important;
+  }
+}
+
 
