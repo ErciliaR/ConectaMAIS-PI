@@ -134,4 +134,11 @@ export class PerfilComponent implements OnInit {
     }
   }
 
+  deletarPerfil() {
+    this.authService.deleteUser(this.idUser).subscribe(() => {
+      this.alertas.showAlertSuccess('Perfil apagado com sucesso!')
+    this.router.navigate(['/entrar'])
+    })
+  }
+
 }

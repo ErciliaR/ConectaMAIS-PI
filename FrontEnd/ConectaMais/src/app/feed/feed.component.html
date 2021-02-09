@@ -59,8 +59,7 @@
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center mb-5" 
-  *ngFor='let post of listaPostagens | orderBy: key : reverse'>
+  <div class="row d-flex justify-content-center mb-5" *ngFor='let post of listaPostagens | orderBy: key : reverse'>
     <div class="col-md-9 bg-white" id="formularioPostagem" style="padding-left: 64px; padding-right: 64px;">
       <div class="row">
         <div class="col-md-8 text-left pl-3 pr-0 ">
@@ -116,17 +115,25 @@
                       <div class="row">
                         <div class="col-md-10 d-flex align-items-center">
                           <!-- imagem do usuario -->
-                          <i class="fas fa-user-circle img-fluid mr-3 w3-xxlarge"></i>
+                          <img *ngIf="comment.usuarioObj.imagemPerfilURL == null" src="/assets/img/profile01.png" alt=""
+                            class="rounded-circle mr-3" style="width: 35px; height: 35px;">
+                          <img *ngIf="comment.usuarioObj.imagemPerfilURL == ''" src="/assets/img/profile01.png" alt=""
+                            class="rounded-circle mr-3" style="width: 35px; height: 35px;">
+                          <img
+                            *ngIf="comment.usuarioObj.imagemPerfilURL !== '' && comment.usuarioObj.imagemPerfilURL !== null"
+                            src="{{comment.usuarioObj.imagemPerfilURL}}" alt="" class="rounded-circle mr-3"
+                            style="width: 35px; height: 35px;">
+                          <!-- <i class="fas fa-user-circle img-fluid mr-3 w3-xxlarge"></i> -->
                           <span class="font-weight-bold">{{comment.usuarioObj.nome}}:</span>
                         </div>
                         <div class="col-md-2 d-flex justify-content-end">
                           <button *ngIf="idUser == comment.usuarioObj.usuarioID"
-                            (click)='findByIdComentario(comment.comentarioID)' class="btn mr-3 rounded-circle"
-                            id="edit" data-toggle="modal" data-target="#editarComentario"><i
+                            (click)='findByIdComentario(comment.comentarioID)' class="btn mr-3 rounded-circle" id="edit"
+                            data-toggle="modal" data-target="#editarComentario"><i
                               class="fas fa-pencil-alt img-fluid"></i></button>
                           <button *ngIf="idUser == comment.usuarioObj.usuarioID"
-                            (click)='findByIdComentario(comment.comentarioID)' class="btn rounded-circle"
-                            id="alert" data-toggle="modal" data-target="#apagarComentario"><i
+                            (click)='findByIdComentario(comment.comentarioID)' class="btn rounded-circle" id="alert"
+                            data-toggle="modal" data-target="#apagarComentario"><i
                               class="fas fa-trash-alt"></i></button>
                         </div>
                       </div>
