@@ -164,7 +164,7 @@ export class FeedComponent implements OnInit {
 
   deletarComentario() {
     this.comentarioService.deleteComentario(this.comentario.comentarioID).subscribe(() => {
-      alert('Comentário apagada com sucesso!')
+     this.alertas.showAlertSuccess('Comentário apagada com sucesso!')
       // this.findByIdUsuario()
       // this.findByIdComentario(this.comentario.comentarioID)
       this.comentario = new Comentario()
@@ -175,7 +175,7 @@ export class FeedComponent implements OnInit {
   atualizarComentario() {
     this.comentarioService.putComentario(this.comentario).subscribe((resp: Comentario) => {
       this.comentario = resp
-      alert('Comentário atualizada com sucesso!')
+      this.alertas.showAlertSuccess('Comentário atualizada com sucesso!')
       // this.findByIdUsuario()
       // this.findByIdComentario(this.comentario.comentarioID)
       this.comentario = new Comentario()

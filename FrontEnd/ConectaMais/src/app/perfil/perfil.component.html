@@ -68,10 +68,17 @@
             <input [(ngModel)]="usuario.imagemPerfilURL" class="form-control" type="text" name="imagem " id="imagem"
               maxlength="500" placeholder="URL da imagem">
           </div>
-          <a href="#" data-toggle="modal" data-target="#alteraSenha">
-            <small id="trocaSenha" class="form-text text-muted text-left">Clique aqui para alterar a senha.</small>
-          </a>
-          <div class="d-flex justify-content-end pb-5">
+          <div class="d-flex justify-content-between"> 
+            <a href="#" data-toggle="modal" data-target="#alteraSenha">
+              <small id="trocaSenha" class="form-text text-left">Clique aqui para <b>alterar a
+                  senha</b>.</small>
+            </a>
+            <a href="#" data-toggle="modal" data-target="#deletarUser">
+              <small id="deletarUsuario" class="form-text text-left">Clique aqui para <b>deletar sua
+                conta</b>.</small>
+            </a>
+          </div>
+          <div class="d-flex justify-content-end pt-3 pb-5">
             <button (click)='atualizar()' type="submit" class="btn btn-success style-button">Atualizar</button>
           </div>
         </div>
@@ -81,6 +88,27 @@
   <div class="position-fixed-bottom m-0" style="height: 350px;" id="padrao2"></div>
 </div>
 
+<div class="modal fade" id="deletarUser" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Apagar Perfil</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja apagar seu perfil?</p>
+      </div>
+      <div class="modal-footer">
+        <button (click)='deletarPerfil()' type="button" class="btn btn-success " data-dismiss="modal">Sim</button>
+        <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Não</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal apagar -->
 
 
 

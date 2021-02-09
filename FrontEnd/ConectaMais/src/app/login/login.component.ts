@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       environment.papel = this.userLogin.papel
       environment.senha = this.userLogin.senha
 
-      this.router.navigate(['/feed/:this.userLogin.id'])
+      this.router.navigate(['/feed/:'])
 
     }, erro => {
       if (erro.status == 500) {

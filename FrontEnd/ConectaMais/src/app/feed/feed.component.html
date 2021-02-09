@@ -115,7 +115,15 @@
                       <div class="row">
                         <div class="col-md-10 d-flex align-items-center">
                           <!-- imagem do usuario -->
-                          <i class="fas fa-user-circle img-fluid mr-3 w3-xxlarge"></i>
+                          <img *ngIf="comment.usuarioObj.imagemPerfilURL == null" src="/assets/img/profile01.png" alt=""
+                            class="rounded-circle mr-3" style="width: 35px; height: 35px;">
+                          <img *ngIf="comment.usuarioObj.imagemPerfilURL == ''" src="/assets/img/profile01.png" alt=""
+                            class="rounded-circle mr-3" style="width: 35px; height: 35px;">
+                          <img
+                            *ngIf="comment.usuarioObj.imagemPerfilURL !== '' && comment.usuarioObj.imagemPerfilURL !== null"
+                            src="{{comment.usuarioObj.imagemPerfilURL}}" alt="" class="rounded-circle mr-3"
+                            style="width: 35px; height: 35px;">
+                          <!-- <i class="fas fa-user-circle img-fluid mr-3 w3-xxlarge"></i> -->
                           <span class="font-weight-bold">{{comment.usuarioObj.nome}}:</span>
                         </div>
                         <div class="col-md-2 d-flex justify-content-end">

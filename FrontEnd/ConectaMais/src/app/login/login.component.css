@@ -9,6 +9,12 @@
   height: auto; /* foto estava muito pequena para o conteudo */
   background-position: top;
 }
+#cadastrarGo{
+  color: gray;
+}
+#cadastrarGo:hover{
+  color: #FF914D;
+}
 
 #form-login {
   margin-top: 100px;
