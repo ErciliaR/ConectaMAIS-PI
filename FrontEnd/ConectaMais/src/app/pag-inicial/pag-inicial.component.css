@@ -124,9 +124,9 @@ h1 {
 
 .anchor {
   display: block;
-  height: 115px;
+  height: 105px;
   /*same height as header*/
-  margin-top: -115px;
+  margin-top: -105px;
   /*same height as header*/
   visibility: hidden;
 }
