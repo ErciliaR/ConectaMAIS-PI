@@ -3,6 +3,18 @@
   padding: 0;
 }
 
+.nav-link:hover{
+  color: #FF914D !important;
+  font-size: 110%;
+  transition: 1s;
+}
+
+#botao:hover{
+  font-size: 110%;
+  background-color: #FF914D;
+  transition: 1s;
+}
+
 @media screen and (max-width: 1000px) {
   #logo{
     height: 45px;
