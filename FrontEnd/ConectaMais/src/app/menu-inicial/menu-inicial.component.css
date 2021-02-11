@@ -3,6 +3,25 @@
   padding: 0;
 }
 
+.nav-link:hover{
+  color: #FF914D !important;
+  font-size: 110%;
+  transition: 1s;
+}
+
+#botao:hover{
+  font-size: 110%;
+  background-color: #FF914D;
+  transition: 1s;
+}
+
+@media screen and (max-width: 1000px) {
+  #logo{
+    height: 45px;
+    width: 50px;
+  }
+}
+
 p {
   color: white;
   margin-bottom: 0%;
@@ -57,6 +76,34 @@ h1 {
 
 .navbar-dark .navbar-nav .nav-link {
   color: white;
+}
+
+#logo{
+  width: 100px;
+  height: auto;
+}
+
+#navbar-changing {
+  background-color: transparent;
+}
+
+@media (max-width: 800px){
+  #logo{
+    width: 50px;
+    height: auto;
+  }
+  .nav-link{
+    font-size: large;
+  }
+  .btn-outline-secondary{
+    font-size: large !important;
+  }
+  #navbar-changing{
+    background-color: #1B3659 !important;
+  }
+  #botao-entrar{
+    margin-right: 15px !important;
+  }
 }
 
 

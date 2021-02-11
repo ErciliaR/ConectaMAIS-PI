@@ -22,8 +22,6 @@ export class FeedComponent implements OnInit {
   listaPostagens: Postagem[]
   tituloPesquisa: string
 
-
-
   comentario: Comentario = new Comentario()
   listaComentarios: Comentario[]
 
@@ -33,7 +31,6 @@ export class FeedComponent implements OnInit {
 
   userLogin: UserLogin = new UserLogin()
   user: Usuario = new Usuario()
-
 
   usuario: Usuario = new Usuario()
   idUser = environment.id
@@ -47,7 +44,8 @@ export class FeedComponent implements OnInit {
   testeP: Postagem = new Postagem()
   testeU: Usuario = new Usuario()
 
-
+  key = 'data'
+  reverse = true
 
   constructor(
     private router: Router,
@@ -102,8 +100,8 @@ export class FeedComponent implements OnInit {
   }
 
   findByTituloPostagem() {
-    if (this.tituloPesquisa == '') {
-      this.getAllPostagens
+    if (this.tituloPesquisa == '' || this.tituloPesquisa == null) {
+      this.getAllPostagens()
     } else {
       this.postagemService.getByTituloPostagem(this.tituloPesquisa).subscribe((resp: Postagem[]) => {
         this.listaPostagens = resp
@@ -137,7 +135,10 @@ export class FeedComponent implements OnInit {
       this.postagem = resp
       this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
-      this.temaSelecionado = ""
+
+      let teminha = <HTMLSelectElement>document.getElementById("tema")
+      teminha.value = ""
+
       this.getAllPostagens()
     }, err => {
       alert(`Erro ao inserir a dúvida: ${err.status}`);
@@ -161,12 +162,12 @@ export class FeedComponent implements OnInit {
     })
   }
 
-
   deletarComentario() {
     this.comentarioService.deleteComentario(this.comentario.comentarioID).subscribe(() => {
-      alert('Postagem apagada com sucesso!')
-      this.findByIdUsuario()
-      this.findByIdComentario(this.comentario.comentarioID)
+     this.alertas.showAlertSuccess('Comentário apagada com sucesso!')
+      // this.findByIdUsuario()
+      // this.findByIdComentario(this.comentario.comentarioID)
+      this.comentario = new Comentario()
       this.getAllPostagens()
     })
   }
@@ -174,9 +175,10 @@ export class FeedComponent implements OnInit {
   atualizarComentario() {
     this.comentarioService.putComentario(this.comentario).subscribe((resp: Comentario) => {
       this.comentario = resp
-      alert('Postagem atualizada com sucesso!')
-      this.findByIdUsuario()
-      this.findByIdComentario(this.comentario.comentarioID)
+      this.alertas.showAlertSuccess('Comentário atualizada com sucesso!')
+      // this.findByIdUsuario()
+      // this.findByIdComentario(this.comentario.comentarioID)
+      this.comentario = new Comentario()
       this.getAllPostagens()
     })
 

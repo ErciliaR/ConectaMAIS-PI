@@ -1,6 +1,5 @@
 <div class="container-fluid p-0 m-0" id="padrao1">
 
-
   <div class="row">
     <div class="col-1"></div>
     <div class="col-10 mt-5  mb-5 usuario">
@@ -9,29 +8,26 @@
         <div class="form-group was-validated">
           <label for="nome" class="d-flex ">Nome:</label>
           <input [(ngModel)]="usuario.nome" class="form-control mb-3" type="text" name="nome " id="nome"
-            placeholder="Seu nome" required>
-
+            placeholder="Seu nome" minlength="2" maxlength="20" required>
           <label for="email" class="d-flex ">Email:</label>
           <input [(ngModel)]="usuario.email" class="form-control mb-3" type="email" name="email " id="email"
-            placeholder="Seu email" required>
-
+            placeholder="Seu email" minlength="2" maxlength="255" required>
           <label for="papel" class="d-flex ">Tipo de usuário:</label>
           <input disabled [(ngModel)]="usuario.papel" class="form-control" id="papel">
-
           <!-- instituiçao for selecionada -->
-          <div class="form-group" *ngIf="showBlock">
+          <div class="form-group was-validated" *ngIf="showBlock">
             <label for="descricao" class="d-flex ">Descrição:</label>
             <input [(ngModel)]="usuario.descricao" class="form-control" type="text" name="descricao" id="descricao"
-              placeholder="Descreva os valores e objetivos da instituição">
+              placeholder="Descreva os valores e objetivos da instituição" minlength="2" maxlength="500">
           </div>
-          <div class="form-group" *ngIf="showBlock">
+          <div class="form-group was-validated" *ngIf="showBlock">
             <label for="cidade" class="d-flex ">Cidade:</label>
             <input [(ngModel)]="usuario.cidade" class=" form-control" type="text" name="cidade" id="cidade"
-              placeholder="Locais de atuação">
+              placeholder="Locais de atuação. Ex.: Campinas-SP." minlength="2" maxlength="255">
           </div>
           <div class="form-group" *ngIf="showBlock">
             <label for="idadeMin" class="d-flex ">Idade mínima de participantes:</label>
-            <input [(ngModel)]="usuario.idadeMin" class="form-control" type="number" min="0" name="IdadeMin"
+            <input [(ngModel)]="usuario.idadeMin" class="form-control" type="number" min="0" max="100" name="IdadeMin"
               id="IdadeMin" placeholder="Entre com número">
           </div>
           <div class="form-group" *ngIf="showBlock">
@@ -41,54 +37,78 @@
           </div>
           <div class="form-group" *ngIf="showBlock">
             <label for="escolaridade" class="d-flex ">Escolaridade mínima de participantes:</label>
-            <select [(ngModel)]="usuario.escolaridadeMin" (change)="nivelEscolar($event)" class="form-control"
-              name="escolaridadeMin" id="escolaridadeMin">
+            <select (change)="nivelEscolar($event)" class="form-control" name="escolaridadeMin" id="escolaridadeMin">
               <option> Selecione uma escolaridade mínima</option>
-              <option value="medioIncompleto">Ensino médio incompleto</option>
-              <option value="medioCompleto"> Ensino médio completo</option>
-              <option value="superiorIncompleto">Ensino superior incompleto</option>
+              <option value="Médio Incompleto">Ensino médio incompleto</option>
+              <option value="Médio Completo"> Ensino médio completo</option>
+              <option value="Superior Incompleto">Ensino superior incompleto</option>
             </select>
           </div>
           <div class="form-group" *ngIf="showBlock">
             <label for="genero" class="d-flex ">Gênero de participantes:</label>
-            <select [(ngModel)]="usuario.generoSelecao" (change)="generoSelect($event)" class="form-control"
-              name="generoSelecao" id="generoSelecao">
+            <select (change)="generoSelect($event)" class="form-control" name="generoSelecao" id="generoSelecao">
               <option> Selecione um gênero foco</option>
-              <option value="feminino">Feminino CIS e TRANS</option>
-              <option value="masculino">Masculino CIS e TRANS</option>
-              <option value="todos">Todos os gêneros</option>
+              <option value="Feminino CIS e TRANS">Feminino CIS e TRANS</option>
+              <option value="Masculino CIS e TRANS">Masculino CIS e TRANS</option>
+              <option value="Todos">Todos os gêneros</option>
             </select>
           </div>
           <div class="form-group" *ngIf="showBlock">
             <label for="tipo" class="d-flex ">Tipo de ensino:</label>
-            <select [(ngModel)]="usuario.tipo" (change)="tipoEnsino($event)" class="form-control" name="tipo" id="tipo">
+            <select (change)="tipoEnsino($event)" class="form-control" name="tipo" id="tipo">
               <option> Selecione uma forma de ensino</option>
-              <option value="presencial">Presencial</option>
-              <option value="ead">EAD</option>
-              <option value="presencial&ead">Presencial ou EAD</option>
+              <option value="Presencial">Presencial</option>
+              <option value="EAD">EAD</option>
+              <option value="Presencial & EAD">Presencial ou EAD</option>
             </select>
           </div>
           <!-- /instituiçao for selecionada -->
-          <div class="form-group">
+          <div class="form-group was-validated">
             <label for="imagem" class="d-flex ">Imagem do perfil:</label>
             <input [(ngModel)]="usuario.imagemPerfilURL" class="form-control" type="text" name="imagem " id="imagem"
-              placeholder="URL da imagem">
+              maxlength="500" placeholder="URL da imagem">
           </div>
-          <a href="#"  data-toggle="modal" data-target="#alteraSenha">
-            <small id="trocaSenha" class="form-text text-muted text-left">Clique aqui para alterar a senha.</small>
-          </a>
-          <div class="d-flex justify-content-end pb-5">
+          <div class="d-flex justify-content-between"> 
+            <a href="#" data-toggle="modal" data-target="#alteraSenha">
+              <small id="trocaSenha" class="form-text text-left">Clique aqui para <b>alterar a
+                  senha</b>.</small>
+            </a>
+            <a href="#" data-toggle="modal" data-target="#deletarUser">
+              <small id="deletarUsuario" class="form-text text-left">Clique aqui para <b>deletar sua
+                conta</b>.</small>
+            </a>
+          </div>
+          <div class="d-flex justify-content-end pt-3 pb-5">
             <button (click)='atualizar()' type="submit" class="btn btn-success style-button">Atualizar</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="position-fixed-bottom m-0" style="height: 350px;" id="padrao2"></div>
-
 </div>
 
+<div class="modal fade" id="deletarUser" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Apagar Perfil</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja apagar seu perfil?</p>
+      </div>
+      <div class="modal-footer">
+        <button (click)='deletarPerfil()' type="button" class="btn btn-success " data-dismiss="modal">Sim</button>
+        <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Não</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal apagar -->
 
 
 
@@ -108,25 +128,22 @@
         </button>
       </div>
       <div class="modal-body">
-
         <div class="form-group">
           <label for="senha">Senha:</label>
           <input (input)="confirmSenha($event)" class="form-control" type="password" name="senha " id="senha"
-            placeholder="Digite a nova senha">
+            placeholder="Digite sua nova senha" minlength="5" maxlength="10">
         </div>
-
         <div class="form-group">
           <label for="confirmSenha">Confirme sua senha:</label>
           <input [(ngModel)]="usuario.senha" class="form-control" type="password" name="confirmSenha " id="confirmSenha"
-            placeholder="Repita a nova senha">
+            minlength="5" maxlength="10" placeholder="Repita a nova senha">
         </div>
       </div>
       <div class="modal-footer">
-        <button (click)='alterarSenha()' type="button" class="btn btn-info " data-dismiss="modal">Alterar</button>
+        <button (click)='alterarSenha()' type="button" class="btn btn-success " data-dismiss="modal">Alterar</button>
         <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
   </div>
 </div>
 <!-- /Modal altera senha -->
-

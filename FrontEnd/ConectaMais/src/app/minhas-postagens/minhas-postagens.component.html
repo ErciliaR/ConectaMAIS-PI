@@ -1,7 +1,8 @@
 <div class="container-fluid p-0 m-0" id="padrao1">
   <!-- minhas postagem -->
   <h4 class="text-center text-white mt-0 py-5" style="text-shadow: 2px 2px 4px #000000;">Minhas postagens</h4>
-  <div class="row d-flex justify-content-center mb-5" *ngFor='let item of usuario.postagemObj'>
+  <div class="row d-flex justify-content-center mb-5" 
+  *ngFor='let item of usuario.postagemObj | orderBy: key : reverse'>
     <div class="col-md-9 bg-white" id="formularioPostagem" style="padding-left: 64px; padding-right: 64px;">
       <div class="row">
         <div class="col-md-8 text-left pl-3 pr-0 ">
@@ -25,9 +26,6 @@
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center pt-5 pb-5 m-0">
-    <button>Carregar mais...</button>
-  </div>
   <!-- /minhas postagens -->
   <div class="position-fixed-bottom" style="height: 400px;" id="padrao2"></div>
 
@@ -74,7 +72,7 @@
 
         </div>
         <div class="modal-footer">
-          <button (click)='atualizar()' type="button" class="btn btn-info " data-dismiss="modal">Atualizar</button>
+          <button (click)='atualizar()' type="button" class="btn btn-success " data-dismiss="modal">Atualizar</button>
           <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
@@ -99,7 +97,7 @@
 
         </div>
         <div class="modal-footer">
-          <button (click)='deletar()' type="button" class="btn btn-info " data-dismiss="modal">Sim</button>
+          <button (click)='deletar()' type="button" class="btn btn-success " data-dismiss="modal">Sim</button>
           <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Não</button>
         </div>
       </div>

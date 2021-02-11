@@ -1,3 +1,12 @@
+.hr-new{
+    border: 2px solid #1B3659;
+    border-radius: 1px;
+}
+hr{
+  border: 1px solid #007A80;
+  border-radius: 0.5px;
+}
+
 #criarPost{
   background-color: #FF914D;
   color: white;
@@ -5,13 +14,15 @@
   letter-spacing: 0.1mm;
   text-transform: uppercase;
   width: 100%;
+<<<<<<< HEAD
   
+=======
+>>>>>>> b37af52dfc4c74624c4bb6a15631ec4bec237515
 }
 
 .container-fluid {
   background-color: #007a80;
 }
-
 .button {
   background-color: #007A80;
   /* Green */
@@ -26,24 +37,19 @@
   transition-duration: 0.4s;
   cursor: pointer;
 }
-
 .my-btn {
   background-color: #007A80;
   color: white;
 }
-
 .my-btn:hover {
   background-color: white;
   color: #007A80;
   font-weight: bolder;
   border: 2px solid #007A80;
 }
-
-
 #formularioPostagem {
   border-radius: 20px;
 }
-
 #padrao1 {
   background-image: url("/assets/img/padrao.png");
   background-repeat: no-repeat;
@@ -52,43 +58,42 @@
   width: auto;
   height: max-content;
 }
-
-  #padrao2 {
+#padrao2 {
      background-image: url("/assets/img/padrao2.png");
      background-repeat: no-repeat;
      background-size: 100%;
      background-position: bottom;
      width: auto;
      height: max-content;
-  }
-
-   #edit {
-     outline: black;
-     border: 1px solid;
-     background-color: transparent;
-     color: black;
-   }
-
-   #edit:hover {
-     outline: #007a80;
-     border: 1px solid;
-     background-color: #007a80;
-     color: white;
-   }
-
-   #alert {
-     outline: black;
-     border: 1px solid;
-     background-color: transparent;
-     color: black;
-   }
-
-   #alert:hover {
-     outline: red;
-     border: 1px solid;
-     background-color: red;
-     color: white;
-   }
+}
+#edit {
+  outline: white;
+  border: 1px solid;
+  background-color: transparent;
+  color: white;
+}
+#edit:hover {
+  outline: #FF914D;
+  border: 1px solid;
+  background-color: #FF914D;
+  color: white;
+}
+#alert {
+  outline: white;
+  border: 1px solid;
+  background-color: transparent;
+  color: white;
+}
+#alert:hover {
+  outline: red;
+  border: 1px solid;
+  background-color: red;
+  color: white;
+}
+.bg-conecta{
+  background-color: #007a80;
+  color: white;
+}
 
 
 

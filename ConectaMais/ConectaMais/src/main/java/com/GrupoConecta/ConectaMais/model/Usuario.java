@@ -69,11 +69,11 @@ public class Usuario {
 	private String tipo; //presencial, EAD ou os dois {presencial, ead, presencialEead}
 	
 	/* relação entre tabelas */
-	@OneToMany(mappedBy="usuarioObj", cascade = CascadeType.ALL) //mapeamento por coluna usuario e efeito cascata em tabela comentário
+	@OneToMany(mappedBy="usuarioObj", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}) //mapeamento por coluna usuario e efeito cascata em tabela comentário
 	@JsonIgnoreProperties(value = {"usuarioObj"}) //declaraçao de chave estrageira da tabela comentário, ignorando coluna usuário
 	private List<Comentario> comentarioObj; //listagem dos comentarios feitos pelo usuário
 	
-	@OneToMany(mappedBy="instituicaoObj", cascade=CascadeType.ALL) //mapeamento por coluna instituição e efeito cascata em tabela postagem
+	@OneToMany(mappedBy="instituicaoObj", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}) //mapeamento por coluna instituição e efeito cascata em tabela postagem
 	@JsonIgnoreProperties(value = {"instituicaoObj"}) //declaraçao de chave estrageira da tabela postagem, ignorando coluna instituição
 	private List<Postagem> postagemObj; //listagem das postagens feitas pela insituição
 

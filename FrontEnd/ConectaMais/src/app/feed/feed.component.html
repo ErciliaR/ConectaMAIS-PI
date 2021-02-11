@@ -7,6 +7,7 @@
   <h4 *ngIf="showMsg2" class="w3-animate-top text-center text-white mb-5 text-uppercase"
     style="padding-top: 135px; text-shadow: 2px 2px 4px #000000;">Faça um
     comentario e interaja com suas instituições favoritas</h4>
+<<<<<<< HEAD
 
   <div class="row d-flex justify-content-center">
     <div class="col-md-8">
@@ -19,6 +20,16 @@
     </div>
   </div>
 
+=======
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-8">
+      <p class="text-center">
+        <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="criarPost" *ngIf="showMsg1">
+          Criar nova postagem</button>
+      </p>
+    </div>
+  </div>
+>>>>>>> b37af52dfc4c74624c4bb6a15631ec4bec237515
   <div class="collapse" id="collapseExample">
     <div class="row d-flex justify-content-center ">
       <div class="col-md-9 bg-white" id="formularioPostagem">
@@ -27,8 +38,8 @@
           <input [(ngModel)]='postagem.titulo' class="form-control mb-2" type="text" name="tituloPostagem"
             id="tituloPostagem">
           <label for="tema">Tema</label>
-          <select (change)='temaSelect($event)' class="form-control" name="tema" id="tema">
-            <option></option>
+          <select (change)='temaSelect($event)' class="form-control mb-2" name="tema" id="tema">
+            <option value="">Selecione o tema</option>
             <option value="Programa">Programa</option>
             <option value="Bootcamp">Bootcamp</option>
             <option value="Hackaton">Hackaton</option>
@@ -39,7 +50,7 @@
           <textarea [(ngModel)]='postagem.conteudoPostagem' class="form-control mb-3" name="descricao" id="descricao"
             rows="5"></textarea>
           <div class="row d-flex justify-content-end m-0">
-            <button (click)='publicar()' class="button button1" data-toggle="collapse" data-target="#collapseExample"
+            <button (click)='publicar()' class="btn my-btn" data-toggle="collapse" data-target="#collapseExample"
               aria-expanded="false" aria-controls="collapseExample">Publicar</button>
           </div>
         </div>
@@ -50,19 +61,20 @@
   <!--/ formulario de publicação -->
 
   <!-- feed de postagem -->
-  <hr class="mt-5">
+  <hr class="mt-5 mx-5 hr-new">
+
   <h4 class="text-center text-white my-5" style="text-shadow: 2px 2px 4px #000000;">Feed de postagens</h4>
 
   <div class="row d-flex justify-content-center mt-5 mb-5">
     <div class="col-md-4">
       <div class="form-group">
         <input type="text" class="form-control" id="titulo" placeholder="Digite um título de postagem para pesquisar"
-          [(ngModel)]='tituloPesquisa' (keyup)='findByTituloPostagem()'>
+          [(ngModel)]='tituloPesquisa' (ngModelChange)='findByTituloPostagem()'>
       </div>
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center mb-5" *ngFor='let post of listaPostagens'>
+  <div class="row d-flex justify-content-center mb-5" *ngFor='let post of listaPostagens | orderBy: key : reverse'>
     <div class="col-md-9 bg-white" id="formularioPostagem" style="padding-left: 64px; padding-right: 64px;">
       <div class="row">
         <div class="col-md-8 text-left pl-3 pr-0 ">
@@ -84,12 +96,16 @@
 
           <div class="accordion" [attr.id]="'coment' + post.postagemID">
 
-            <div class="mt-2 justify-content-end" id="headingTwo">
-              <h5 class="mb-2">
+            <div class="mt-2" id="headingTwo">
+              <h5 class="mb-3">
                 <button class="btn my-btn collapsed " type="button" data-toggle="collapse"
                   [attr.data-target]="'#' + 'comentButton' + post.postagemID" aria-expanded="false"
                   aria-controls="collapseTwo">
+<<<<<<< HEAD
                   <i class="fas fa-comment-alt-dots"></i>Comentar
+=======
+                  <i class="fas fa-comments mr-2"></i>Comentários
+>>>>>>> b37af52dfc4c74624c4bb6a15631ec4bec237515
                 </button>
               </h5>
             </div>
@@ -100,13 +116,12 @@
                   <div class="row">
                     <div class="col-md-10 pr-1">
                       <div class="form-group">
-                        <input type="text" class="form-control" id="conteudotxt" aria-describedby="emailHelp"
+                        <input type="text" class="form-control" aria-describedby="emailHelp"
                           placeholder="Digite aqui seu comentário" [(ngModel)]='comentario.conteudoComentario'>
                       </div>
                     </div>
-                    <div class="col-md-2 pl-1">
-                      <button class="btn btn-outline-primary w-100"
-                        (click)='comentar(this.post.postagemID)'>Publicar</button>
+                    <div class="col-md-2">
+                      <button class="btn my-btn w-100" (click)='comentar(this.post.postagemID)'>Publicar</button>
                     </div>
                   </div>
                 </div>
@@ -114,20 +129,38 @@
 
               <div class="row d-flex justify-content-center" *ngFor='let comment of post.comentarioObj'>
                 <div class="col-md-11">
-                  <div class="card mb-3 shadow border-0">
+                  <div class="card mb-3 shadow border-0 bg-conecta">
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-10 d-flex align-items-center">
                           <!-- imagem do usuario -->
-                          <img src="https://i.imgur.com/iPnUWdQ.png" class=" rounded-circle w-40 img-fluid mr-2" alt="">
+                          <img *ngIf="comment.usuarioObj.imagemPerfilURL == null" src="/assets/img/profile01.png" alt=""
+                            class="rounded-circle mr-3" style="width: 35px; height: 35px;">
+                          <img *ngIf="comment.usuarioObj.imagemPerfilURL == ''" src="/assets/img/profile01.png" alt=""
+                            class="rounded-circle mr-3" style="width: 35px; height: 35px;">
+                          <img
+                            *ngIf="comment.usuarioObj.imagemPerfilURL !== '' && comment.usuarioObj.imagemPerfilURL !== null"
+                            src="{{comment.usuarioObj.imagemPerfilURL}}" alt="" class="rounded-circle mr-3"
+                            style="width: 35px; height: 35px;">
+                          <!-- <i class="fas fa-user-circle img-fluid mr-3 w3-xxlarge"></i> -->
                           <span class="font-weight-bold">{{comment.usuarioObj.nome}}:</span>
                         </div>
                         <div class="col-md-2 d-flex justify-content-end">
+<<<<<<< HEAD
                           <button (click)='findByIdComentario(comment.comentarioID)' class="btn mr-3 rounded-circle"
                             id="edit" data-toggle="modal" data-target="#editarComentario"><i
                               class="fas fa-pencil-alt img-fluid"></i></button>
                           <button (click)='findByIdComentario(comment.comentarioID)' class="btn rounded-circle"
                             id="alert" data-toggle="modal" data-target="#apagarComentario"><i
+=======
+                          <button *ngIf="idUser == comment.usuarioObj.usuarioID"
+                            (click)='findByIdComentario(comment.comentarioID)' class="btn mr-3 rounded-circle" id="edit"
+                            data-toggle="modal" data-target="#editarComentario"><i
+                              class="fas fa-pencil-alt img-fluid"></i></button>
+                          <button *ngIf="idUser == comment.usuarioObj.usuarioID"
+                            (click)='findByIdComentario(comment.comentarioID)' class="btn rounded-circle" id="alert"
+                            data-toggle="modal" data-target="#apagarComentario"><i
+>>>>>>> b37af52dfc4c74624c4bb6a15631ec4bec237515
                               class="fas fa-trash-alt"></i></button>
                         </div>
                       </div>
@@ -140,7 +173,7 @@
                       <hr>
 
                       <div class="d-flex justify-content-end">
-                        <small id="texto" class="form-text m-0 text-muted text-monospace">
+                        <small id="texto" class="form-text m-0 text-white">
                           Postado em {{ comment.dataCriacaoComentario | date:'dd/MM/yyyy'}} às
                           {{comment.dataCriacaoComentario | date:'HH:mm'}}
                         </small>
@@ -176,7 +209,11 @@
 
             </div>
             <div class="modal-footer">
+<<<<<<< HEAD
               <button (click)='atualizarComentario()' type="button" class="btn btn-info "
+=======
+              <button (click)='atualizarComentario()' type="button" class="btn btn-success"
+>>>>>>> b37af52dfc4c74624c4bb6a15631ec4bec237515
                 data-dismiss="modal">Atualizar</button>
               <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Cancelar</button>
             </div>
@@ -200,7 +237,11 @@
               <p>Tem certeza que deseja apagar este comentário?</p>
             </div>
             <div class="modal-footer">
+<<<<<<< HEAD
               <button (click)='deletarComentario()' type="button" class="btn btn-info "
+=======
+              <button (click)='deletarComentario()' type="button" class="btn btn-success "
+>>>>>>> b37af52dfc4c74624c4bb6a15631ec4bec237515
                 data-dismiss="modal">Sim</button>
               <button type="button" class="btn btn-danger mr-4" data-dismiss="modal">Não</button>
             </div>
@@ -211,9 +252,6 @@
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center pt-5 pb-5 m-0">
-    <button>Carregar mais...</button>
-  </div>
 
   <!-- /feed de postagem -->
   <div class="position-fixed-bottom m-0" style="height:350px;" id="padrao2"></div>

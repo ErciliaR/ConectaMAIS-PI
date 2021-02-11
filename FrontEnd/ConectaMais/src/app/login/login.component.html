@@ -1,5 +1,5 @@
 <div id="bg-login" class="img-fluid">
-    <a class="navbar-brand m-0 ml-5 pt-3" href="/home#inicio">
+    <a class="navbar-brand m-0 ml-5 pt-3" href="/home#inicio" id="logo">
       <img src="/assets/img/logoColorido&Sombra.png" alt="Logo Conecta Mais" width="100px" height="100px"
         class="img-fluid">
     </a>
@@ -19,8 +19,8 @@
                 <div class="form-group">
                     <label for="senha">Senha</label>
                     <input [(ngModel)]='userLogin.senha' type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
-                     <a routerLink='/cadastrar'><small id="emailHelp" class="form-text text-muted text-right">Clique aqui
-                         para se cadastrar.</small></a>
+                     <a routerLink='/cadastrar'><small id="cadastrarGo" class="form-text text-right">Clique aqui
+                         para se <b>cadastrar</b>.</small></a>
                 </div>
                 <div class="col-md-12 d-flex justify-content-center ">
                      <button (click)='entrar()' class="button button1">Entrar</button>
