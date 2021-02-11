@@ -19,6 +19,43 @@
   border-radius: 20px;
 }
 
+@media screen and (max-width: 915px){
+  #form-login{
+    margin-top: 0px;
+    margin-bottom: 10px;
+    padding: 0px;
+  }
+}
+
+@media screen and (max-width: 767px){
+  #form-login{
+    margin-top: 0px;
+    margin-bottom: 10px;
+    padding: 0px;
+  }
+
+  #form-login h3 {
+    color: #007A80;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+
+  #bg-login {
+    /* fundo com a imagem */
+    background-image: url('/assets/img/mulher-tecnologia.jpeg');
+    
+    background-size: 100%;
+    background-position: center;
+    margin: 0;
+    border: 0;
+    height: auto; /* foto estava muito pequena para o conteudo */
+    
+  }
+
+}
+
 #form-login h3 {
   color: #007A80;
   padding: 0;
